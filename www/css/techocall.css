@@ -45,7 +45,7 @@ body {
 }
 
 header {
-    
+    padding: 2% 0;
     width:100%;
     background:#36D7B7;
     font-size:125%;
@@ -539,8 +539,8 @@ header > div {
     width:100%;
     
     overflow-y:auto;
-    background: #FAFAFA;
-    background-color: #EEEEEE;
+    //background: #FAFAFA;
+    //background-color: #EEEEEE;
 }
 
 .sidebar {

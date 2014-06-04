@@ -111,7 +111,7 @@ var contacts = (function (){
         var options      = new ContactFindOptions();
         options.filter = search;
         options.multiple = true;
-        var fields       = ['displayName', 'photos', 'id' , 'phoneNumbers'];
+        var fields       = ['displayName', 'photos' , 'phoneNumbers'];
         navigator.contacts.find(fields, onSuccess, onError, options);    
     };
     
@@ -129,12 +129,16 @@ var contacts = (function (){
             
         }else{
             
+            var date = new Date();
+            
+            var time = date.getTime();
+            
             for(var i=0; i<contacts.length; i++){
-
+                
                 if(contacts[i].displayName && contacts[i].displayName != 'null')
                     var result = {};
                     result.name = contacts[i].displayName;
-                    result.id = contacts[i].id;
+                    result.id = time + i;
                     result.photo = contacts[i].photos;
                 
                     var phoneNumbers = [];

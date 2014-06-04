@@ -12,7 +12,7 @@ var registeredContacts = (function (){
         var promise = moduleLoader.loadModule('registeredContacts');
         
         promise.done(function (data){
-            elem.html('');
+            
             elem.html(data);
             elem.hide();
             def.resolve();
@@ -21,12 +21,11 @@ var registeredContacts = (function (){
         return def.promise();
     };
     
+    
+    
     var loadContactInfoSuccess = function (data){
         
-        if(data.contacts.length === 0) {
-            $('#nodata').show();
-            return;
-        }
+        $('#count').text(data.contacts.length);
         
         var wrapper = elem.find('.wrapper');
         
@@ -157,6 +156,12 @@ var registeredContacts = (function (){
         });
     };
     
+    
+    var layoutFix = function (){
+        var addIcon = elem.find('#addIcon');
+        addIcon.width(addIcon.height());
+    };
+    
     $('body').on('showTechoContacts',function (){
         
         $('body').trigger('headerMiddle',['Next Time']);
@@ -167,13 +172,17 @@ var registeredContacts = (function (){
         var def = new $.Deferred();
         loadTemplate(def);
         def.done(function (){
-            
+            //layoutFix();
             elem.show();
             loadContactInfo();
             //attachEventHandlers();
             
         });
         
+    });
+    
+    $('body').on(configuartion.events.userselect , '#getAllContacts' , function (){
+        $('body').trigger('getAllContacts');
     });
     
     $('body').on('taphold' , '.contact' , function (event){

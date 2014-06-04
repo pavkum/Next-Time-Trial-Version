@@ -42,7 +42,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
             @Override
             public void onCallStateChanged(int state, String incomingNumber) {
                 super.onCallStateChanged(state, incomingNumber);
-                System.out.println("state : " + state);
+                
                 switch (state) {
     			case TelephonyManager.CALL_STATE_OFFHOOK:
     				

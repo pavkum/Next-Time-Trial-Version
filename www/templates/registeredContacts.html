@@ -1,8 +1,8 @@
 <style>
     
     .wrapper {
-        width:90%;
-        padding:2% 5%;
+        width:95%;
+        padding:2% 2.5%;
     }
     
     .registeredContact{
@@ -33,8 +33,8 @@
     
     .contact {
         padding:2% 5%;
-        background-color: #EEEEEE;
-        background-color: white;
+        //background-color: #EEEEEE;
+        //background-color: white;
         //box-shadow: 0px 0px 1px 1px #aaa;
         //border-bottom:1px solid #D2D7D3;
         //border:1px solid #D2D7D3;
@@ -47,11 +47,12 @@
     }
     
     .name {
-        line-height:48px;
-        width:80%;
+        padding: 0 5%;
+        width:70%;
         float:left;
-        font-weight:650;
-        font-size:110%;
+        font-weight:bold;
+        font-style: oblique;
+        font-size:150%;
         color:#848484;
         text-align:left;
     }
@@ -60,6 +61,12 @@
         .contact {
             height:24px;
         }
+        
+        .addContact {
+            height:24px;
+            line-height:24px;
+        }
+        
     
         .image > img {
             height:24px;
@@ -75,6 +82,11 @@
     @media screen and (min-height : 320px) {
         .contact {
             height:32px;
+        }
+        
+        .addContact {
+            height:32px;
+            line-height:32px;
         }
     
         .image > img {
@@ -93,6 +105,11 @@
             height:48px;
         }
     
+        .addContact {
+            height:48px;
+            line-height:48px;
+        }
+        
         .image > img {
             height:48px;
             width:48px;
@@ -107,6 +124,11 @@
     @media screen and (min-height : 600px) {
         .contact {
             height:60px;
+        }
+        
+        .addContact {
+            height:60px;
+            line-height:60px;
         }
     
         .image > img {
@@ -124,6 +146,11 @@
         .contact {
             height:72px;
         }
+        
+        .addContact {
+            height:72px;
+            line-height:72px;
+        }
     
         .image > img {
             height:72px;
@@ -139,6 +166,11 @@
     @media screen and (min-height : 800px) {
         .contact {
             height:80px;
+        }
+        
+        .addContact {
+            height:80px;
+            line-height:80px;
         }
     
         .image > img {
@@ -157,6 +189,11 @@
             height:90px;
         }
     
+        .addContact {
+            height:90px;
+            line-height:90px;
+        }
+        
         .image > img {
             height:90px;
             width:90px;
@@ -173,6 +210,11 @@
             height:96px;
         }
     
+        .addContact{
+            height:96px;
+            line-height:96px;
+        }
+        
         .image > img {
             height:96px;
             width:96px;
@@ -187,6 +229,11 @@
     @media screen and (min-height : 1200px) {
         .contact {
             height:120px;
+        }
+        
+        .addContact {
+            height:120px;
+            line-height:120px;
         }
     
         .image > img {
@@ -203,6 +250,11 @@
     @media screen and (min-height : 1280px) {
         .contact {
             height:128px;
+        }
+        
+        .addContact {
+            height:128px;
+            line-height:128px;
         }
     
         .image > img {
@@ -221,6 +273,11 @@
             height:160px;
         }
     
+        .addContact {
+            height:160px;
+            line-height:160px;
+        }
+        
         .image > img {
             height:160px;
             width:160px;
@@ -235,6 +292,11 @@
     @media screen and (min-height : 1920px) {
         .contact {
             height:192px;
+        }
+        
+        .addContact {
+            height:192px;
+            line-height:192px;
         }
     
         .image > img {
@@ -254,9 +316,63 @@
         color: #848484;
     }
  
+    .total {
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: serif;
+        
+        color: #424242;
+        font-size: 200%;
+    }
+    
+    #count {
+        color: #5C97BF;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 125%;
+        vertical-align: baseline;
+    }
+    
+    .addContact {
+        background-color: #5C97BF;
+        border: 2px solid #2574A9;
+        padding: 0 5%;
+        
+    }
+    
+    .addContact > img {
+        float: left;
+        left: 20%;
+        position: relative;
+        height: 70%;
+        top:15%;
+        vertical-align: middle;
+    }
+    
+    #addText {
+        float: left;
+        position: relative;
+        left: 25%;
+        font-size: 200%;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        font-style: italic;
+    }
+    
 </style>
 
+<div class="addContact" id="getAllContacts">
+    <img src="img/contacts.png">
+    
+    <div id="addText">Add Contact</div>
+    <div class="clearfix"></div>
+</div>
+
 <div class="wrapper">
+    
+    <div class="total">You have <span id="count"></span> ticks</div>
     
     <div id="clone" class="contact" style="display:none">
         <div class="image">

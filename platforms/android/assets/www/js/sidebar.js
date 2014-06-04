@@ -17,7 +17,7 @@
         hideSidebar();
     });
     
-    $('body').on('touchmove' , function (event){
+    $('body').on('touchmove1' , function (event){
             var x = event.originalEvent.changedTouches[0].clientX;
             //var x = event.clientX;
             touchHandler.curX = x;
@@ -74,11 +74,11 @@
     };
     
     $('body').on('showSidebar' , function (){
-        showSidebar();
+        //showSidebar();
     });
     
     $('body').on('hideSidebar' , function (){
-        hideSidebar();
+        //hideSidebar();
     });
 
     $('body').on('updateTopStack' , function (event , topStackImages){
