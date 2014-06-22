@@ -50,8 +50,6 @@
         padding: 0 5%;
         width:70%;
         float:left;
-        font-weight:bold;
-        font-style: oblique;
         font-size:150%;
         color:#848484;
         text-align:left;
@@ -323,14 +321,14 @@
         font-family: serif;
         
         color: #424242;
-        font-size: 200%;
+        font-size: 175%;
     }
     
     #count {
         color: #5C97BF;
         font-style: italic;
         font-weight: bold;
-        font-size: 125%;
+        font-size: 100%;
         vertical-align: baseline;
     }
     
@@ -341,38 +339,46 @@
         
     }
     
-    .addContact > img {
+    .profile {
         float: left;
-        left: 20%;
         position: relative;
-        height: 70%;
-        top:15%;
+        height: 98%;
+        top:1%;
+        vertical-align: middle;
+    }
+    
+    .plus {
+        float: left;
+        left: 5%;
+        position: relative;
+        height: 90%;
+        top:5%;
         vertical-align: middle;
     }
     
     #addText {
         float: left;
         position: relative;
-        left: 25%;
+        left: 5%;
         font-size: 200%;
-        font-weight: bold;
         text-transform: uppercase;
         color: white;
-        font-style: italic;
+        font-family:'nextTime';
     }
     
 </style>
 
 <div class="addContact" id="getAllContacts">
-    <img src="img/contacts.png">
+    <img class="profile" src="img/profile.png">
+    <img class="plus" src="img/plus.png">
     
-    <div id="addText">Add Contact</div>
+    <div id="addText">Add a new tik</div>
     <div class="clearfix"></div>
 </div>
 
 <div class="wrapper">
     
-    <div class="total">You have <span id="count"></span> ticks</div>
+    <div class="total">You have <span id="count"></span> tiks</div>
     
     <div id="clone" class="contact" style="display:none">
         <div class="image">

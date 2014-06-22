@@ -20,6 +20,15 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+@font-face {
+    font-family : 'nextTime';
+    src : url('trebuc.ttf') format ('truetype'),
+        url('trebucbd.ttf') format ('truetype'),
+        url('trebucbi.ttf') format ('truetype'),
+        url('trebucit.ttf') format ('truetype'),
+        url('TrebuchetMS.ttf') format ('truetype');
+}
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -36,7 +45,7 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;*/
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family:'nextTime';
     font-size:12px;
     height:100%;
     margin:0px;
@@ -44,25 +53,20 @@ body {
     width:100%;
 }
 
-header {
-    padding: 2% 0;
-    width:100%;
-    background:#36D7B7;
-    font-size:125%;
-    z-index: 2;
-    clear: both;
+* {
+    font-family:'nextTime';
 }
 
-header > * {
-    box-sizing: border-box;   
-}
-
-header > div {
-    height: 100%;
-    float: left;
+.header {
+    width: 100%;
+    box-sizing: border-box;
     text-align: center;
-    color: white;
-    font-weight: bold;
+}
+
+
+.header > img{
+    text-align: center;
+    margin: 0 auto;
 }
 
 @media screen and (min-height : 240px) {
@@ -183,13 +187,7 @@ header > div {
         font-size: 12px; 
     }
     
-    header{
-        height:54px;
-    }
     
-    header > div {
-        line-height: 54px;   
-    }
     
     .sidebar {
         top : 0px; 
@@ -220,13 +218,7 @@ header > div {
         font-size: 14px;       
     }
     
-    header {
-        height: 60px;   
-    }  
     
-    header > div {
-        line-height: 60px;   
-    }
     
     .sidebar {
         top : 0px; 
@@ -257,13 +249,7 @@ header > div {
         font-size: 16px; 
     }
     
-    header {
-        height: 67.5px;   
-    }
     
-    header > div {
-        line-height: 67.5px;   
-    }
     
     .sidebar {
         top : 0px; 
@@ -294,13 +280,7 @@ header > div {
         font-size: 18px;
     }
     
-     header {
-        height: 72px;   
-    }
     
-    header > div {
-        line-height: 72px;   
-    }
     
     .sidebarElem {
         height: 90px; 
@@ -327,11 +307,11 @@ header > div {
     }
     
     header {
-        height: 90px;   
+        //height: 90px;   
     }
     
     header > div {
-        line-height: 90px;   
+       // line-height: 90px;   
     }
     
     .sidebar {
@@ -364,11 +344,11 @@ header > div {
     }
     
     header {
-        height: 96px;   
+        //height: 96px;   
     }
     
     header > div {
-        line-height: 96px;   
+        //line-height: 96px;   
     }
     
     .sidebar {
@@ -520,7 +500,7 @@ header > div {
     float:left;
 }*/
 
-#logo > img {
+/*#logo > img {
     vertical-align: middle;
     position:relative;
     height: 70%;
@@ -533,14 +513,13 @@ header > div {
     position:relative;
     height: 70%;
     border-radius:100%;
-}
+}*/
 
 #workarea {
     width:100%;
     
     overflow-y:auto;
-    //background: #FAFAFA;
-    //background-color: #EEEEEE;
+    
 }
 
 .sidebar {

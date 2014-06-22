@@ -117,6 +117,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 			try {
 				jsonObject.put("contactID", contact.getContactID());
 				jsonObject.put("name", contact.getFullName());
+				jsonObject.put("photo", contact.getPhotoURL());
 				
 				JSONArray jsonMessageArray = new JSONArray();
 				

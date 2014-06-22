@@ -9,13 +9,16 @@ var techocall = (function (){
         var width = $(window).width();
         var height = $(window).height();
         
-        var displayHeight = $('header').outerHeight();
+        var displayHeight = $('.header').outerHeight();
         
-        headerHeight = $('header').height();
+        headerHeight = $('.header').height();
         
         var workarea = $('#workarea');
         
         workarea.outerHeight(height - displayHeight);
+        
+        console.log(workarea.height());
+        console.log(height);
     };
     
     $('body').on('addToHistory' , function (event, eventName, eventArgs){

@@ -1,6 +1,8 @@
 <style>
     .wrapper {
-        
+        padding: 2% 5%;
+        box-sizing: border-box;
+        height: 100%;
     }
     
     .input {
@@ -11,19 +13,6 @@
         display:block;
         box-shadow:0px 1px 1px #aaa;
     }    
-    .input>input {
-        display:block;
-        width:90%;
-        height:40px;
-        border:1px solid silver;
-        padding:0 5%;
-        /*margin:2% 5%;*/
-        color:#848484;
-    }
-    
-    .input>input : focus {
-        outline:none;   
-    }
     
     .inputWrapper {
         margin-bottom:2px;   
@@ -35,33 +24,47 @@
         
         margin:0 auto;
         overflow:auto;
-        width:90%;
-        padding:2% 5%;
+        width:100%;
+        padding:2% 0%;
     }
     
     .remainderItem {
         background-color: white;
-        padding:2% 5%;
+        padding:2% 0%;
         font-size:100%;
         font-weight:600;
         text-overflow:ellipsis;
-        color:#848484;
-        width:90%;
+        width:100%;
         overflow:hidden;
         margin: 2% 0;
+        
+        box-sizing: border-box;
+        
     }
     
     .remainderMessagePreview {
-        background-color: transparent;
-        width:85%;
-        float:left;   
-        overflow-x:hidden;
-        overflow-y:hidden;
+        //overflow-x:hidden;
+        //overflow-y:hidden;
         text-overflow:clip;
+        color:#848484;
+        font-weight: bold;
+        font-size: 150%;
     }
     
-    .remainderStatus {
-        width:15%;
+    .lastShown {
+        color: #848484;
+        font-weight: 600;
+    }
+    
+    .remainderInfo {
+        height: 100%;
+        width: 75%;
+        float: left;
+    }
+    
+    .remainderControls {
+        height: 100%;
+        width:25%;
         float:left;   
     }
     
@@ -84,206 +87,269 @@
     }
     
     @media screen and (min-height : 240px) {
-        .input>input {
+        .user {
             height: 24px;   
         }
         
         .remainderItem {
             height: 24px;
-            line-height: 24px;
+        }
+        
+        .textarea {
+            height: 120px;   
         }
     }
 
     @media screen and (min-height : 320px) {
-        .input>input {
+        .user {
             height: 32px;   
         }
         
         .remainderItem {
             height: 32px;
-            line-height: 32px;
+        }
+        
+        .textarea {
+            height: 160px;   
         }
     }
 
     @media screen and (min-height : 480px) {
-        .input>input {
+        .user {
             height: 48px;   
         }
         
         .remainderItem {
             height: 48px;
-            line-height: 48px;
+        }
+        
+        .textarea {
+            height: 240px;   
         }
     }
 
     @media screen and (min-height : 600px) {
-        .input>input {
+        .user {
             height: 60px;   
         }
         
         .remainderItem {
             height: 60px;
-            line-height: 60px;
+        }
+        
+        .textarea {
+            height: 300px;   
         }
     }
 
     @media screen and (min-height : 720px) {
-        .input>input {
+        .user {
             height: 72px;   
         }
         
         .remainderItem {
             height: 72px;
-            line-height: 72px;
+        }
+        
+        .textarea {
+            height: 360px;   
         }
     }
 
     @media screen and (min-height : 800px) {
-        .input>input {
+        .user {
             height: 80px;   
         }
         
         .remainderItem {
             height: 80px;
-            line-height: 80px;
+        }
+        
+        .textarea {
+            height: 400px;   
         }
     }
 
     @media screen and (min-height : 900px) {
-        .input>input {
+        .user {
             height: 90px;   
         }
         
         .remainderItem {
             height: 90px;
-            line-height: 90px;
+        }
+        
+        .textarea {
+            height: 450px;   
         }
     }
 
     @media screen and (min-height : 960px) {
-        .input>input {
+        .user {
             height: 96px;   
         }
         
         .remainderItem {
             height: 96px;
-            line-height: 96px;
+        }
+        
+        textarea {
+            height: 192px;   
         }
     }
 
     @media screen and (min-height : 1200px) {
-        .input>input {
+        .user {
             height: 120px;   
         }
         
         .remainderItem {
             height: 120px;
-            line-height: 120px;
         }
     }
 
     @media screen and (min-height : 1280px) {
-        .input>input {
+        .user {
             height: 128px;   
         }
         
         .remainderItem {
             height: 128px;
-            line-height: 128px;
         }
     }
 
     @media screen and (min-height : 1600px) {
-        .input>input {
+        .user {
             height: 160px;   
         }
         
         .remainderItem {
             height: 160px;
-            line-height: 160px;
         }
     }
 
     @media screen and (min-height : 1920px) {
-        .input>input {
+        .user {
             height: 192px;   
         }
         
         .remainderItem {
             height: 192px;
-            line-height: 192px;
         }
     }
     
-    
-    .message {
-        font-size:85%;
-        color:#848484;
-        font-weight:bold;
+    .user > img {
+        height: 100%;
+        border-radius: 100%;
     }
     
-    #nodata , #error {
+    .user {
+        width: 100%;
         text-align: center;
-        display: none;
-        color: #848484;
     }
     
-    #error {
-        color:#D91E18;   
+    
+    .edit {
+        height: 100%;
+        display: inline-block;
+    }
+    
+    .delete {
+        height: 100%;
+        display: inline-block;
+        float: right;
+    }
+    
+    .edit > img , .delete > img {
+        height: 75%;
+        position: relative;
+        top:12.5%;
+        
+    }
+    
+    .newLine {
+        margin: 2% 0;
+        padding: 2%;
+        background-color: #5C97BF;
+        border-radius: 5px;
+        border:1px solid #5C97BF;
+        color: white;
+        font-size: 175%;
+        position: relative;
+        bottom:5px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .userMessage {
+        padding: 2%;
+        font-size: 150%;
+        color: #848484;
+        text-align: center;
+        font-weight: bold;
+        word-spacing: 10px;
+    }
+    
+    #name {
+        color: #2574A9;  
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    .note {
+        display: none;
+        background-color: #3A539B;
+        border:1px solid #3A539B;
+        border-radius: 5px;
+        padding: 2%;
+    }
+    
+    textarea {
+        background-color: white;
+        border-radius: 5px;
+        margin-bottom: 2%;
+        padding: 2%;
+        width: 96%;
+        font-size: 150%;
+    }
+    
+    .ok {
+        background-color: white;
+        border-radius: 5px;
+        color: #3A539B;
+        text-align: center;
+        font-weight: bold;
+        padding: 2%;
+        font-size: 175%;
+    }
+    
+    .modalClass {
+        border: 0 !important;   
     }
     
 </style>
 
 <div class="wrapper">
     
-        <div class="inputWrapper">
-            <div class="input">
-                <input id="dummyInput" readonly="true" placeholder="Remainder...">
-            </div>
-        </div>
-        <div class="remainders" style="display:none">
-            
-            <div class='remainderItem' style="display:none"> 
-                <div class='remainderMessagePreview'> Test Pavan asdddd ddd dsf ddd ads sad ada as qd</div>
-                <div class='remainderStatus'> 
-                    <div class='statusIcon pending'> 
-                        P
-                    </div> 
-                </div>
-                <div style="clear:both"></div>
-            </div>
-            
-            <!--<div class="remainderItem">
-                <div class="remainderMessagePreview">
-                    Talk about Pavan
-                </div>
-                <div class="remainderStatus">
-                    <div class="statusIcon done">
-                        D
-                    </div>
-                </div>
-            </div>
-            <div class="remainderItem">
-                <div class="remainderMessagePreview">
-                    Think about Pavan
-                </div>
-                <div class="remainderStatus">
-                    <div class="statusIcon pending">
-                        P
-                    </div>
-                </div>
-            </div>-->
-        </div>
-        
-        <div id="nodata" class="message" style="display:none">
-            Nothing to display
-        </div>
-    
-        <div id="error" class="message" style="display:none">
-            Please try again later
-        </div>
-        
+    <div class="user">
+        <img id="profile"  />
     </div>
     
+    <div class="userMessage">
+        Next Time with <span id="name"></span>. Poke me about
+    </div>
     
+    <div class="remainders" style="display:none"></div>
+    
+    <div id="note" class="note">
+        <textarea></textarea>
+        <div tabindex="1" id="ok" class="ok">Ok</div>
+    </div>
+        
+    <div id="newLine" class="newLine">
+        Add new Line
+    </div>
+        
 </div>
+    
+    

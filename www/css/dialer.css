@@ -6,12 +6,15 @@ body {
     
     padding: 0;
     margin: 0;
+    
+    background-image: url('../img/test.jpg')
 }
 
 * {
     box-sizing: border-box;   
 }
 
+/*
 @media screen and (min-height : 240px) {
         
         .name , .message , .button {
@@ -22,7 +25,7 @@ body {
 
     @media screen and (min-height : 320px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 32px;
             line-height: 32px;
         }
@@ -30,7 +33,7 @@ body {
 
     @media screen and (min-height : 480px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 48px;
             line-height: 48px;
         }
@@ -38,7 +41,7 @@ body {
 
     @media screen and (min-height : 600px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 60px;
             line-height: 60px;
         }
@@ -46,7 +49,7 @@ body {
 
     @media screen and (min-height : 720px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 72px;
             line-height: 72px;
         }
@@ -54,7 +57,7 @@ body {
 
     @media screen and (min-height : 800px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 80px;
             line-height: 80px;
         }
@@ -62,7 +65,7 @@ body {
 
     @media screen and (min-height : 900px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 90px;
             line-height: 90px;
         }
@@ -70,7 +73,7 @@ body {
 
     @media screen and (min-height : 960px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 96px;
             line-height: 96px;
         }
@@ -78,7 +81,7 @@ body {
 
     @media screen and (min-height : 1200px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 120px;
             line-height: 120px;
         }
@@ -86,7 +89,7 @@ body {
 
     @media screen and (min-height : 1280px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 128px;
             line-height: 128px;
         }
@@ -94,7 +97,7 @@ body {
 
     @media screen and (min-height : 1600px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 160px;
             line-height: 160px;
         }
@@ -102,43 +105,44 @@ body {
 
     @media screen and (min-height : 1920px) {
         
-        .name , .message , .button {
+        .name , .close  , .message , .button {
             height: 192px;
             line-height: 192px;
         }
     }
     
+*/
 
 .clearfix {
     clear: both;   
 }
 
 header {
-    background:#36D7B7;
+    background:#2574A9;
     color: white;
-    padding: 0px;
+    padding: 0 5%;
+    opacity: 0.80;
     text-align: center;
 }
 
 
-.icon, .name, .close {
-    float: left;   
-}
-
-.icon, .close {
-    width: 15%;   
-}
-
-.name {
-    width: 100%;
-    font-weight: bold;
-    font-size: 100%;
+.close {
+    float: right;   
+    text-align: right;
+    font-style: italic;
     padding: 2% 0;
     height: 100%;
 }
 
-.message {
-    background: white;   
+
+.name {
+    float: left;
+    text-align: left;
+    font-weight: bold;
+    font-size: 100%;
+    padding: 2% 0;
+    height: 100%;
+    text-transform: uppercase;
 }
 
 table {
@@ -160,14 +164,48 @@ table {
 }
 
 .message {
-    width: 85%;
-    padding: 10px;
-    height: 100%;
+    text-align: center;
+    width: 100%;
+    padding: 2%;
+    margin: 1% 0;
+    box-sizing: border-box;
+    background: white;  
 }
 
 footer {
     width: 100%;
     border:#F2F2F2;
+}
+
+.img {
+    position: relative;
+    z-index: 1;
+    width: 25%;   
+    padding: 0 2%;
+    float: left;
+}
+
+.img > img {
+    width: 100%;  
+    vertical-align: middle;
+}
+
+.messages {
+    position: relative;
+    left: -10%;
+    text-align: center;
+    float: left;
+    width: 75%;
+    padding: 0 2%;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+
+.scrolltoshow {
+    font-style: italic;
+    font-size: 90%;
+    text-align: center;
+    color: white;
 }
 
 .button {

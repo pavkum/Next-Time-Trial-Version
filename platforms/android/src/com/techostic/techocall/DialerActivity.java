@@ -92,7 +92,7 @@ public class DialerActivity extends Activity {
 					openClosedStatus = openClosed.getValue();
 				}
 		    	
-		    	wv.loadUrl("javascript:updateData('" + jsonData + "' , " + openClosedStatus + ");");
+		    	wv.loadUrl("javascript:displayData('" + jsonData + "' , " + openClosedStatus + ");");
 		    }
 		});
 		

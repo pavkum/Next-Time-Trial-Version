@@ -45,8 +45,6 @@ var readRemainder = (function(){
         
         def.done(function (){
             
-            console.log(remainder.remainderMessage);
-            
             elem.find('#message').text(remainder.remainderMessage);
             
             var date = new Date(remainder.remaindedOn);

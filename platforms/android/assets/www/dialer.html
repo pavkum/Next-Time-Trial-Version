@@ -12,7 +12,7 @@
         
         <title>Techo Call</title>
     </head>
-    <body style="opacity:0.5">
+    <body style="opacity:0.8">
        
         <header>
             <!--<div class="icon">
@@ -22,15 +22,30 @@
             
             
             <div class="name">
-                Loading...
+                TALK TO <span id="name"></span> ABOUT
             </div>
-            <!--<div class="close"  id="close">
-                X
-            </div>-->
+            <div class="close"  id="clear">
+                swipe to clear
+            </div>
             <div class="clearfix"></div>
         </header>
         
-        <div class="container">
+        <div class="container" style="display:none">
+            <table>
+                <tr>
+                    <td class="img">
+                        <img id="photo" src="img/profile.png" />
+                    </td>
+                    <td class="messages">
+                    </td>
+                </tr>
+            </table>
+            <div class="scrolltoshow" id="scrolltoshow">
+                Scroll down to see more
+            </div>
+        </div>
+        
+        <div class="container1" style="display:none">
                 <div class="left">
                     &#8592;
                 </div>
@@ -43,13 +58,15 @@
                 </div>
         </div>
 
-        <footer>
+        <footer style="display:none">
             <div class="button" id="selected">Selected Done</div>
             <div class="button" style="border-left:1px solid white; border-right:1px solid white" id="all">Mark All Done</div>
             <div class="button" id="close">Close</div>
         </footer>
         
+        <script src="js/utilities.js"></script>
         <script src="js/dialer/dialer.js"></script>
+        
         
     </body>
     

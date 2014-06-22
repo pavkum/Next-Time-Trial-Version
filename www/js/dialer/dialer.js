@@ -1,3 +1,113 @@
+var displayData = function (data , openClosed ){
+    
+    FastClick.attach(document.body);
+    
+    $('#name').text(data.name);
+    $('#name').attr('src' , data.photo);
+    
+    var messages = data.remainders;
+    
+    var messagesElem = $('.messages');
+    
+    var template = $('<div class="message"></div>');
+    var clear = $('#clear');
+    var container = $('.container');
+    var header = $('header');
+    
+    for(var i=0; i<messages.length; i++){
+        var remainder = messages[i];
+    
+        var clone = template.clone();
+        clone.text(remainder.message);
+        clone.attr('id' , remainder.id);
+        
+        messagesElem.append(clone);
+    }
+    
+    if(openClosed){
+        container.hide();
+        clear.text('Click to open');
+    }else{
+        container.show();   
+        clear.text('Swipe to clear');
+    }
+    
+    header.on(configuartion.events.userselect , function (){
+        if(container.is(':visible')){
+            container.hide();
+            clear.text('Swipe to clear');
+        }else{
+            container.show();
+            clear.text('Click to open');
+        }
+    });
+    
+    $('body').on('swipeleft' , '.message' , function (event){
+        var target = $(event.currentTarget);
+        
+        var remainder = {};
+        remainder.id = target.attr('id');
+        
+        Android.markSelectedRead(JSON.stringify([remainder]));
+        
+        target.remove();
+    
+    });
+    
+    if(messages.length == 1){
+        
+        
+        
+        
+        //$('.img').height(header.height() * 1);  
+        //$('.img').height(header.height() * 1);  
+        
+        
+        //$('.img').css( 'line-height' , header.height() * 1 + 'px'); 
+        
+        var imgHeight = $('.img > img').height();  
+        var messageHeight = $('.messages').height();
+        
+        $('.message').css('margin-top' , (imgHeight - messageHeight) / 2 );
+        
+        $('#scrolltoshow').hide();
+        
+    }else if(messages.length == 2){
+        
+        var imgHeight = $('.img > img').height();  
+        var messageHeight = $('.messages').height();
+        
+        $('.messages').css('margin-top' , (imgHeight - messageHeight) / 2 );
+        
+        $('#scrolltoshow').hide();
+    }else{
+        $('.messages').height(header.height() * 3);
+        $('.img').height(header.height() * 3);    
+        $('.img').css( 'line-height' , header.height() * 3 + 'px');    
+    }
+    
+    
+    
+};
+
+var data = {};
+
+data.name = "Pavan";
+data.photo = "img/profile.png";
+
+data.remainders = [];
+
+for(var i=0; i<1; i++){
+    var remainder = {};
+    
+    remainder.id = i;
+    remainder.message = "yo yo";
+    
+    data.remainders.push(remainder);
+}
+
+
+//displayData(data , false);
 
 var updateData = function (data , openClosed) {
 
@@ -49,7 +159,7 @@ var updateData = function (data , openClosed) {
             
             remainders.push(remainder);   
         }
-        console.log(remainders);
+        
         Android.markSelectedRead(JSON.stringify(remainders));
     });
     

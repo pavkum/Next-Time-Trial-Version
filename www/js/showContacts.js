@@ -10,7 +10,7 @@ var contacts = (function (){
     result.photo;
     result.phoneNumber;
     */
-    var resultTemplate = $("<div class='row'></div>");
+    var resultTemplate = $("<div class='row'><img height='100%' /> <span id='name'></span> </div>");
     
     var loadTemplate = function (def) {
         var promise = moduleLoader.loadModule('allContacts');
@@ -65,17 +65,6 @@ var contacts = (function (){
                 $('#contact').focus();
             },1000);
             
-            // attach once event to message so that it hides itself when typing is started
-            
-            $('#contact').keydown(function (event){
-                $(this).off(event);
-                
-                setTimeout(function(){
-                    elem.find('.message').hide(500);
-                    search.show()
-                }, 1500);
-                
-            });
         
         });
     });
@@ -84,17 +73,12 @@ var contacts = (function (){
         
         clearResults(); 
         
-        var result = {};
-        result.name = 'Loading...';
-        
-        filterResult([result]);
-        
         search.show();
-        userInfo.hide();
+        //userInfo.hide();
     });
     
     // fetch search
-    $('body').keyup('#contact' , function (event){
+    $('body').on('keyup' , '#contact' , function (event){
         var val = event.target.value;
         
         if(val.length != 0 && val.length >= 3){
@@ -111,7 +95,7 @@ var contacts = (function (){
         var options      = new ContactFindOptions();
         options.filter = search;
         options.multiple = true;
-        var fields       = ['displayName', 'photos' , 'phoneNumbers'];
+        var fields       = ['id' , 'displayName', 'photos' , 'phoneNumbers'];
         navigator.contacts.find(fields, onSuccess, onError, options);    
     };
     
@@ -138,7 +122,7 @@ var contacts = (function (){
                 if(contacts[i].displayName && contacts[i].displayName != 'null')
                     var result = {};
                     result.name = contacts[i].displayName;
-                    result.id = time + i;
+                    result.id = contacts[i].id;
                     result.photo = contacts[i].photos;
                 
                     var phoneNumbers = [];
@@ -184,7 +168,7 @@ var contacts = (function (){
 
             var clone = resultTemplate.clone();
             
-            clone.text(result.name);
+            
             
             if(result.id) {
             
@@ -197,8 +181,10 @@ var contacts = (function (){
                 }
    
                 clone.data('json' , JSON.stringify(result))
-                clone.append('<img src="' +result.photo + ' " height="100%" />'); 
+                clone.find('img').attr('src' , result.photo); 
             }
+            
+            clone.find('#name').text(result.name);
             
             search.append(clone);
             
@@ -262,11 +248,36 @@ var contacts = (function (){
             
             $('#contact').data('json' , JSON.parse(json));
             
-            search.hide();
+            //search.hide();
             
             var userObj = JSON.parse(json);
             
-            userInfo.find('.name').text(userObj.name);
+            var contactOverlay = elem.find('#addContact').clone();
+            $('#contact').blur();
+            
+            var addTickUser = contactOverlay.find('#addTickUser');
+            
+            addTickUser.text(userObj.name);
+            
+            contactOverlay.show();
+            
+            confirm(contactOverlay , elem , 'contactOverlay');
+            
+            // bad coding, ask giri
+            $('body').on('confirmClose' , function (){
+                contactOverlay.hide();
+            });
+            
+            addTickUser.on(configuartion.events.userselect , function (event){
+                contactOverlay.hide();
+                $('body').trigger('confirmClose');
+                
+                var contact = $('#contact').data('json');
+        
+                techoStorage.addContact(addContactSuccess,addContactError,[contact]);
+            });
+            
+            /*userInfo.find('.name').text(userObj.name);
             userInfo.find('img').attr('src' , userObj.photo);
         
             var number = userInfo.find('.number');
@@ -290,7 +301,7 @@ var contacts = (function (){
             }
             
             userInfo.show();
-            
+            */
             
         }
     });

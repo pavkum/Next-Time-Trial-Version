@@ -9,9 +9,11 @@
     #contact {
         width:90%;
         padding:0% 5%;
-        border:1px solid #aaa;
+        border:5px solid #BFBFBF;
+        border-radius: 5px;
         font-size:150%;
         color:#848484;
+        font-family: 'nextTime';
     }
     
     #contact : focus {
@@ -156,18 +158,16 @@
         width:100%;
         margin:0 auto;
         margin-top: 5px;
-        -moz-box-shadow: 0px 0px 1px #000000;
-        -webkit-box-shadow: 0px 0px 1px #000000;
-        box-shadow: 0px 0px 1px #000000;   
+         
         
         overflow:auto;
-        border:1px solid #F2F2F2;
+        
         
         box-sizing: border-box;
     }
     
     .row {
-        padding:0 5%;
+        padding:2% 0%;
         text-align:left;
         font-size:110%;
         color:#848484;
@@ -178,15 +178,17 @@
     
     .row > img {
         position:relative;
-        top:12.5%;
-        height:75%;
+        top:0%;
+        height:100%;
         border-radius:100%;
-        float:right;
+        float:left;
     }
     
-    .message {
-        margin-top: 2%;  
-        color: white;
+    .row > span {
+        margin-left: 5%;
+        font-family: 'nextTime';
+        font-size: 150%;
+        color: #848484;
     }
     
     .userInfo {
@@ -240,23 +242,70 @@
         background-color: white;
     }
     
+    .addTick {
+        font-size: 150%;
+        text-align: center;
+        margin: 1% 0;
+        font-family: 'nextTime';
+    }
+    
+    .addTick > span {
+        color: #2574A9;   
+    }
+    
+    .threeLetters{
+        margin: 1% 0;
+        text-align: center;
+        font-size: 125%;
+        font-family: 'nextTime';
+    }
+    
+    .addTickUser {
+        background-color: #2574A9;
+        padding: 2% 0;
+        text-align: center;
+        color: white;
+        font-size: 150%;
+    }
+    
+    .contactOverlay {
+        background: #0489B1 !important;
+        opacity: 0.75;
+    }
+    
+    .addContact {
+        background-color: white;
+        padding: 2%;
+    }
+    
 </style>
 
 <div class="wrapper">
 
+    <div class="addTick">
+        Add <span>New</span> Tick
+    </div>
+    
     <div class="input">
         <input type="text" id="contact" placeholder="Contact">
     </div>
     
-    <div class="message info" style="display:none">
-        Press 3 letters to populate search
+    <div class="threeLetters" >
+        Please type 3 letters or more to list matching contacts
     </div>
     
     <div id="search" class="search" style="display:none">
         
     </div>
     
-    <div id="userInfo" class="userInfo">
+    <div id="addContact" class="addContact" style="display:none" tabindex="0">
+        <div class="addTick"> Add New <span>Tick</span> For</div>
+        <div id="addTickUser" class="addTickUser">
+            
+        </div>
+    </div>
+    
+    <div id="userInfo" class="userInfo" style="display:none">
         <div class="person">
             <div class="name"></div>
             <div class="image">

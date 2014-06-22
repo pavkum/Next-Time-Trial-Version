@@ -3,8 +3,13 @@ var showAndRemainders = (function (){
     
     var user = {};
     
-    var template = $("<div class='remainderItem'> <div class='remainderMessagePreview'> </div>" +
-                    "<div class='remainderStatus'> <div class='statusIcon'> </div>  </div> " +
+    var template = $("<div class='remainderItem'> <div class='remainderInfo'> " +
+                    "<div class='remainderMessagePreview'> </div> " +
+                     "<div class='lastShown'>(Last shown : <span id='lastShown'></span>)</div> </div>" +
+                     "<div class='remainderControls'>" +
+                     "<div class='edit'><img src='img/edit.png' /> </div>" + 
+                     "<div class='delete'><img src='img/delete.png' /></div>" + 
+                     "</div>" +
                     "<div style='clear:both'> </div>" + 
                     "</div>");
     
@@ -39,10 +44,18 @@ var showAndRemainders = (function (){
                 clone.attr('id' , remainder.remainderId);
                 clone.find('.remainderMessagePreview').text(remainder.remainderMessage);
                 
+                
+                
                 if(remainder.isRemainded){
-                    clone.find('.statusIcon').addClass('done').text('D');   
+                    
+                    //clone.find('.statusIcon').addClass('done').text('D'); 
+                    var date = new Date(remainder.remaindedOn);
+            
+                    var remaindedOn = date.getHours() + ' : ' + date.getMinutes() + ' : ' + date.getSeconds () + ' - ' + date.toDateString();
+            
+                    clone.find('#lastShown').text(remaindedOn);
                 }else{
-                    clone.find('.statusIcon').addClass('pending').text('P');
+                    clone.find('#lastShown').text('Never!');
                 }
                 
                 remainderWrapper.append(clone);
@@ -115,6 +128,18 @@ var showAndRemainders = (function (){
         
     };
     
+    var keyboardFix = function () {
+        var user = elem.find('.user');
+        user.height(user.height());
+        
+        var remainderItem = elem.find('.remainderItem');
+        remainderItem.height(remainderItem.height());
+        
+        var addNewLineHeight = elem.find('#newLine').height();
+        
+        elem.find('.remainders').height((elem.height() - (user.height() + elem.find('.userMessage').height() )) * 0.8);
+        
+    };
     
     $('body').on('showRemainders',function (event , registeredUser){
         
@@ -125,47 +150,162 @@ var showAndRemainders = (function (){
         $('body').trigger('headerMiddle' , [user.name]);
         $('body').trigger('headerRight' , ['<img src="' + user.photo+ '" height="100%" >']);
         
-        updateSidebar();
-        
         loadTemplate(def);
         
         def.done(function (){
             
+            elem.find('#profile').attr('src' , user.photo);
+            elem.find('#name').text(user.name);
+            
             loadRemainders(user.id);
+            
+            keyboardFix();
             
         });
         
     });
     
+    var saveSuccess = function (remainder) {
+        $('body').trigger('confirmClose');
+        var remainderWrapper = $('.remainders').show();
+        var clone = template.clone();
+                
+                clone.data('remainder' , JSON.stringify(remainder));
+                clone.attr('id' , remainder.remainderId);
+                clone.find('.remainderMessagePreview').text(remainder.remainderMessage);
+                
+                
+                
+                if(remainder.isRemainded){
+                    
+                    //clone.find('.statusIcon').addClass('done').text('D'); 
+                    var date = new Date(remainder.remaindedOn);
+            
+                    var remaindedOn = date.getHours() + ' : ' + date.getMinutes() + ' : ' + date.getSeconds () + ' - ' + date.toDateString();
+            
+                    clone.find('#lastShown').text(remaindedOn);
+                }else{
+                    clone.find('#lastShown').text('Never!');
+                }
+                
+                remainderWrapper.append(clone);
+        
+       
+        
+        //$('body').trigger('showRemainders' , [JSON.stringify(user)]);
+    };
+    
+    var saveError = function (error) {
+        $('body').trigger('confirmClose');
+        notification('Error creating...');
+    };
+    
+    var updateSuccess = function (remainder) {
+        $('body').trigger('confirmClose');
+        elem.find('#' + remainder.remainderId).find('.remainderMessagePreview').text(remainder.remainderMessage);
+    };
+    
+    var updateError = function (error) {
+        $('body').trigger('confirmClose');
+        notification('Error updating...');
+    };
+    
+    var showRemainder = function (remainder){
+        
+        var note = elem.find('#note').clone();
+        
+        var textarea = note.find('textarea');
+        
+        // stupid logic
+        var save = false;
+        
+        if(!remainder){
+            remainder = {};
+        
+            remainder.remainderId = new Date().getTime();
+            remainder.contactId = user.id;    
+            //only call or only message or both - 0 : all, 1 - only call, 2 - only message
+            remainder.remainderType = 0;
+            
+            remainder.isRemainded = false;
+            remainder.remaindedOn = 0;
+            remainder.remaindedUsing = -1;
+            
+            save = true;
+            
+        }else{
+            remainder = JSON.parse(remainder);
+            textarea.val(remainder.remainderMessage);    
+        }
+        
+        var ok = note.find('#ok');
+        
+        ok.data('remainder' , JSON.stringify(remainder));
+        ok.data('remainder' , save);
+
+        ok.on(configuartion.events.userselect , function (event){
+            
+            remainder.remainderMessage = textarea.val();
+            
+            $(this).off(event);
+            
+            ok.focus();
+            note.hide();
+            $('body').trigger('confirmClose');
+            
+            
+            if(save)
+                techoStorage.addRemainder(saveSuccess , saveError , [remainder]);
+            else
+                techoStorage.updateRemainder(updateSuccess , updateError , [remainder]);
+            
+            
+        });
+        
+        note.show();
+        
+        confirm(note , elem , '' , 'modalClass' );
+        
+        $('body').on('confirmClose' , function (){
+            note.hide();
+        });
+        
+        
+        
+        setTimeout(function(){textarea.height(textarea.height());textarea.focus()} , 1000);
+    };
+    
     // events
     
-     $('body').on(configuartion.events.userselect , '.remainderItem' , function (event ){
-         
-         // original user obj
-         $('body').trigger('addToHistory',['showRemainders' [JSON.stringify(user)]]);
-            
-         //$('#list').hide();
-         //$('#text').show();
-         
-         var target = $(event.currentTarget);
-         
-         var remainder = JSON.parse( target.data('remainder') );
-         
-         user.readOnly = true;
-         user.remainder = remainder;
-         
-         if(target.find('.statusIcon').hasClass('done')){
-            $('body').trigger('readRemainder', [JSON.stringify(user)]);
-         }else{
-            $('body').trigger('note', [JSON.stringify(user)]);    
-         }
-         
-         
-            
-         //$(this).off(event);
-        
+    $('body').on(configuartion.events.userselect , '#newLine' , function (){
+        showRemainder();
     });
     
+    $('body').on(configuartion.events.userselect , '#ok' , function (event){
+        showRemainder();
+    });
+    
+    $('body').on(configuartion.events.userselect , '.edit' , function (event){
+        var target = $(event.currentTarget).parent().parent();
+        
+        var remainder = target.data('remainder');
+        
+        showRemainder(remainder);
+    });
+    
+    $('body').on(configuartion.events.userselect , '.delete' , function (event){
+        var target = $(event.currentTarget).parent().parent();
+        
+        var remainderIds = {};
+        remainderIds.remainderIds = [];
+        
+        remainderIds.remainderIds.push(target.attr('id'));
+        
+            
+        techoStorage.deleteRemainder(deleteSuccess , deleteError , [remainderIds]);
+    });
+    
+     
     $('body').on(configuartion.events.userselect , '#dummyInput' , function (event ){
         $('body').trigger('addToHistory',['showRemainders' [JSON.stringify(user)]]);
          
@@ -201,7 +341,6 @@ var showAndRemainders = (function (){
         
         var selectedElements = $('.remainderItem[selected=selected]');
         
-        console.log(target[0].outerHTML);
         
         if(selectedElements.length === 0){
             $('body').trigger('hideSidebar'); 
