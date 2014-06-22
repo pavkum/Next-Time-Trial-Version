@@ -1,5 +1,7 @@
 var displayData = function (data , openClosed ){
     
+    data = JSON.parse(data);
+    
     FastClick.attach(document.body);
     
     $('#name').text(data.name);

@@ -1,5 +1,7 @@
 var displayData = function (data , openClosed ){
     
+    data = JSON.parse(data);
+    
     FastClick.attach(document.body);
     
     $('#name').text(data.name);
@@ -54,7 +56,39 @@ var displayData = function (data , openClosed ){
     
     });
     
-    $('.messages').height(header.height());
+    if(messages.length == 1){
+        
+        
+        
+        
+        //$('.img').height(header.height() * 1);  
+        //$('.img').height(header.height() * 1);  
+        
+        
+        //$('.img').css( 'line-height' , header.height() * 1 + 'px'); 
+        
+        var imgHeight = $('.img > img').height();  
+        var messageHeight = $('.messages').height();
+        
+        $('.message').css('margin-top' , (imgHeight - messageHeight) / 2 );
+        
+        $('#scrolltoshow').hide();
+        
+    }else if(messages.length == 2){
+        
+        var imgHeight = $('.img > img').height();  
+        var messageHeight = $('.messages').height();
+        
+        $('.messages').css('margin-top' , (imgHeight - messageHeight) / 2 );
+        
+        $('#scrolltoshow').hide();
+    }else{
+        $('.messages').height(header.height() * 3);
+        $('.img').height(header.height() * 3);    
+        $('.img').css( 'line-height' , header.height() * 3 + 'px');    
+    }
+    
+    
     
 };
 
@@ -65,7 +99,7 @@ data.photo = "img/profile.png";
 
 data.remainders = [];
 
-for(var i=0; i<3; i++){
+for(var i=0; i<1; i++){
     var remainder = {};
     
     remainder.id = i;
@@ -75,7 +109,7 @@ for(var i=0; i<3; i++){
 }
 
 
-displayData(data , false);
+//displayData(data , false);
 
 var updateData = function (data , openClosed) {
 

@@ -82,7 +82,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 				remainder.setRemaindedOn(new Date().getTime());
 				remainder.setRemaindedUsing(this.remaindedUsing);
 				
-				//storageAPIImpl.updateRemainder(remainder);
+				storageAPIImpl.updateRemainder(remainder);
 				
 			}
 			
