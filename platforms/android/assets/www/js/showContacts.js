@@ -3,6 +3,8 @@ var contacts = (function (){
     var search = undefined;
     var userInfo = undefined;
     
+    var lastQuery = undefined;
+    
     // result structure
     //var result = {};
     /*result.name;
@@ -82,7 +84,6 @@ var contacts = (function (){
         var val = event.target.value;
         
         if(val.length != 0 && val.length >= 3){
-            $('#contact').addClass('loadinggif');
             getAllContacts(val);
         }else{
             // do nothing, let search retain old results
@@ -96,10 +97,23 @@ var contacts = (function (){
         options.filter = search;
         options.multiple = true;
         var fields       = ['id' , 'displayName', 'photos' , 'phoneNumbers'];
-        navigator.contacts.find(fields, onSuccess, onError, options);    
+        
+        lastQuery = new Date().getTime();
+        
+        $('#load').css('visibility' , 'visible').width('25%');  
+        
+        navigator.contacts.find(fields, onSuccess, onError, options , lastQuery);    
     };
     
-    var onSuccess = function(contacts) {
+    var onSuccess = function(contacts , timeStamp) {
+        
+        var load = $('#load');
+        
+        if(timeStamp == lastQuery){
+            load.width('50%');
+        }else{
+            return;   
+        }
         
         //$('#contact').removeClass('loadinggif');
         
@@ -118,6 +132,8 @@ var contacts = (function (){
             var date = new Date();
             
             var time = date.getTime();
+            
+            var step = 50 / contacts.length;
             
             for(var i=0; i<contacts.length; i++){
                 
@@ -145,12 +161,27 @@ var contacts = (function (){
                     result.phoneNumber = phoneNumbers; 
                 
                     lastResult.push(result);
+                
             }
+            
+            load.width( 50 + (step * i) + '%' );  
+            
         }
         filterResult(lastResult);
+        
+        load.width( '100%' );  
+        
+        setTimeout(function(){load.css('visibility' , 'hidden')} , 500);
+        
     };
     
-    var onError = function(contacts) {
+    var onError = function(contacts , timestamp) {
+        if(timeStamp == lastQuery){
+            load.css('visibility' , 'hidden');
+        }else{
+            return;   
+        }
+        
         
         //$('#contact').removeClass('loadinggif');
         clearResults(); 

@@ -14,7 +14,7 @@
         font-size:150%;
         color:#848484;
         font-family: 'nextTime';
-        background:url('../img/sprites.gif') no-repeat right center;
+        
     }
     
     #contact : focus {
@@ -280,8 +280,9 @@
     }
     
     .loadinggif {
-        height: 100%;
-        background:url('../img/ajax-loader.gif') no-repeat right center;
+        visibility: hidden;
+        height: 3px;
+        background-color: #22A7F0;
     }
     
 </style>
@@ -294,6 +295,7 @@
     
     <div class="input">
         <input type="text" id="contact" placeholder="Contact">
+        <div class="loadinggif" id="load"></div>
     </div>
     
     <div class="threeLetters" >
