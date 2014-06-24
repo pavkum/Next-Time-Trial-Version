@@ -65,6 +65,8 @@ body {
 
 
 .header > img{
+    max-width: 100%;
+    width: auto;
     text-align: center;
     margin: 0 auto;
 }

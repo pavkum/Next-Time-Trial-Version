@@ -64,12 +64,13 @@
 /home/pavan/android_project/NextTime/platforms/android/assets/www/templates/confirm.html \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/outgoing.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/shutdown.png \
+/home/pavan/android_project/NextTime/platforms/android/assets/www/img/sprites.gif \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/logo.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/incoming.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/note.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/delete.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/trash.png \
-/home/pavan/android_project/NextTime/platforms/android/assets/www/img/test.jpg \
+/home/pavan/android_project/NextTime/platforms/android/assets/www/img/ajax-loader.gif \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/userinfo.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/notepad.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/next.png \

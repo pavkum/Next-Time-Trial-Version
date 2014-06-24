@@ -82,7 +82,7 @@ var contacts = (function (){
         var val = event.target.value;
         
         if(val.length != 0 && val.length >= 3){
-            
+            $('#contact').addClass('loadinggif');
             getAllContacts(val);
         }else{
             // do nothing, let search retain old results
@@ -100,6 +100,8 @@ var contacts = (function (){
     };
     
     var onSuccess = function(contacts) {
+        
+        //$('#contact').removeClass('loadinggif');
         
         clearResults(); 
         
@@ -133,8 +135,6 @@ var contacts = (function (){
                         
                         var phoneNumber = contactPhoneNumbers[j];
                         
-                        console.log('iteration' + phoneNumber);
-                        
                         var phone = {};
                         phone.number = phoneNumber.value.replace("(" , "").replace(")" , "").replace(" " , "").replace("-" , "");
                         phone.type = phoneNumber.type;
@@ -151,12 +151,11 @@ var contacts = (function (){
     };
     
     var onError = function(contacts) {
+        
+        //$('#contact').removeClass('loadinggif');
         clearResults(); 
         
-        var result = {};
-        result.name = 'No Result';
-        
-        filterResult([result]);
+        notification('Error fetching contacts');
     };
     
     
@@ -167,8 +166,6 @@ var contacts = (function (){
             var result = results[i];
 
             var clone = resultTemplate.clone();
-            
-            
             
             if(result.id) {
             
