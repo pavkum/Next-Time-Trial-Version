@@ -322,6 +322,7 @@
         
         color: #424242;
         font-size: 175%;
+        
     }
     
     #count {
@@ -356,6 +357,13 @@
         vertical-align: middle;
     }
     
+    .menu {
+        float: right;
+        position: relative;
+        height: 10%;
+        top: 5%;
+    }
+    
     #addText {
         float: left;
         position: relative;
@@ -378,7 +386,13 @@
 
 <div class="wrapper">
     
-    <div class="total">You have <span id="count"></span> tiks</div>
+    <div class="total">
+        <div style="width:80%;float:left">You have <span id="count"></span> tiks</div>
+        <div id="settings" style="width:20%;float:left">
+            <img height="50px" src="img/menu.png" />
+        </div>
+        <div class="clearfix"></div>
+    </div>
     
     <div id="clone" class="contact" style="display:none">
         <div class="image">

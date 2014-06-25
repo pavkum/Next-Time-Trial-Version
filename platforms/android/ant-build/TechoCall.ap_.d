@@ -80,6 +80,7 @@
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/photo.jpg \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/header.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/plus.png \
+/home/pavan/android_project/NextTime/platforms/android/assets/www/img/menu.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/settings.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/user.png \
 /home/pavan/android_project/NextTime/platforms/android/assets/www/img/profile.png \

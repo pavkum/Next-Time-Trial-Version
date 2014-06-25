@@ -185,6 +185,10 @@ var registeredContacts = (function (){
         $('body').trigger('getAllContacts');
     });
     
+    $('body').on(configuartion.events.userselect , '#settings' , function (){
+        $('body').trigger('settings');
+    });
+    
     $('body').on('taphold' , '.contact' , function (event){
         var target = event.currentTarget;
         target = $(target);
