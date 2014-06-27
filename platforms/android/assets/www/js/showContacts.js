@@ -121,7 +121,7 @@ var contacts = (function (){
         
         var lastResult = [];
         
-        if(contacts.length === 0){
+        if(!contacts || contacts.length === 0){
             var result = {};
             result.name = 'No Result';
             
