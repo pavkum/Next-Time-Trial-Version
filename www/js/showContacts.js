@@ -70,12 +70,22 @@ var contacts = (function (){
         
         });
     });
+
+    $('body').on('blur' , '#contact' , function (){
+        $(window).unbind('scroll');
+    });
     
     $('body').on('focus' , '#contact' , function (){
         
         clearResults(); 
         
         search.show();
+        
+         $(window).on('scroll' , function (eve){
+            $(window).scrollTop(0);
+        });
+
+        
         //userInfo.hide();
     });
     
@@ -133,7 +143,7 @@ var contacts = (function (){
             
             for(var i=0; i<contacts.length; i++){
                 
-                if(contacts[i].displayName && contacts[i].displayName != 'null')
+                if(contacts[i].displayName && contacts[i].displayName != 'null' && contacts[i].phoneNumbers && contacts[i].phoneNumbers != 'null')
                     var result = {};
                     result.name = contacts[i].displayName;
                     result.id = contacts[i].id;
@@ -147,10 +157,12 @@ var contacts = (function (){
                         
                         var phoneNumber = contactPhoneNumbers[j];
                         
-                        var phone = {};
-                        phone.number = phoneNumber.value.replace("(" , "").replace(")" , "").replace(" " , "").replace("-" , "");
-                        phone.type = phoneNumber.type;
-                        phoneNumbers.push(phone);
+                        if(phoneNumber.value){
+                            var phone = {};
+                            phone.number = phoneNumber.value.replace("(" , "").replace(")" , "").replace(" " , "").replace("-" , "");
+                            phone.type = phoneNumber.type;
+                            phoneNumbers.push(phone);    
+                        }
                     }
                 
                     result.phoneNumber = phoneNumbers; 
@@ -247,8 +259,6 @@ var contacts = (function (){
     });
     
     var addContactSuccess = function (contact) {
-        
-        console.log('success'+contact);
         
         $('body').trigger('showRemainders',[JSON.stringify(contact)]);
     };

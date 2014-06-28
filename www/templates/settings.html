@@ -4,13 +4,26 @@
         }
 
         .item {
+            display: block;
             background: white;
             margin: 2% 0;
             color: #848484;
             padding: 1% 5%;
         }
+        
+        .item > table{
+            width: 100%;   
+        }
+        
+        .text {
+            width:85%;   
+        }
+        
+        .data {
+            width: 15%;   
+        }
 
-        @media screen and (min-height : 240px) {
+        /*@media screen and (min-height : 240px) {
             .name , .checkbox , .description {
                 height: 20px;
                 line-height: 20px;
@@ -110,7 +123,7 @@
                 line-height: 160px;
             }
 
-        }
+        }*/
 
 
         .itemInfo {
@@ -124,11 +137,6 @@
             color: #5C97BF;
 
         }
-
-        /*.checkbox {
-            box-sizing: border-box;
-            float: right;   
-        }*/
 
         .description {
 
@@ -172,7 +180,7 @@
     .checkbox {
         float: right;
         color:white;
-        width:10%;
+        width:85%;
         line-height:25px;
         height:25px;
         border-radius:10px;
@@ -180,16 +188,97 @@
         padding:2px;
     }
 
-    label{
-        display: block;   
-    }
 
-
+        
     </style>
 
     <div class="wrapper">
 
-        <div class="item" id="2">
+        <label for="2" class="item">
+            <table>
+                <tr>
+                    <td class="text">
+                        <div class="name">
+                            Open Remainder closed?
+                        </div>
+                        <div class="description">
+                            Should remainder msg be open in closed state?
+                        </div>
+                    </td>
+                    <td class="value">
+                        <input id="2" type="checkbox" />
+                        <div class="checkbox">
+                            <div class="on">On</div>
+                            <div class="off">Off</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </label>
+        
+        <label for="1" class="item">
+            <table>
+                <tr>
+                    <td class="text">
+                        <div class="name">
+                            Auto delete viewed Remainders
+                        </div>
+                        <div class="description">
+                            Automatically delete remainders once viewed
+                        </div>
+                    </td>
+                    <td class="value">
+                        <input id="1" type="checkbox" />
+                        <div class="checkbox">
+                            <div class="on">On</div>
+                            <div class="off">Off</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </label>
+        
+        <label for="3" class="item">
+            <table>
+                <tr>
+                    <td class="text">
+                        <div class="name">
+                            Send anonymous usage statistics
+                        </div>
+                        <div class="description">
+                            Send usage statistics for imporvements of the product
+                        </div>
+                    </td>
+                    <td class="value">
+                        <input id="3" type="checkbox" />
+                        <div class="checkbox">
+                            <div class="on">On</div>
+                            <div class="off">Off</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </label>
+        
+        <label for="about" class="item">
+            <table>
+                <tr>
+                    <td class="text">
+                        <div class="name">
+                            About Next Time
+                        </div>
+                        <div class="description">
+                            About the application
+                        </div>
+                    </td>
+                    <td class="value">
+                    </td>
+                </tr>
+            </table>
+        </label>
+
+        
+        <!--<div class="item" id="2">
 
             <label for="2i">
 
@@ -199,7 +288,7 @@
                     </div>
 
                     <div class="description">
-                        Should remainder msg be open in closed state?
+                        
                     </div>
                 </div>
 
@@ -214,9 +303,9 @@
 
             </label>
 
-            <!--<div class="checkbox">
+            <div class="checkbox">
                 <input type="checkbox" />
-            </div>-->
+            </div>
 
         </div>
 
@@ -283,5 +372,6 @@
             </div>
             <div class="clearfix"></div>
         </div>
+-->        
 
     </div>

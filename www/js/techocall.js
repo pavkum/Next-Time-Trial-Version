@@ -27,18 +27,13 @@ var techocall = (function (){
         historyObj.eventArgs = eventArgs ? eventArgs : [];
                 
         historyList.push(historyObj);
-        
-        $('body').trigger('showBackButton');
-        
-        console.log("addToHistory" + historyObj);
+
     });
     
     $('body').on('triggerHistory' , function (){
         
         if(historyList.length > 0){
             var historyObj = historyList.pop();
-            console.log("triggerHistory" + historyObj.eventArgs);
-            console.log("triggerHistory" + JSON.stringify(historyObj.eventArgs));
             
             $('body').trigger(historyObj.eventName , historyObj.eventArgs);    
             
@@ -50,8 +45,9 @@ var techocall = (function (){
     
     $('body').on('clearHistory' , function (){
         historyList = [];
-        $('body').trigger('hideBackButton'); 
     });
+    
+
     
     
     $(document).on('backbutton' , function (event){
@@ -66,13 +62,6 @@ var techocall = (function (){
     
     initialize();
     
-    $(window).on('resize' , function (event){
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        $('header').height(headerHeight);
-        
-        return false;
-    });
 });
 //$(document).ready(function (){
 $(document).on('deviceready',function (){

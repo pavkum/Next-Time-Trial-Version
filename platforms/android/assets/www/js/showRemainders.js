@@ -252,7 +252,7 @@ var showAndRemainders = (function (){
             ok.focus();
             note.hide();
             $('body').trigger('confirmClose');
-            
+            $(document).unbind('touchmove');
             
             if(save)
                 techoStorage.addRemainder(saveSuccess , saveError , [remainder]);
@@ -268,9 +268,12 @@ var showAndRemainders = (function (){
         
         $('body').on('confirmClose' , function (){
             note.hide();
+            $(window).unbind('scroll');
         });
         
-        
+         $(window).on('scroll' , function (eve){
+            $(window).scrollTop(0);
+        });
         
         setTimeout(function(){textarea.height(textarea.height());textarea.focus()} , 1000);
     };

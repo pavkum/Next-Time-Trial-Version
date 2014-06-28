@@ -3,8 +3,9 @@ var registeredContacts = (function (){
     var elem = $('#workarea');
 
     var template = $('<div class="contact"> ' +
-                    '<div class="image"> <img > </img> </div> ' +
+                    '<div class="image"> <img id="photo" /> </div> ' +
                     '<div class="name"> </div> ' +
+                     '<div class="delete"><img src="img/delete.png" /></div>' +
                     '<div style="clear:both"> </div> ' +
                    '</div>');
     
@@ -40,7 +41,7 @@ var registeredContacts = (function (){
             var name = clone.find('.name');
             name.text(contact.displayName);
             
-            var photo = clone.find('img');
+            var photo = clone.find('#photo');
             photo.attr('src',contact.photo);
             
             clone.data('phoneNumber' , contact.phoneNumber);
@@ -60,9 +61,17 @@ var registeredContacts = (function (){
     };
 
     var deleteSuccess = function (contactIds) {
+        
+        var length = $('#count').text() - contactIds.length;
+        
+        $('#count').text(length);
+        
         for(var i=0; i<contactIds.length; i++){
             $('#' + contactIds[i]).remove();
         }
+        
+        
+        
         notification('Delete successfull'); 
     };
     
@@ -187,6 +196,20 @@ var registeredContacts = (function (){
     
     $('body').on(configuartion.events.userselect , '#settings' , function (){
         $('body').trigger('settings');
+    });
+    
+    $('body').on(configuartion.events.userselect , '.delete' , function (event){
+        var target = event.currentTarget;
+        target = $(target).parent();
+        
+        var contactIds = {};
+        contactIds.contactIds = [];
+            
+        contactIds.contactIds.push(target.attr('id'));
+        
+        techoStorage.deleteContact(deleteSuccess , deleteError , [contactIds]);
+        
+        event.stopPropagation();
     });
     
     $('body').on('taphold' , '.contact' , function (event){

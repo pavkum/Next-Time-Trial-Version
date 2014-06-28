@@ -23,12 +23,10 @@ var settings = (function (){
                 var value = config.value;
                 var id = config.id;
                 
-                console.log(id + ":" + name + ":" + value);
-                
                 if(value == 0){
-                    elem.find('#' + id).find('input').removeAttr('checked');    
+                    elem.find('#' + id).removeAttr('checked');    
                 }else{
-                    elem.find('#' + id).find('input').attr('checked' , 'checked');    
+                    elem.find('#' + id).attr('checked' , 'checked');    
                 }
                 
             }
@@ -88,7 +86,7 @@ var settings = (function (){
     $('body').on(configuartion.events.userselect , '.item' , function (event){
         var target = $(event.currentTarget);
         
-        var id = target.attr('id');
+        var id = target.attr('for');
         
         switch(id) {
                 
