@@ -53,6 +53,19 @@ body {
     width:100%;
 }
 
+.trial {
+    position: fixed;
+    top: 5%;
+    width: 20%;
+    padding: 2%;
+    background-color: #D64541;
+    color : white;
+    font-weight:bold;
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg); 
+    z-index: 100;
+}
+
 * {
     font-family:'nextTime';
 }

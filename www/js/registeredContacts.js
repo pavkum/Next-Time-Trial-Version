@@ -182,6 +182,13 @@ var registeredContacts = (function (){
             elem.show();
             loadContactInfo();
             //attachEventHandlers();
+
+            if(window.location.hash == '#true'){
+                var data = "<div>Your trial period has expired...!!!</div>"
+                var title = "Next Time - Trial Period";
+                alert(data , title , navigator.app.exitApp);
+            }
+            
             
         });
         

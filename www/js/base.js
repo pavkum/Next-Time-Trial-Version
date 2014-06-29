@@ -69,7 +69,7 @@ window.confirm = function (data , container , overlayClass , modalClass){
     });
 };
 
-window.alert = function (data , title){
+window.alert = function (data , title , onclose){
     
     var modal = $('#modal');
     var overlay = $('#overlay');
@@ -94,11 +94,14 @@ window.alert = function (data , title){
         modal.show(500);
         
         $('#modalClose').on(configuartion.events.userselect , function (event){
-            modal.hide(500);
-            overlay.hide();
-
             $(this).off(event);
+            
+            modal.hide();
+            overlay.hide();
+            
+            onclose();
         });
+        
         
     });
     

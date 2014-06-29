@@ -19,29 +19,68 @@
 
 package com.techostic.nexttime;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.apache.cordova.Config;
 import org.apache.cordova.CordovaActivity;
 
-import com.techostic.nexttime.service.PhoneCallMonitorService;
-
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
-public class NextTime extends CordovaActivity 
-{
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        super.init();
-        // Set by <content src="index.html" /> in config.xml
-        
-       /* Intent i = new Intent(getApplicationContext(), PhoneCallMonitorService.class);
-        getApplicationContext().startService(i);*/
-        
-        super.loadUrl(Config.getStartUrl());
-        
-        
-    }
+public class NextTime extends CordovaActivity {
+	private final SimpleDateFormat formatter = new SimpleDateFormat(
+			"yyyy-MM-dd");
+	private final long ONE_DAY = 24 * 60 * 60 * 1000;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		super.init();
+		// Set by <content src="index.html" /> in config.xml
+
+		/*
+		 * Intent i = new Intent(getApplicationContext(),
+		 * PhoneCallMonitorService.class);
+		 * getApplicationContext().startService(i);
+		 */
+
+		boolean trialExpired = true;
+		// expire initially :P
+
+		SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+		String installDate = preferences.getString("InstallDate", null);
+		if (installDate == null) {
+			// First run, so save the current date
+			SharedPreferences.Editor editor = preferences.edit();
+			Date now = new Date();
+			String dateString = formatter.format(now);
+			editor.putString("InstallDate", dateString);
+			// Commit the edits!
+			editor.commit();
+
+			installDate = dateString;
+		}
+
+		// This is not the 1st run, check install date
+		Date before = null;
+		try {
+			before = (Date) formatter.parse(installDate);
+
+			Date now = new Date();
+			long diff = now.getTime() - before.getTime();
+			long days = diff / ONE_DAY;
+			if (days < 3) { // Less than 3 days?
+				trialExpired = false;
+			}
+
+		} catch (ParseException e) {
+			Log.e("trial install date", e.getMessage());
+		}
+
+		super.loadUrl(Config.getStartUrl() + "#" + trialExpired);
+
+	}
 }
-
