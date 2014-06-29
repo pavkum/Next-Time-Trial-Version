@@ -50,10 +50,6 @@ var contacts = (function (){
         
         $('body').trigger('addToHistory',['showTechoContacts']);
         
-        $('body').trigger('headerMiddle',['Add Contact']);
-        $('body').trigger('headerRight',['<img src="img/next.png" />','toUser']);// local event
-        
-        
         loadTemplate(def);
         
         def.done(function (){
@@ -294,6 +290,8 @@ var contacts = (function (){
             contactOverlay.show();
             
             confirm(contactOverlay , elem , 'contactOverlay');
+            
+            $('body').trigger('addToHistory',['confirmClose']);
             
             // bad coding, ask giri
             $('body').on('confirmClose' , function (){

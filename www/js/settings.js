@@ -43,10 +43,6 @@ var settings = (function (){
         
         $('body').trigger('addToHistory',['showTechoContacts']);
         
-        $('body').trigger('headerMiddle',['Settings']);
-        $('body').trigger('headerRight',['<img src="img/settings.png" />']);// local event
-        
-        
         loadTemplate(def);
         
         def.done(function (){

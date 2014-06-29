@@ -145,10 +145,9 @@ var showAndRemainders = (function (){
         
         var def = new $.Deferred();
         
-        user = JSON.parse(registeredUser);
+        $('body').trigger('addToHistory',['showTechoContacts']);
         
-        $('body').trigger('headerMiddle' , [user.name]);
-        $('body').trigger('headerRight' , ['<img src="' + user.photo+ '" height="100%" >']);
+        user = JSON.parse(registeredUser);
         
         loadTemplate(def);
         
@@ -275,6 +274,7 @@ var showAndRemainders = (function (){
             $(window).scrollTop(0);
         });
         
+        $('body').trigger('addToHistory',['confirmClose']);
         setTimeout(function(){textarea.height(textarea.height());textarea.focus()} , 1000);
     };
     
@@ -327,7 +327,7 @@ var showAndRemainders = (function (){
         $('body').trigger('userInfo' , [JSON.stringify(user)]);
     });
     
-    $('body').on('taphold' , '.remainderItem' , function (event){
+    /*$('body').on('taphold' , '.remainderItem' , function (event){
         
         var target = event.currentTarget;
         target = $(target);
@@ -351,10 +351,10 @@ var showAndRemainders = (function (){
             $('body').trigger('showSidebar');  
         }
         
-    });
+    });*/
     
     
-    var registerEvents = function (contactID , displayName , photo , phoneNumber) {
+    /*var registerEvents = function (contactID , displayName , photo , phoneNumber) {
         $('body').on('showNote',function (event , contactID , displayName , photo , isNew , remainderObj){ // proxy to be called from other areas as per screen so that required info can be passed
         
             $('#list').hide();
@@ -410,7 +410,7 @@ var showAndRemainders = (function (){
             return false;
         });
         
-    };
+    };*/
     
     
     

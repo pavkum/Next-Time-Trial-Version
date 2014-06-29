@@ -173,10 +173,7 @@ var registeredContacts = (function (){
     
     $('body').on('showTechoContacts',function (){
         
-        $('body').trigger('headerMiddle',['Next Time']);
-        $('body').trigger('headerRight',['<img src="img/contacts.png" />','getAllContacts']);// local event
-        
-        updateSidebar();
+        $('body').trigger('clearHistory');
         
         var def = new $.Deferred();
         loadTemplate(def);
@@ -249,9 +246,6 @@ var registeredContacts = (function (){
         var phoneNumber = target.data('phoneNumber');
         phoneNumber = JSON.parse(phoneNumber);
             //$('body').trigger('showUser' , [id,name , photo]);
-            
-        $('body').trigger('addToHistory',['showTechoContacts']);
-            
         var user = {};
             
         user.id = id;

@@ -54,7 +54,7 @@ window.confirm = function (data , container , overlayClass , modalClass){
         
         close.on(configuartion.events.userselect , function (event){
             $(this).off(event);
-            $('body').trigger('confirmClose');
+            $('body').trigger('triggerHistory');
         });
         
         modal.show();

@@ -47,8 +47,6 @@ var techocall = (function (){
         historyList = [];
     });
     
-
-    
     
     $(document).on('backbutton' , function (event){
         
