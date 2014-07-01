@@ -8,7 +8,7 @@ var showAndRemainders = (function (){
                      "<div class='lastShown'>(Last shown : <span id='lastShown'></span>)</div> </div>" +
                      "<div class='remainderControls'>" +
                      "<div class='edit'><img src='img/edit.png' /> </div>" + 
-                     "<div class='delete'><img src='img/delete.png' /></div>" + 
+                     "<div id='deleteRemainder' class='delete'><img src='img/delete.png' /></div>" + 
                      "</div>" +
                     "<div style='clear:both'> </div>" + 
                     "</div>");
@@ -80,7 +80,7 @@ var showAndRemainders = (function (){
         for(var i=0; i<remainderIds.length; i++){
             $('#' + remainderIds[i]).remove();
         }
-        notification('Delete successfull'); 
+        //notification('Delete successfull'); 
     };
     
     var deleteError = function () {
@@ -165,7 +165,6 @@ var showAndRemainders = (function (){
     });
     
     var saveSuccess = function (remainder) {
-        $('body').trigger('confirmClose');
         var remainderWrapper = $('.remainders').show();
         var clone = template.clone();
                 
@@ -195,22 +194,19 @@ var showAndRemainders = (function (){
     };
     
     var saveError = function (error) {
-        $('body').trigger('confirmClose');
         notification('Error creating...');
     };
     
     var updateSuccess = function (remainder) {
-        $('body').trigger('confirmClose');
         elem.find('#' + remainder.remainderId).find('.remainderMessagePreview').text(remainder.remainderMessage);
     };
     
     var updateError = function (error) {
-        $('body').trigger('confirmClose');
         notification('Error updating...');
     };
     
     var showRemainder = function (remainder){
-        
+        console.log('heeeee');
         var note = elem.find('#note').clone();
         
         var textarea = note.find('textarea');
@@ -244,14 +240,21 @@ var showAndRemainders = (function (){
 
         ok.on(configuartion.events.userselect , function (event){
             
+            console.log('eeevent');
+            
             remainder.remainderMessage = textarea.val();
+            
+            /*if(!remainder.remainderMessage || remainder.remainderMessage == "")
+                return false;*/
             
             $(this).off(event);
             
             ok.focus();
+            
             note.hide();
-            $('body').trigger('confirmClose');
-            $(document).unbind('touchmove');
+            $(window).unbind('scroll');
+            
+            $('body').trigger('triggerHistory');
             
             if(save)
                 techoStorage.addRemainder(saveSuccess , saveError , [remainder]);
@@ -264,11 +267,6 @@ var showAndRemainders = (function (){
         note.show();
         
         confirm(note , elem , '' , 'modalClass' );
-        
-        $('body').on('confirmClose' , function (){
-            note.hide();
-            $(window).unbind('scroll');
-        });
         
          $(window).on('scroll' , function (eve){
             $(window).scrollTop(0);
@@ -284,10 +282,6 @@ var showAndRemainders = (function (){
         showRemainder();
     });
     
-    $('body').on(configuartion.events.userselect , '#ok' , function (event){
-        showRemainder();
-    });
-    
     $('body').on(configuartion.events.userselect , '.edit' , function (event){
         var target = $(event.currentTarget).parent().parent();
         
@@ -296,7 +290,7 @@ var showAndRemainders = (function (){
         showRemainder(remainder);
     });
     
-    $('body').on(configuartion.events.userselect , '.delete' , function (event){
+    $('body').on(configuartion.events.userselect , '#deleteRemainder' , function (event){
         var target = $(event.currentTarget).parent().parent();
         
         var remainderIds = {};
@@ -306,6 +300,8 @@ var showAndRemainders = (function (){
         
             
         techoStorage.deleteRemainder(deleteSuccess , deleteError , [remainderIds]);
+        
+        event.stopPropagation();
     });
     
      

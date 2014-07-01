@@ -13,10 +13,7 @@
     touchHandler.curX = undefined;
     touchHandler.timer = undefined;
     
-    $('body').on(configuartion.events.userselect ,  '#sidebar' , function (){
-        hideSidebar();
-    });
-    
+        
     $('body').on('touchmove1' , function (event){
             var x = event.originalEvent.changedTouches[0].clientX;
             //var x = event.clientX;
@@ -56,6 +53,10 @@
             //event.preventDefault();
     });
     
+    $('body').on(configuartion.events.userselect ,  '#sidebar' , function (){
+        hideSidebar();
+    });
+
     
     /*$('body').on('swiperight' , function (){
         showSidebar();

@@ -139,7 +139,7 @@ var contacts = (function (){
             
             for(var i=0; i<contacts.length; i++){
                 
-                if(contacts[i].displayName && contacts[i].displayName != 'null' && contacts[i].phoneNumbers && contacts[i].phoneNumbers != 'null')
+                if(contacts[i].displayName && contacts[i].displayName != 'null' && contacts[i].phoneNumbers && contacts[i].phoneNumbers != 'null'){
                     var result = {};
                     result.name = contacts[i].displayName;
                     result.id = contacts[i].id;
@@ -164,6 +164,7 @@ var contacts = (function (){
                     result.phoneNumber = phoneNumbers; 
                 
                     lastResult.push(result);
+                }
                 
             }
             

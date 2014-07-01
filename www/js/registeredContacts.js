@@ -5,7 +5,7 @@ var registeredContacts = (function (){
     var template = $('<div class="contact"> ' +
                     '<div class="image"> <img id="photo" /> </div> ' +
                     '<div class="name"> </div> ' +
-                     '<div class="delete"><img src="img/delete.png" /></div>' +
+                     '<div id="deleteContact" class="delete"><img src="img/delete.png" /></div>' +
                     '<div style="clear:both"> </div> ' +
                    '</div>');
     
@@ -202,7 +202,7 @@ var registeredContacts = (function (){
         $('body').trigger('settings');
     });
     
-    $('body').on(configuartion.events.userselect , '.delete' , function (event){
+    $('body').on(configuartion.events.userselect , '#deleteContact' , function (event){
         var target = event.currentTarget;
         target = $(target).parent();
         

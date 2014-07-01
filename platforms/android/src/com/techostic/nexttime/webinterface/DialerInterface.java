@@ -81,7 +81,7 @@ public class DialerInterface {
 			}
 		}
 
-		finish();
+		//finish();
 	}
 
 	@JavascriptInterface

@@ -44,7 +44,7 @@ var displayData = function (data , openClosed ){
         }
     });
     
-    $('body').on('swipeleft' , '.message' , function (event){
+    /*$('body').on('swipeleft' , '.message' , function (event){
         var target = $(event.currentTarget);
         
         var remainder = {};
@@ -54,12 +54,9 @@ var displayData = function (data , openClosed ){
         
         target.remove();
     
-    });
+    });*/
     
     if(messages.length == 1){
-        
-        
-        
         
         //$('.img').height(header.height() * 1);  
         //$('.img').height(header.height() * 1);  
@@ -88,6 +85,106 @@ var displayData = function (data , openClosed ){
         $('.img').css( 'line-height' , header.height() * 3 + 'px');    
     }
     
+    var minimumSwipeLength = 10;
+    
+    var touchHandler = {};
+    touchHandler.startX = undefined;
+    touchHandler.curX = undefined;
+    touchHandler.timer = undefined;
+    
+    $('header').on('touchmove' , function (event){
+            var x = event.originalEvent.changedTouches[0].clientX;
+            //var x = event.clientX;
+            touchHandler.curX = x;
+            
+            if( touchHandler.timer){
+                clearTimeout(touchHandler.timer);
+                touchHandler.timer = undefined;
+            }
+            
+            if(!touchHandler.startX){
+                touchHandler.startX = x;
+            }
+            
+            touchHandler.timer = setTimeout(function(){
+                touchHandler.curX = undefined;
+                touchHandler.startX = undefined;
+                touchHandler.timer = undefined;
+            },500);
+            
+            if(touchHandler.curX && touchHandler.startX){
+                var diff = touchHandler.curX - touchHandler.startX;
+                
+                if(diff > 0 && diff >= minimumSwipeLength){
+                    Android.finish();
+                    
+                    //showSidebar();
+                }else{
+                    event.preventDefault();        
+                }
+                
+            }else{
+                event.preventDefault();   
+            }
+        
+            //event.preventDefault();
+    });
+    
+        
+    $('.message').on('touchmove' , function (event){
+            var x = event.originalEvent.changedTouches[0].clientX;
+            //var x = event.clientX;
+            touchHandler.curX = x;
+            
+            if( touchHandler.timer){
+                clearTimeout(touchHandler.timer);
+                touchHandler.timer = undefined;
+            }
+            
+            if(!touchHandler.startX){
+                touchHandler.startX = x;
+            }
+            
+            touchHandler.timer = setTimeout(function(){
+                touchHandler.curX = undefined;
+                touchHandler.startX = undefined;
+                touchHandler.timer = undefined;
+            },500);
+            
+            if(touchHandler.curX && touchHandler.startX){
+            
+                var diff = touchHandler.curX - touchHandler.startX;
+                
+                if(diff > 0 && diff >= minimumSwipeLength){
+                    
+                    var target = $(event.currentTarget);
+                    
+                    var remainders = [];
+                    var remainder = {};
+            
+                    remainder.id = target.attr('id');
+                    remainder.message = target.text();
+
+                    remainders.push(remainder);   
+                    Android.markSelectedRead(JSON.stringify(remainders));
+                    
+                    target.remove();
+                    
+                    if(messagesElem.length === 0){
+                        Android.finish();
+                    }
+                    
+                    //showSidebar();
+                }else{
+                    event.preventDefault();        
+                }
+                
+            }else{
+                event.preventDefault();   
+            }
+        
+            //event.preventDefault();
+    });
     
     
 };
@@ -141,7 +238,7 @@ var updateData = function (data , openClosed) {
             
             remainders.push(remainder);   
         }
-        console.log(remainders);
+        
         Android.markSelectedRead(JSON.stringify(remainders));
     });
     

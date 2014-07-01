@@ -2,6 +2,8 @@ var settings = (function (){
     
     var elem = $('#workarea');
 
+    var pauseEvent = false;
+    
     var loadTemplate = function (def) {
         var promise = moduleLoader.loadModule('settings');
         
@@ -52,10 +54,12 @@ var settings = (function (){
     });
     
     var updateSuccess = function (data) {
-        notification('Updated...');
+        pauseEvent = false;
+        //notification('Updated...');
     };
     
     var updateError = function (error) {
+        pauseEvent = false;
         notification('Error updating preferences');
     };
     
@@ -67,7 +71,7 @@ var settings = (function (){
             id : id,
             value : val
         };
-        
+        pauseEvent = true;
         techoStorage.updateSettings(updateSuccess , updateError , [setting]);
     };
     
@@ -80,6 +84,10 @@ var settings = (function (){
     };
     
     $('body').on(configuartion.events.userselect , '.item' , function (event){
+        
+        if(pauseEvent)
+            return;
+        
         var target = $(event.currentTarget);
         
         var id = target.attr('for');

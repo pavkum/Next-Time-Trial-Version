@@ -52,7 +52,7 @@ var settings = (function (){
     });
     
     var updateSuccess = function (data) {
-        notification('Updated...');
+        //notification('Updated...');
     };
     
     var updateError = function (error) {

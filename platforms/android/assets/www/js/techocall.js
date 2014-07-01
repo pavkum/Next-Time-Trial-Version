@@ -17,8 +17,6 @@ var techocall = (function (){
         
         workarea.outerHeight(height - displayHeight);
         
-        console.log(workarea.height());
-        console.log(height);
     };
     
     $('body').on('addToHistory' , function (event, eventName, eventArgs){
