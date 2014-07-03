@@ -240,12 +240,10 @@ var showAndRemainders = (function (){
 
         ok.on(configuartion.events.userselect , function (event){
             
-            console.log('eeevent');
-            
             remainder.remainderMessage = textarea.val();
             
-            /*if(!remainder.remainderMessage || remainder.remainderMessage == "")
-                return false;*/
+            if(!remainder.remainderMessage || remainder.remainderMessage == "")
+                return false;
             
             $(this).off(event);
             
