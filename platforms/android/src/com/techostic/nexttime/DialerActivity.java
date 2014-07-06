@@ -40,7 +40,7 @@ public class DialerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 			
 		this.getWindow().addFlags(LayoutParams.FLAG_NOT_TOUCH_MODAL);   
-
+		this.getWindow().addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 		this.getWindow().setFlags(LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH, LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);  
 		
 		final WebView wv = new WebView(this);

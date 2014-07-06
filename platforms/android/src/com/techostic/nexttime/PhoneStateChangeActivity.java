@@ -144,6 +144,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 					dialerIntent = new Intent(context, DialerActivity.class); 
 					
 					dialerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					dialerIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 					dialerIntent.putExtra("contactID", contactID);
 					dialerIntent.putExtra("json", jsonObject.toString());
 					dialerIntent.putExtra("remaindedUsing", remaindedUsing);

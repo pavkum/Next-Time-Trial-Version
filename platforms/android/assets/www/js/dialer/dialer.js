@@ -196,17 +196,17 @@ data.photo = "img/profile.png";
 
 data.remainders = [];
 
-for(var i=0; i<1; i++){
+for(var i=0; i<3; i++){
     var remainder = {};
     
     remainder.id = i;
-    remainder.message = "yo yo";
+    remainder.message = "yo yo " + i;
     
     data.remainders.push(remainder);
 }
 
 
-//displayData(data , false);
+displayData(JSON.stringify(data) , true);
 
 var updateData = function (data , openClosed) {
 
