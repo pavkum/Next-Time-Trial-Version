@@ -156,6 +156,10 @@ var contacts = (function (){
                         if(phoneNumber.value){
                             var phone = {};
                             phone.number = phoneNumber.value.replace("(" , "").replace(")" , "").replace(" " , "").replace("-" , "");
+                            
+                            if(phone.number.length > 10)
+                                phone.number = phone.number.substr(phone.number.length - 11 , phone.number.length);
+                            
                             phone.type = phoneNumber.type;
                             phoneNumbers.push(phone);    
                         }
