@@ -254,9 +254,9 @@ public class ContactSQLiteHelper extends SQLiteOpenHelper implements ContactAPI 
 			db = this.getReadableDatabase();
 			
 			String columns[] = {CONTACT_ID + ""};
-			String like[] = {"%" + phoneNumber + "%"};
+			String where[] = { phoneNumber};
 			 
-			Cursor cursor = db.query(TABLE_NAME_CONTACT, columns, PHONE_NUMBER + " LIKE ? ", like, null, null, null);
+			Cursor cursor = db.query(TABLE_NAME_CONTACT, columns, PHONE_NUMBER + " = ? ", where, null, null, null);
 			
 			Long contactID = -1l;
 			

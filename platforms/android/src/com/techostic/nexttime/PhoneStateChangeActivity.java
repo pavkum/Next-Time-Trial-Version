@@ -95,6 +95,10 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 	
 	private void showDialer (final Context context , String incomingNumber , final byte remaindedUsing){
 		
+		if(incomingNumber.length() > 10){
+			incomingNumber.substring(incomingNumber.length() - 11, incomingNumber.length() - 1);
+		}
+		
 		final Long contactID = storageAPIImpl.getContactIDByPhoneNumber(incomingNumber);
 		// check only for ID - performance as we expect 99% calls wouldn't be having any remainders
 		
