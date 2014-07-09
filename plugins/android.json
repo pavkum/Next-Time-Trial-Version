@@ -4,18 +4,42 @@
         "uninstalled": []
     },
     "config_munge": {
-        "res/xml/config.xml": {
-            "/*": {
-                "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>": 1,
-                "<feature name=\"techoStorage\"><param name=\"android-package\" value=\"com.techostic.nexttime.plugin.StoragePlugin\" /></feature>": 1,
-                "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>": 1
-            }
-        },
-        "AndroidManifest.xml": {
-            "/*": {
-                "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />": 1,
-                "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />": 1,
-                "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />": 1
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"techoStorage\"><param name=\"android-package\" value=\"com.techostic.nexttime.plugin.StoragePlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "count": 1
+                        }
+                    ]
+                }
             }
         }
     },

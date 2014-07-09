@@ -37,7 +37,7 @@ var displayData = function (data , openClosed ){
     header.on(configuartion.events.userselect , function (){
         if(container.is(':visible')){
             container.hide();
-            clear.text('Swipe to clear');
+            clear.text('Swipe to clear-s'+messages.length);
         }else{
             container.show();
             clear.text('Click to open');
@@ -206,7 +206,7 @@ for(var i=0; i<3; i++){
 }
 
 
-displayData(JSON.stringify(data) , true);
+//displayData(JSON.stringify(data) , true);
 
 var updateData = function (data , openClosed) {
 

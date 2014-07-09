@@ -1,4 +1,19 @@
 var techocall = (function (){
+    var $console = $("<div style='position: fixed; bottom: 0; left: 0; width: 100%; background-color: #dddddd; max-height: 50px; overflow: scroll;'></div>").appendTo($("body"));
+
+    var console = console || {};
+
+    console.log = function(mesg){
+        $("<p style='color: blue;'>"+mesg+"</p>").appendTo($console);
+    };
+
+    console.error = function(mesg){
+        $("<p style='color: red;'>"+mesg+"</p>").appendTo($console);
+    };
+
+    window.onerror = function(errorMsg){
+        console.error(errorMsg);
+    };
 
     var historyList = [];
     

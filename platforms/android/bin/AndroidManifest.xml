@@ -15,7 +15,7 @@
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
-        <activity android:name="com.techostic.nexttime.DialerActivity" android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar" android:excludeFromRecents="true">
+        <activity android:excludeFromRecents="true" android:name="com.techostic.nexttime.DialerActivity" android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar">
         </activity>
     </application>
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />

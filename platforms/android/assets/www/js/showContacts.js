@@ -155,10 +155,10 @@ var contacts = (function (){
                         
                         if(phoneNumber.value){
                             var phone = {};
-                            phone.number = phoneNumber.value.replace("(" , "").replace(")" , "").replace(" " , "").replace("-" , "");
-                            
-                            if(phone.number.length > 10)
-                                phone.number = phone.number.substr(phone.number.length - 11 , phone.number.length);
+
+
+                            var array = phoneNumber.value.replace(/\D/g , "").match(/\d{10}$/);
+                            phone.number = (array && array[0]) ? array[0] : "0000000000";
                             
                             phone.type = phoneNumber.type;
                             phoneNumbers.push(phone);    
@@ -215,8 +215,8 @@ var contacts = (function (){
                 }else{
                     result.photo =  "img/photo.jpg";
                 }
-   
-                clone.data('json' , JSON.stringify(result))
+                
+                clone.data('json' , JSON.stringify(result));
                 clone.find('img').attr('src' , result.photo); 
             }
             
@@ -290,7 +290,7 @@ var contacts = (function (){
             
             var addTickUser = contactOverlay.find('#addTickUser');
             
-            addTickUser.text(userObj.name);
+            addTickUser.text(userObj.name+":"+json);
             
             contactOverlay.show();
             

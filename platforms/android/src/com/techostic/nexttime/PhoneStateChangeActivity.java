@@ -2,6 +2,8 @@ package com.techostic.nexttime;
 
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +33,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 	private byte remaindedUsing = -1; // 0 incoming, 1 outgoing
 	
 	@Override
-	public void onReceive(final Context context, Intent intent) {
+	public void onReceive(final Context context, final Intent intent) {
 		
 		if(storageAPIImpl == null){
 			storageAPIImpl = StorageAPIImpl.getInstance(context);
@@ -46,7 +48,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
                 switch (state) {
     			case TelephonyManager.CALL_STATE_OFFHOOK:
     				
-    				showDialer(context , incomingNumber , (byte)1);
+    				showDialer(context , intent.getExtras().getString(Intent.EXTRA_PHONE_NUMBER) , (byte)1);
     				break;
 
     			case TelephonyManager.CALL_STATE_RINGING:
@@ -95,9 +97,16 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 	
 	private void showDialer (final Context context , String incomingNumber , final byte remaindedUsing){
 		
-		if(incomingNumber.length() > 10){
-			incomingNumber.substring(incomingNumber.length() - 11, incomingNumber.length() - 1);
-		}
+		//incomingNumber = incomingNumber.replaceAll(" ", "").replaceAll("(", "").replaceAll(")", "");
+		
+//		if(incomingNumber.length() > 10){
+//			incomingNumber.substring(incomingNumber.length() - 11, incomingNumber.length() - 1);
+//		}
+		String un = incomingNumber;
+		incomingNumber = incomingNumber.replaceAll("\\D", "");
+		Pattern p = Pattern.compile("\\d{10}$");
+		Matcher m = p.matcher(incomingNumber);
+		incomingNumber = ((m.find()) ? m.group() : incomingNumber);
 		
 		final Long contactID = storageAPIImpl.getContactIDByPhoneNumber(incomingNumber);
 		// check only for ID - performance as we expect 99% calls wouldn't be having any remainders
@@ -129,8 +138,8 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 					JSONObject jsonData = new JSONObject();
 					
 					jsonData.put("id", remainderList.get(i).getRemainderID());
-					jsonData.put("message", remainderList.get(i).getRemainderMessage());
-					
+					jsonData.put("message", remainderList.get(i).getRemainderMessage() + ":"+incomingNumber + ":"+ contact.getContactID());
+					//jsonData.put("message", un + "---"+incomingNumber + ":"+ contact.getContactID());
 					jsonMessageArray.put(jsonData);
 				}
 				
