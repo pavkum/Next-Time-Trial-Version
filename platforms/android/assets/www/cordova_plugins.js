@@ -1,6 +1,13 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+        "file": "plugins/com.techostic.nexttime.plugin/www/techoStorage.js",
+        "id": "com.techostic.nexttime.plugin.techoStorage",
+        "clobbers": [
+            "techoStorage"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.contacts/www/contacts.js",
         "id": "org.apache.cordova.contacts.contacts",
         "clobbers": [
@@ -57,40 +64,15 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.contacts/src/windows8/ContactProxy.js",
-        "id": "org.apache.cordova.contacts.ContactProxy",
-        "merges": [
-            ""
-        ]
-    },
-    {
-        "file": "plugins/com.techostic.techocall.plugin/www/techoStorage.js",
-        "id": "com.techostic.techocall.plugin.techoStorage",
-        "clobbers": [
-            "techoStorage"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.dialogs/www/notification.js",
-        "id": "org.apache.cordova.dialogs.notification",
-        "merges": [
-            "navigator.notification"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.dialogs/www/android/notification.js",
-        "id": "org.apache.cordova.dialogs.notification_android",
-        "merges": [
-            "navigator.notification"
-        ]
+        "file": "plugins/org.apache.cordova.contacts/www/ContactFieldType.js",
+        "id": "org.apache.cordova.contacts.ContactFieldType"
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.contacts": "0.2.9",
-    "com.techostic.techocall.plugin": "0.0.1",
-    "org.apache.cordova.dialogs": "0.2.8-dev"
+    "com.techostic.nexttime.plugin": "0.0.1",
+    "org.apache.cordova.contacts": "0.2.11"
 }
 // BOTTOM OF METADATA
 });

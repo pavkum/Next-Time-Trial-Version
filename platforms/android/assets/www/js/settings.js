@@ -36,7 +36,7 @@ var settings = (function (){
     };
     
     var getSettingsError = function (error) {
-        notification('Error while loading settings');
+        notification('Error while loading settings'+error);
     };
     
     $('body').on('settings' , function (){

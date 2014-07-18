@@ -58,12 +58,18 @@ __WARNING__: All privileged apps enforce [Content Security Policy](https://devel
 		}
 	}
 
+### Windows 8 Quirks
+
+Windows 8 Contacts are readonly. Via the Cordova API Contacts are not queryable/searchable, you should inform the user to pick a contact as a call to contacts.pickContact which will open the 'People' app where the user must choose a contact.
+Any contacts returned are readonly, so your application cannot modify them.
+
 ## navigator.contacts
 
 ### Methods
 
 - navigator.contacts.create
 - navigator.contacts.find
+- navigator.contacts.pickContact
 
 ### Objects
 
@@ -74,6 +80,7 @@ __WARNING__: All privileged apps enforce [Content Security Policy](https://devel
 - ContactOrganization
 - ContactFindOptions
 - ContactError
+- ContactFieldType
 
 ## navigator.contacts.create
 
@@ -89,9 +96,6 @@ database, for which you need to invoke the `Contact.save` method.
 - Firefox OS
 - iOS
 - Windows Phone 7 and 8
-- Windows 8 ( Note: Windows 8 Contacts are readonly via the Cordova API
-Contacts are not queryable/searchable, you should inform the user to pick a contact as a call to contacts.find will open the 'People' app where the user must choose a contact.
-Any contacts returned are readonly, so your application cannot modify them. )
 
 ### Example
 
@@ -105,9 +109,7 @@ The resulting objects are passed to the `contactSuccess` callback
 function specified by the __contactSuccess__ parameter.
 
 The __contactFields__ parameter specifies the fields to be used as a
-search qualifier, and only those results are passed to the
-__contactSuccess__ callback function.  A zero-length __contactFields__
-parameter is invalid and results in
+search qualifier.  A zero-length __contactFields__ parameter is invalid and results in
 `ContactError.INVALID_ARGUMENT_ERROR`. A __contactFields__ value of
 `"*"` returns all contact fields.
 
@@ -115,21 +117,24 @@ The __contactFindOptions.filter__ string can be used as a search
 filter when querying the contacts database.  If provided, a
 case-insensitive, partial value match is applied to each field
 specified in the __contactFields__ parameter.  If there's a match for
-_any_ of the specified fields, the contact is returned.
+_any_ of the specified fields, the contact is returned. Use __contactFindOptions.desiredFields__
+parameter to control which contact properties must be returned back.
 
 ### Parameters
-
-- __contactFields__: Contact fields to use as a search qualifier. The resulting `Contact` object only features values for these fields. _(DOMString[])_ [Required]
 
 - __contactSuccess__: Success callback function invoked with the array of Contact objects returned from the database. [Required]
 
 - __contactError__: Error callback function, invoked when an error occurs. [Optional]
+
+- __contactFields__: Contact fields to use as a search qualifier. _(DOMString[])_ [Required]
 
 - __contactFindOptions__: Search options to filter navigator.contacts. [Optional] Keys include:
 
 - __filter__: The search string used to find navigator.contacts. _(DOMString)_ (Default: `""`)
 
 - __multiple__: Determines if the find operation returns multiple navigator.contacts. _(Boolean)_ (Default: `false`)
+
+    - __desiredFields__: Contact fields to be returned back. If specified, the resulting `Contact` object only features values for these fields. _(DOMString[])_ [Optional]
 
 ### Supported Platforms
 
@@ -138,7 +143,6 @@ _any_ of the specified fields, the contact is returned.
 - Firefox OS
 - iOS
 - Windows Phone 7 and 8
-- Windows 8 ( read-only support, search requires user interaction, contactFields are ignored, only contactFindOptions.multiple is used to enable the user to select 1 or many contacts. )
 
 ### Example
 
@@ -154,9 +158,36 @@ _any_ of the specified fields, the contact is returned.
     var options      = new ContactFindOptions();
     options.filter   = "Bob";
     options.multiple = true;
-    var fields       = ["displayName", "name"];
+    options.desiredFields = [navigator.contacts.fieldType.id];
+    var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
     navigator.contacts.find(fields, onSuccess, onError, options);
 
+## navigator.contacts.pickContact
+
+The `navigator.contacts.pickContact` method launches the Contact Picker to select a single contact.
+The resulting object is passed to the `contactSuccess` callback
+function specified by the __contactSuccess__ parameter.
+
+### Parameters
+
+- __contactSuccess__: Success callback function invoked with the single Contact object. [Required]
+
+- __contactError__: Error callback function, invoked when an error occurs. [Optional]
+
+### Supported Platforms
+
+- Android
+- iOS
+- Windows Phone 8
+- Windows 8
+
+### Example
+
+    navigator.contacts.pickContact(function(contact){
+            console.log('The following contact has been selected:' + JSON.stringify(contact));
+        },function(err){
+            console.log('Error: ' + err);
+        });
 
 ## Contact
 
@@ -216,6 +247,7 @@ for details.
 - Firefox OS
 - iOS
 - Windows Phone 7 and 8
+- Windows 8
 
 ### Save Example
 
@@ -269,27 +301,7 @@ for details.
 
 ### BlackBerry 10 Quirks
 
-- __id__: Supported.  Assigned by the device when saving the contact.
-
-- __displayName__: Supported.  Stored in BlackBerry __user1__ field.
-
-- __nickname__: Not supported, returning `null`.
-
-- __phoneNumbers__: Partially supported.  Phone numbers are stored in BlackBerry fields __homePhone1__ and __homePhone2__ if _type_ is 'home', __workPhone1__ and __workPhone2__ if _type_ is 'work', __mobilePhone__ if _type_ is 'mobile', __faxPhone__ if _type_ is 'fax', __pagerPhone__ if _type_ is 'pager', and __otherPhone__ if _type_ is none of the above.
-
-- __emails__: Partially supported.  The first three email addresses are stored in the BlackBerry __email1__, __email2__, and __email3__ fields, respectively.
-
-- __addresses__: Partially supported.  The first and second addresses are stored in the BlackBerry __homeAddress__ and __workAddress__ fields, respectively.
-
-- __ims__: Not supported, returning `null`.
-
-- __organizations__: Partially supported.  The __name__ and __title__ of the first organization are stored in the BlackBerry __company__ and __title__ fields, respectively.
-
-- __photos__: Partially supported.  A single thumbnail-sized photo is supported.  To set a contact's photo, pass in a either a base64-encoded image, or a URL pointing to the image.  The image is scaled down before saving to the BlackBerry contacts database.   The contact photo is returned as a base64-encoded image.
-
-- __categories__:  Partially supported.  Only _Business_ and _Personal_ categories are supported.
-
-- __urls__:  Partially supported. The first URL is stored in BlackBerry __webpage__ field.
+- __id__: Assigned by the device when saving the contact.
 
 ### FirefoxOS Quirks
 
@@ -373,7 +385,7 @@ a `ContactAddress[]` array.
     // display the address information for all contacts
 
     function onSuccess(contacts) {
-        for (var i = 0; i < navigator.contacts.length; i++) {
+        for (var i = 0; i < contacts.length; i++) {
             for (var j = 0; j < contacts[i].addresses.length; j++) {
                 alert("Pref: "         + contacts[i].addresses[j].pref          + "\n" +
                     "Type: "           + contacts[i].addresses[j].type          + "\n" +
@@ -445,13 +457,13 @@ The `ContactError` object is returned to the user through the
 
 ### Constants
 
-- `ContactError.UNKNOWN_ERROR`
-- `ContactError.INVALID_ARGUMENT_ERROR`
-- `ContactError.TIMEOUT_ERROR`
-- `ContactError.PENDING_OPERATION_ERROR`
-- `ContactError.IO_ERROR`
-- `ContactError.NOT_SUPPORTED_ERROR`
-- `ContactError.PERMISSION_DENIED_ERROR`
+- `ContactError.UNKNOWN_ERROR` (code 0)
+- `ContactError.INVALID_ARGUMENT_ERROR` (code 1)
+- `ContactError.TIMEOUT_ERROR` (code 2)
+- `ContactError.PENDING_OPERATION_ERROR` (code 3)
+- `ContactError.IO_ERROR` (code 4)
+- `ContactError.NOT_SUPPORTED_ERROR` (code 5)
+- `ContactError.PERMISSION_DENIED_ERROR` (code 20)
 
 
 ## ContactField
@@ -557,7 +569,7 @@ Contains different kinds of information about a `Contact` object's name.
 ### Example
 
     function onSuccess(contacts) {
-        for (var i = 0; i < navigator.contacts.length; i++) {
+        for (var i = 0; i < contacts.length; i++) {
             alert("Formatted: "  + contacts[i].name.formatted       + "\n" +
                 "Family Name: "  + contacts[i].name.familyName      + "\n" +
                 "Given Name: "   + contacts[i].name.givenName       + "\n" +
@@ -648,7 +660,7 @@ properties.  A `Contact` object stores one or more
 ### Example
 
     function onSuccess(contacts) {
-        for (var i = 0; i < navigator.contacts.length; i++) {
+        for (var i = 0; i < contacts.length; i++) {
             for (var j = 0; j < contacts[i].organizations.length; j++) {
                 alert("Pref: "      + contacts[i].organizations[j].pref       + "\n" +
                     "Type: "        + contacts[i].organizations[j].type       + "\n" +

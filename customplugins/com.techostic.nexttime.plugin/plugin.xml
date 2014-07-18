@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.techostic.techocall.plugin"
+    id="com.techostic.nexttime.plugin"
     version="0.0.1">
 
     <name>Storage</name>

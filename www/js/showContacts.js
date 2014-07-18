@@ -290,7 +290,7 @@ var contacts = (function (){
             
             var addTickUser = contactOverlay.find('#addTickUser');
             
-            addTickUser.text(userObj.name+":"+json);
+            addTickUser.text(userObj.name);
             
             contactOverlay.show();
             

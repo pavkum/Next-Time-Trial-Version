@@ -18,7 +18,7 @@ var techoStorage = {
     
     deleteContact : function (sucesscallback, errorcallback, args) {
         try {
-            exec(sucesscallback ,  errorcallback , 'techoStorage' , 'deleteContact' , args);
+            exec(successcallback ,  errorcallback , 'techoStorage' , 'deleteContact' , args);
         }catch(error){
             errorcallback('Please try again later');   
         }
@@ -28,17 +28,14 @@ var techoStorage = {
         try{
             exec(successcallback ,  errorcallback , 'techoStorage' , 'addRemainder' , args);
         }catch(error){
-            
             errorcallback('Please try again later');   
         }
     },
     
     updateRemainder : function (successcallback, errorcallback, args){
         try{
-            
             exec(successcallback ,  errorcallback , 'techoStorage' , 'updateRemainder' , args);
         }catch(error){
-            
             errorcallback('Please try again later');   
         }
     },
@@ -53,9 +50,8 @@ var techoStorage = {
     
     deleteRemainder : function (sucesscallback, errorcallback, args) {
         try {
-            exec(sucesscallback ,  errorcallback , 'techoStorage' , 'deleteRemainder' , args);
+            exec(successcallback ,  errorcallback , 'techoStorage' , 'deleteRemainder' , args);
         }catch(error){
-            //sucesscallback(error);
             errorcallback('Please try again later');   
         }
     },

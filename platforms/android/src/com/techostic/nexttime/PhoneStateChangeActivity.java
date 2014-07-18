@@ -48,7 +48,10 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
                 switch (state) {
     			case TelephonyManager.CALL_STATE_OFFHOOK:
     				
-    				showDialer(context , intent.getExtras().getString(Intent.EXTRA_PHONE_NUMBER) , (byte)1);
+    				if (intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)) {
+    					showDialer(context , intent.getExtras().getString(Intent.EXTRA_PHONE_NUMBER) , (byte)1);
+    				}
+    				
     				break;
 
     			case TelephonyManager.CALL_STATE_RINGING:
@@ -111,6 +114,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 		final Long contactID = storageAPIImpl.getContactIDByPhoneNumber(incomingNumber);
 		// check only for ID - performance as we expect 99% calls wouldn't be having any remainders
 		
+		Log.d("call", "numb : "+incomingNumber);
 		
 		if(contactID != null && contactID != -1){
 			

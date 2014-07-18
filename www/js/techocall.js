@@ -1,5 +1,5 @@
 var techocall = (function (){
-    var $console = $("<div style='position: fixed; bottom: 0; left: 0; width: 100%; background-color: #dddddd; max-height: 50px; overflow: scroll;'></div>").appendTo($("body"));
+    /*var $console = $("<div style='position: fixed; bottom: 0; left: 0; width: 100%; background-color: #dddddd; max-height: 50px; overflow: scroll;'></div>").appendTo($("body"));
 
     var console = console || {};
 
@@ -13,7 +13,7 @@ var techocall = (function (){
 
     window.onerror = function(errorMsg){
         console.error(errorMsg);
-    };
+    };*/
 
     var historyList = [];
     

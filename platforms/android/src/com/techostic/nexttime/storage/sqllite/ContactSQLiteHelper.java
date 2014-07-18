@@ -265,7 +265,10 @@ public class ContactSQLiteHelper extends SQLiteOpenHelper implements ContactAPI 
 				do{
 					
 					String phoneNumbers = cursor.getString(1);
-					if(phoneNumbers.matches("\\b"+phoneNumber+"\\b")){
+					
+					Log.d("phonenumbers : ", phoneNumbers);
+					
+					if(phoneNumbers.contains("\""+phoneNumber+"\"")){
 						contactID = cursor.getLong(0);
 						break;
 					}
