@@ -206,7 +206,7 @@ for(var i=0; i<3; i++){
 }
 
 
-//displayData(JSON.stringify(data) , true);
+displayData(JSON.stringify(data) , true);
 
 var updateData = function (data , openClosed) {
 

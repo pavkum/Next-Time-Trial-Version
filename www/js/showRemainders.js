@@ -77,6 +77,7 @@ var showAndRemainders = (function (){
     };
     
     var deleteSuccess = function (remainderIds) {
+        
         for(var i=0; i<remainderIds.length; i++){
             $('#' + remainderIds[i]).remove();
         }
@@ -118,7 +119,7 @@ var showAndRemainders = (function (){
                 remainderIds.remainderIds.push(selectedElements.eq(i).attr('id'));
             }
             
-            techoStorage.deleteRemainder(deleteSuccess , deleteError , [remainderIds]);
+            techoStorage.deleteRemainders(deleteSuccess , deleteError , [remainderIds]);
         });
         
         var upperStack = [addNewRemainder , showUserInfo , deleteSelectedRemainder];
@@ -137,7 +138,7 @@ var showAndRemainders = (function (){
         
         var addNewLineHeight = elem.find('#newLine').height();
         
-        elem.find('.remainders').height((elem.height() - (user.height() + elem.find('.userMessage').height() )) * 0.8);
+        elem.find('.remainders').height((elem.height() - (user.height() + elem.find('.userMessage').height() )) * 0.75);
         
     };
     
@@ -297,7 +298,7 @@ var showAndRemainders = (function (){
         remainderIds.remainderIds.push(target.attr('id'));
         
             
-        techoStorage.deleteRemainder(deleteSuccess , deleteError , [remainderIds]);
+        techoStorage.deleteRemainders(deleteSuccess , deleteError , [remainderIds]);
         
         event.stopPropagation();
     });

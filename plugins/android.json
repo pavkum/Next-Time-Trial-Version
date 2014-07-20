@@ -44,8 +44,8 @@
         },
         "res/xml/config.xml": {
             "/*": {
-                "<feature name=\"techoStorage\"><param name=\"android-package\" value=\"com.techostic.nexttime.plugin.StoragePlugin\" /></feature>": 1,
-                "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>": 1
+                "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>": 1,
+                "<feature name=\"techoStorage\"><param name=\"android-package\" value=\"com.techostic.nexttime.plugin.StoragePlugin\" /></feature>": 1
             }
         },
         "AndroidManifest.xml": {
@@ -57,10 +57,10 @@
         }
     },
     "installed_plugins": {
-        "com.techostic.nexttime.plugin": {
+        "org.apache.cordova.contacts": {
             "PACKAGE_NAME": "com.techostic.nexttime"
         },
-        "org.apache.cordova.contacts": {
+        "com.techostic.nexttime.plugin": {
             "PACKAGE_NAME": "com.techostic.nexttime"
         }
     },

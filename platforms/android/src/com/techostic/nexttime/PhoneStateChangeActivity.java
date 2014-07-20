@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.cordova.LOG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,6 +13,7 @@ import org.json.JSONObject;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -48,9 +50,28 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
                 switch (state) {
     			case TelephonyManager.CALL_STATE_OFFHOOK:
     				
-    				if (intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)) {
-    					showDialer(context , intent.getExtras().getString(Intent.EXTRA_PHONE_NUMBER) , (byte)1);
+    				Bundle bundle = intent.getExtras();
+    				
+    				if(bundle == null){
+    					Log.d("preeee bundle", "nulll bundle");
+    					return;
     				}
+    				
+    				Log.d("bundleeeeeee", bundle.toString());
+    				
+    				if(intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER) == null){
+    					Log.e("outgoing number", "null :(");
+    					return;
+    				}
+    				
+    				//Log.d("callll state offfff hooooookkkkk", intent.getExtras().getString(Intent.EXTRA_PHONE_NUMBER));
+    				Log.d("callll state offfff hooooookkkkk", intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER));
+    				
+    				showDialer(context , intent.getExtras().getString(Intent.EXTRA_PHONE_NUMBER) , (byte)1);
+    				
+    				/*if (intent.getAction().equals(Intent)) {
+    					
+    				}*/
     				
     				break;
 
@@ -100,11 +121,6 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 	
 	private void showDialer (final Context context , String incomingNumber , final byte remaindedUsing){
 		
-		//incomingNumber = incomingNumber.replaceAll(" ", "").replaceAll("(", "").replaceAll(")", "");
-		
-//		if(incomingNumber.length() > 10){
-//			incomingNumber.substring(incomingNumber.length() - 11, incomingNumber.length() - 1);
-//		}
 		String un = incomingNumber;
 		incomingNumber = incomingNumber.replaceAll("\\D", "");
 		Pattern p = Pattern.compile("\\d{10}$");
@@ -114,7 +130,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 		final Long contactID = storageAPIImpl.getContactIDByPhoneNumber(incomingNumber);
 		// check only for ID - performance as we expect 99% calls wouldn't be having any remainders
 		
-		Log.d("call", "numb : "+incomingNumber);
+		Log.d("call", "numb : "+incomingNumber + " : contactid : "+contactID);
 		
 		if(contactID != null && contactID != -1){
 			
@@ -142,7 +158,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 					JSONObject jsonData = new JSONObject();
 					
 					jsonData.put("id", remainderList.get(i).getRemainderID());
-					jsonData.put("message", remainderList.get(i).getRemainderMessage() + ":"+incomingNumber + ":"+ contact.getContactID());
+					jsonData.put("message", remainderList.get(i).getRemainderMessage());
 					//jsonData.put("message", un + "---"+incomingNumber + ":"+ contact.getContactID());
 					jsonMessageArray.put(jsonData);
 				}

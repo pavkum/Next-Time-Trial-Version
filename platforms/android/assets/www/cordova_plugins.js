@@ -1,13 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/com.techostic.nexttime.plugin/www/techoStorage.js",
-        "id": "com.techostic.nexttime.plugin.techoStorage",
-        "clobbers": [
-            "techoStorage"
-        ]
-    },
-    {
         "file": "plugins/org.apache.cordova.contacts/www/contacts.js",
         "id": "org.apache.cordova.contacts.contacts",
         "clobbers": [
@@ -66,13 +59,20 @@ module.exports = [
     {
         "file": "plugins/org.apache.cordova.contacts/www/ContactFieldType.js",
         "id": "org.apache.cordova.contacts.ContactFieldType"
+    },
+    {
+        "file": "plugins/com.techostic.nexttime.plugin/www/techoStorage.js",
+        "id": "com.techostic.nexttime.plugin.techoStorage",
+        "clobbers": [
+            "techoStorage"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.techostic.nexttime.plugin": "0.0.1",
-    "org.apache.cordova.contacts": "0.2.11"
+    "org.apache.cordova.contacts": "0.2.11",
+    "com.techostic.nexttime.plugin": "0.0.1"
 }
 // BOTTOM OF METADATA
 });

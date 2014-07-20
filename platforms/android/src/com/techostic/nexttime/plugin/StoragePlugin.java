@@ -247,6 +247,8 @@ public class StoragePlugin extends CordovaPlugin {
 			public void run() {
 				try {
 
+					Log.d("delete Remainder", "hereeeeeeeeeeeeeeeeeeeeeeeeeeee");
+					
 					JSONObject jsonObj = args.getJSONObject(0);
 
 					JSONArray array = jsonObj.getJSONArray("remainderIds");

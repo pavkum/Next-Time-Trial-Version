@@ -16,7 +16,7 @@ var techoStorage = {
         }
     },
     
-    deleteContact : function (sucesscallback, errorcallback, args) {
+    deleteContacts : function (successcallback, errorcallback, args) {
         try {
             exec(successcallback ,  errorcallback , 'techoStorage' , 'deleteContact' , args);
         }catch(error){
@@ -48,7 +48,7 @@ var techoStorage = {
         }
     },
     
-    deleteRemainder : function (sucesscallback, errorcallback, args) {
+    deleteRemainders : function (successcallback, errorcallback, args) {
         try {
             exec(successcallback ,  errorcallback , 'techoStorage' , 'deleteRemainder' , args);
         }catch(error){

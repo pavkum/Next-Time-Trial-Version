@@ -35,7 +35,7 @@ var contacts = (function (){
         subHeader.height(height);
         subHeader.css('line-height' , height + 'px');
         
-        $('#contact').height($('#contact').height());
+        $('#contact').height(elem.height() * 0.08);
         
         resultTemplate.height($('#contact').height());
         resultTemplate.css('line-height' , $('#contact').height() + 'px');
@@ -216,8 +216,31 @@ var contacts = (function (){
                     result.photo =  "img/photo.jpg";
                 }
                 
+                var img = clone.find('img');
+                
                 clone.data('json' , JSON.stringify(result));
-                clone.find('img').attr('src' , result.photo); 
+                img.attr('src' , result.photo);
+                
+                /*img.on('error' , function (){
+                    result.photo =  "img/photo.jpg";
+                    img.attr('src' , result.photo);
+                });*/
+                
+                img[0].onerror = function (event){
+                    var target = event.currentTarget;
+                    var target = $(target);
+
+                    target.attr('src' , 'img/photo.jpg');
+
+                    target = target.parent();
+
+                    var data = target.data('json');
+                    data = JSON.parse(data);
+
+                    data.photo = 'img/photo.jpg';
+
+                    target.data('json' , JSON.stringify(data));
+                }
             }
             
             clone.find('#name').text(result.name);
@@ -227,6 +250,23 @@ var contacts = (function (){
         }
         
     };
+    
+    $('body').on('error' , '.row > img' , function (event){
+        var target = event.currentTarget;
+        var target = $(target);
+        
+        target.attr('src' , 'img/photo.jpg');
+        
+        target = target.parent();
+        
+        var data = target.data('json');
+        data = JSON.parse(data);
+        
+        data.photo = 'img/photo.jpg';
+        
+        target.data('json' , JSON.stringify(data));
+        
+    });
     
     // clear search stream
     

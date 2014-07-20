@@ -57,8 +57,10 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$attr.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/NextTime.class \
+/home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/OutgoingCallListener$1.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/PhoneStateChangeActivity.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/webinterface/DialerInterface.class \
+/home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/OutgoingCallListener.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/PhoneStateChangeActivity$2.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/DialerActivity.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$string.class \

@@ -62,6 +62,7 @@ var registeredContacts = (function (){
 
     var deleteSuccess = function (contactIds) {
         
+        
         var length = $('#count').text() - contactIds.length;
         
         $('#count').text(length);
@@ -71,8 +72,6 @@ var registeredContacts = (function (){
         }
         
         
-        
-        notification('Delete successfull'); 
     };
     
     var deleteError = function (error) {
@@ -106,7 +105,7 @@ var registeredContacts = (function (){
                 contactIds.contactIds.push(selectedElements.eq(i).attr('id'));
             }
             
-            techoStorage.deleteContact(deleteSuccess , deleteError , [contactIds]);
+            techoStorage.deleteContacts(deleteSuccess , deleteError , [contactIds]);
         });
 /*
     
@@ -211,7 +210,7 @@ var registeredContacts = (function (){
             
         contactIds.contactIds.push(target.attr('id'));
         
-        techoStorage.deleteContact(deleteSuccess , deleteError , [contactIds]);
+        techoStorage.deleteContacts(deleteSuccess , deleteError , [contactIds]);
         
         event.stopPropagation();
     });

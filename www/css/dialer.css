@@ -6,7 +6,7 @@ body {
     
     padding: 0;
     margin: 0;
-    
+    background: transparent;
     
 }
 
@@ -169,7 +169,8 @@ table {
     padding: 3% 2%;
     margin: 1% 0;
     box-sizing: border-box;
-    background: white;  
+    background: transparent;
+    color: #FAFAFA;
 }
 
 footer {
