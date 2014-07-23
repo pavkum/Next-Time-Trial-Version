@@ -4,7 +4,7 @@ var displayData = function (data , openClosed ){
     
     FastClick.attach(document.body);
     
-    $('#name').text(data.name);
+    $('#name').text(data.name.split(' ')[0]);
     $('#name').attr('src' , data.photo);
     
     var messages = data.remainders;
@@ -37,7 +37,7 @@ var displayData = function (data , openClosed ){
     header.on(configuartion.events.userselect , function (){
         if(container.is(':visible')){
             container.hide();
-            clear.text('Swipe to clear-s'+messages.length);
+            clear.text('Swipe to clear');
         }else{
             container.show();
             clear.text('Click to open');
@@ -170,6 +170,8 @@ var displayData = function (data , openClosed ){
                     
                     target.remove();
                     
+                    messagesElem = $('.messages');
+                    
                     if(messagesElem.length === 0){
                         Android.finish();
                     }
@@ -206,7 +208,7 @@ for(var i=0; i<3; i++){
 }
 
 
-displayData(JSON.stringify(data) , true);
+//displayData(JSON.stringify(data) , false);
 
 var updateData = function (data , openClosed) {
 

@@ -2,10 +2,11 @@ package com.techostic.nexttime;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.cordova.LOG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,6 +16,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -139,9 +141,13 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 			
 			remainderList = storageAPIImpl.getAllPendingRemaindersByContactID(contact.getContactID());
 			
+			
+			
 			if(remainderList == null || (remainderList != null && remainderList.size() == 0)){ // no pending remainders
 				return;
 			}
+			
+			Log.d("phonestate",remainderList+"");
 			
 			contact.setRemainders(remainderList);
 			
@@ -170,10 +176,25 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 				return;
 			}
 			
-			new Handler().postDelayed(new Runnable() {
-				
+			Log.d("fineeeee", "tilll here");
+			
+			/*dialerIntent = new Intent(context, DialerActivity.class); 
+			
+			dialerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			dialerIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+			dialerIntent.putExtra("contactID", contactID);
+			dialerIntent.putExtra("json", jsonObject.toString());
+			dialerIntent.putExtra("remaindedUsing", remaindedUsing);
+			
+			context.startActivity(dialerIntent);*/
+			
+			new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+			//new Timer().schedule(new TimerTask() {
 				@Override
 				public void run() {
+					
+					Log.d("postdelayed","heerrreee");
+					
 					dialerIntent = new Intent(context, DialerActivity.class); 
 					
 					dialerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -184,7 +205,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 					
 					context.startActivity(dialerIntent);
 				}
-			}, 2000);
+			}, 1000);
 			
 	        
 		}

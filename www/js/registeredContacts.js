@@ -39,6 +39,7 @@ var registeredContacts = (function (){
             clone.attr('id',contact.id);
             
             var name = clone.find('.name');
+            contact.displayName = contact.displayName.split(' ')[0];
             name.text(contact.displayName);
             
             var photo = clone.find('#photo');

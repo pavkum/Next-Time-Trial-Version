@@ -36,6 +36,11 @@ var showAndRemainders = (function (){
             
             var remainderWrapper = $('.remainders').show();
             
+            var now = new Date();
+            
+            var nowTime = now.getTime();
+            var year = now.getYear();
+            
             for(var i=0; i<data.userRemainders.length; i++){
                 var remainder = data.userRemainders[i];
                 var clone = template.clone();
@@ -51,7 +56,22 @@ var showAndRemainders = (function (){
                     //clone.find('.statusIcon').addClass('done').text('D'); 
                     var date = new Date(remainder.remaindedOn);
             
-                    var remaindedOn = date.getHours() + ' : ' + date.getMinutes() + ' : ' + date.getSeconds () + ' - ' + date.toDateString();
+                    var time = date.getTime() / 1000;
+                    
+                    var remaindedOn;
+
+                    var hour = date.getHours() + 1;
+                    var ampm = hour < 12 || hour == 24 ? ' AM ': ' PM ';
+                    
+                    hour = (hour === 24) ? 12 : hour;
+                    
+                    if((nowTime - time) > 2592000){// less than 30 days
+                        remaindedOn = hour + ' : ' + date.getMinutes() + ' : ' + date.getSeconds() +  ampm + ' - ' + date.getDate() + ' : ' + date.getMonth();
+                    }else if((nowTime - time) > 7776000){ // 3 months
+                        remaindedOn = hour + ' : ' + date.getMinutes() + ' - ' + date.toDateString();    
+                    }else{
+                        remaindedOn = date.toDateString();    
+                    }
             
                     clone.find('#lastShown').text(remaindedOn);
                 }else{

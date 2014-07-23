@@ -32,6 +32,8 @@ public class DialerInterface {
 		this.storageAPIImpl = storageAPIImpl;
 		this.autoRemove = autoRemove;
 		this.remaindedUsing = remaindedUsing;
+		
+		Log.d("dialeractivity", "autoremoveeee : "+this.autoRemove);
 	}
 
 	@JavascriptInterface
