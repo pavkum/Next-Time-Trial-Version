@@ -28,7 +28,7 @@ var registeredContacts = (function (){
         
         $('#count').text(data.contacts.length);
         
-        var wrapper = elem.find('.wrapper');
+        var contacts = elem.find('#contacts');
         
         for(var i=0; i<data.contacts.length; i++){
             
@@ -47,7 +47,7 @@ var registeredContacts = (function (){
             
             clone.data('phoneNumber' , contact.phoneNumber);
             
-            wrapper.append(clone);
+            contacts.append(clone);
             
         }
         
@@ -167,8 +167,7 @@ var registeredContacts = (function (){
     
     
     var layoutFix = function (){
-        var addIcon = elem.find('#addIcon');
-        addIcon.width(addIcon.height());
+        //elem.find('#contacts').height((elem.height() - elem.find('.total').outerHeight()) * 0.85);
     };
     
     $('body').on('showTechoContacts',function (){
@@ -178,7 +177,7 @@ var registeredContacts = (function (){
         var def = new $.Deferred();
         loadTemplate(def);
         def.done(function (){
-            //layoutFix();
+            layoutFix();
             elem.show();
             loadContactInfo();
             //attachEventHandlers();
