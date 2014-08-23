@@ -71,11 +71,17 @@ public class DialerActivity extends Activity {
 			autoRemoveStatus = autoRemove.getValue();
 		}
 		
+		Settings autoRead = storageAPIImpl.getSettingsBySettingsName("autoRead");
 		
+		String autoReadStatus = "0";
+		
+		if(autoRead != null){
+			autoReadStatus = autoRead.getValue();
+		}
 		
 		final String jsonData = this.getIntent().getStringExtra("json");
 		
-		wv.addJavascriptInterface(new DialerInterface(this , storageAPIImpl , autoRemoveStatus , this.getIntent().getByteExtra("remaindedUsing", (byte)-1)), "Android");
+		wv.addJavascriptInterface(new DialerInterface(this , storageAPIImpl , autoRemoveStatus , autoReadStatus , this.getIntent().getByteExtra("remaindedUsing", (byte)-1)), "Android");
 		
 		wv.setWebViewClient(new WebViewClient() {
 		    @Override

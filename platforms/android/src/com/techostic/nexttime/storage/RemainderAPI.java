@@ -16,5 +16,5 @@ public interface RemainderAPI {
 	
 	public boolean deleteRemainderByContactId(long contactID);
 	
-	public List<Remainder> getAllPendingRemaindersByContactID(long contactID);
+	public List<Remainder> getAllPendingRemaindersByContactID(long contactID , String showAll);
 } 

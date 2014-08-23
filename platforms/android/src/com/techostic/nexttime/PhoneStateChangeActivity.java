@@ -23,6 +23,7 @@ import android.util.Log;
 
 import com.techostic.nexttime.modal.Contact;
 import com.techostic.nexttime.modal.Remainder;
+import com.techostic.nexttime.modal.Settings;
 import com.techostic.nexttime.storage.StorageAPI;
 import com.techostic.nexttime.storage.StorageAPIImpl;
 
@@ -123,7 +124,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 	
 	private void showDialer (final Context context , String incomingNumber , final byte remaindedUsing){
 		
-		String un = incomingNumber;
+		
 		incomingNumber = incomingNumber.replaceAll("\\D", "");
 		Pattern p = Pattern.compile("\\d{10}$");
 		Matcher m = p.matcher(incomingNumber);
@@ -139,7 +140,15 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 	        
 			Contact contact = storageAPIImpl.getContactById(contactID);
 			
-			remainderList = storageAPIImpl.getAllPendingRemaindersByContactID(contact.getContactID());
+			Settings autoRead = storageAPIImpl.getSettingsBySettingsName("autoRead");
+			
+			String autoReadStatus = "0";
+			
+			if(autoRead != null){
+				autoReadStatus = autoRead.getValue();
+			}
+			
+			remainderList = storageAPIImpl.getAllPendingRemaindersByContactID(contact.getContactID() , autoReadStatus);
 			
 			
 			
@@ -147,7 +156,7 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 				return;
 			}
 			
-			Log.d("phonestate",remainderList+"");
+			
 			
 			contact.setRemainders(remainderList);
 			

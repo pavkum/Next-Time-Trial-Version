@@ -1,6 +1,8 @@
 var showAndRemainders = (function (){
     var elem = $('#workarea');
     
+    
+    
     var user = {};
     
     var template = $("<div class='remainderItem'> <div class='remainderInfo'> " +
@@ -227,10 +229,25 @@ var showAndRemainders = (function (){
     };
     
     var showRemainder = function (remainder){
-        console.log('heeeee');
+        
         var note = elem.find('#note').clone();
         
+        var indicator = note.find('#indicator');
+        var background = note.find('#background');
+        
         var textarea = note.find('textarea');
+        
+        textarea.on('keyup' , function (event){
+            var data = textarea.val();
+            
+            if(data.length <= configuartion.maxRemainderLength){
+                background.width(data.length / configuartion.maxRemainderLength * 100 + '%');    
+            }else{
+                textarea.val(data.substr(0 , data.length - 1));
+                return false;    
+            }
+            
+        });
         
         // stupid logic
         var save = false;
@@ -292,7 +309,21 @@ var showAndRemainders = (function (){
         });
         
         $('body').trigger('addToHistory',['confirmClose']);
-        setTimeout(function(){textarea.height(textarea.height());textarea.focus()} , 1000);
+        setTimeout(function(){textarea.height(textarea.height());textarea.focus();
+                                
+                                var indicatorOuterHeight = indicator.outerHeight();
+                                var indicatorHeight = indicator.height();  
+                              
+                                ok.height(indicatorOuterHeight);
+            
+                                
+                                background.height(indicatorHeight);
+        
+                                background.css('top' , '-' +  indicatorOuterHeight   + 'px');
+                              
+                                background.show();
+                             }
+                   , 100);
     };
     
     // events

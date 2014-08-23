@@ -116,7 +116,18 @@ var displayData = function (data , openClosed ){
                 var diff = touchHandler.curX - touchHandler.startX;
                 
                 if(diff > 0 && diff >= minimumSwipeLength){
-                    Android.finish();
+                    
+                    var remainders = [];
+                    
+                    for(var i=0; i<messages.length; i++){
+                        var remainder = messages[i];
+                        var rem = {};
+                        rem.id = remainder.id;
+                        rem.message = target.text();
+                    }
+
+                    
+                    Android.finish(JSON.stringify(remainders));
                     
                     //showSidebar();
                 }else{
@@ -173,7 +184,7 @@ var displayData = function (data , openClosed ){
                     messagesElem = $('.messages');
                     
                     if(messagesElem.length === 0){
-                        Android.finish();
+                        Android.finish("");
                     }
                     
                     //showSidebar();
@@ -220,7 +231,7 @@ var updateData = function (data , openClosed) {
     
     
     $('#close').on('touchstart' , function (){
-        Android.finish();
+        Android.finish("");
     });
 
     

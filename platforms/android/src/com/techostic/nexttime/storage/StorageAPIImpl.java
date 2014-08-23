@@ -83,8 +83,8 @@ public class StorageAPIImpl implements StorageAPI {
 	}
 
 	@Override
-	public List<Remainder> getAllPendingRemaindersByContactID(long contactID) {
-		return remainderSQLiteHelper.getAllPendingRemaindersByContactID(contactID);
+	public List<Remainder> getAllPendingRemaindersByContactID(long contactID , String showAll) {
+		return remainderSQLiteHelper.getAllPendingRemaindersByContactID(contactID , showAll);
 	}
 
 	@Override

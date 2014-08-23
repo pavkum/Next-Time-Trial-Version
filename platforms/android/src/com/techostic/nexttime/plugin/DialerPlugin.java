@@ -35,7 +35,7 @@ public class DialerPlugin extends CordovaPlugin {
 			userID = array.getLong(0);
 			
 			Contact contact = storageAPIImpl.getContactById(userID);
-			List<Remainder> pendingRemainders = storageAPIImpl.getAllPendingRemaindersByContactID(userID);
+			//List<Remainder> pendingRemainders = storageAPIImpl.getAllPendingRemaindersByContactID(userID);
 			
 		}catch(Exception e){
 			

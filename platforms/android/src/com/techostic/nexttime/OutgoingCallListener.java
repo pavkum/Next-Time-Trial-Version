@@ -65,7 +65,7 @@ public class OutgoingCallListener extends BroadcastReceiver {
 			Contact contact = storageAPIImpl.getContactById(contactID);
 
 			remainderList = storageAPIImpl
-					.getAllPendingRemaindersByContactID(contact.getContactID());
+					.getAllPendingRemaindersByContactID(contact.getContactID() , "0");
 
 			if (remainderList == null
 					|| (remainderList != null && remainderList.size() == 0)) { // no

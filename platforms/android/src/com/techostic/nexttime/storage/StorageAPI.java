@@ -18,7 +18,7 @@ public interface StorageAPI {
 	
 	public List<Remainder> getAllRemaindersByContactID(long contactID);
 	
-	public List<Remainder> getAllPendingRemaindersByContactID(long contactID);
+	public List<Remainder> getAllPendingRemaindersByContactID(long contactID , String showAll);
 	
 	public boolean addRemainder(Remainder remainder);
 	

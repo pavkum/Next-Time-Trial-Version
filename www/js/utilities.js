@@ -12,6 +12,8 @@ var configuartion = {
         
     },
     
+    maxRemainderLength : 16,
+    
 };
 
 var flatUIColors = {

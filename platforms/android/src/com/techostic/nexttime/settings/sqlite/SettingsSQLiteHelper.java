@@ -99,11 +99,24 @@ public class SettingsSQLiteHelper extends SQLiteOpenHelper implements
 		showCollapsed.setValue("0");
 		createSettings(showCollapsed);
 		
+		Settings autoRead = new Settings();
+		autoRead.setSettingsID(3l);
+		autoRead.setName("autoRead");
+		autoRead.setValue("0");
+		createSettings(autoRead);
+		
+		Settings showAll = new Settings();
+		showAll.setSettingsID(4l);
+		showAll.setName("showAll");
+		showAll.setValue("0");
+		createSettings(showAll);
+		
 		Settings anonymousUsage = new Settings();
-		anonymousUsage.setSettingsID(3l);
+		anonymousUsage.setSettingsID(5l);
 		anonymousUsage.setName("anonymousUsage");
 		anonymousUsage.setValue("1");
 		createSettings(anonymousUsage);
+
 		
 	}
 

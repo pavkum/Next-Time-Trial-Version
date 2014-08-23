@@ -24,6 +24,8 @@ var techocall = (function (){
         var width = $(window).width();
         var height = $(window).height();
         
+        $('.header > img').height(height * 0.1);
+        
         var displayHeight = $('.header').outerHeight();
         
         headerHeight = $('.header').height();

@@ -49,9 +49,13 @@
         color:#848484;
         font-weight: bold;
         font-size: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 50%;
     }
     
     .lastShown {
+        height: 50%;
         color: #848484;
         font-weight: 600;
         font-size: 80%;
@@ -311,6 +315,8 @@
         margin-bottom: 2%;
         padding: 2%;
         width: 96%;
+        outline: none;
+        resize: none;
         font-size: 125%;
     }
     
@@ -320,13 +326,28 @@
         color: #3A539B;
         text-align: center;
         font-weight: bold;
-        padding: 2%;
+        /*padding: 2%;*/
         font-size: 125%;
     }
     
     .modalClass {
         top:0 !important;
         border: 0 !important;   
+    }
+    
+    #indicator {
+        width: 100%;
+        padding: 2%;
+    }
+    
+    #background {
+        display: none;
+        width: 0%;
+        position: relative;
+        background-color: green;
+        top: -100%;
+        opacity: 0.5;
+        padding: 2% 0;
     }
     
 </style>
@@ -345,7 +366,10 @@
     
     <div id="note" class="note">
         <textarea placeholder="Talk about something"></textarea>
-        <div tabindex="1" id="ok" class="ok">OK</div>
+        <div tabindex="1" id="ok" class="ok">
+            <div id="indicator">OK</div>
+            <div id="background">&nbsp;</div>
+        </div>
     </div>
         
     <div id="newLine" class="newLine">

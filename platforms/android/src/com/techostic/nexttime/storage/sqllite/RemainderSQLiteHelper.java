@@ -234,7 +234,7 @@ public class RemainderSQLiteHelper extends SQLiteOpenHelper implements Remainder
 	}
 
 	@Override
-	public List<Remainder> getAllPendingRemaindersByContactID(long contactID) {
+	public List<Remainder> getAllPendingRemaindersByContactID(long contactID , String showAll) {
 		SQLiteDatabase db = null;
 		
 		try{
@@ -244,7 +244,15 @@ public class RemainderSQLiteHelper extends SQLiteOpenHelper implements Remainder
 			String columns[] = {REMAINDER_ID , CONTACT_ID , REMAINDER_MESSAGE};
 			String selectionArgs[] = {contactID + "" };
 			
-			Cursor cursor = db.query(TABLE_NAME, columns, CONTACT_ID + " = ? and " + IS_REMAINDED + " = 0", selectionArgs, null, null, null);
+		    String whereClause = "";
+		    
+		    if(showAll.equalsIgnoreCase("1")){
+		    	whereClause = CONTACT_ID + " = ?";
+		    }else{
+		    	whereClause = CONTACT_ID + " = ? and " + IS_REMAINDED + " = 0";
+		    }
+			
+			Cursor cursor = db.query(TABLE_NAME, columns, whereClause , selectionArgs, null, null, null);
 			
 			List<Remainder> remainderList = new ArrayList<Remainder>();
 			Remainder remainder = null;

@@ -97,13 +97,26 @@ public class ContactSQLiteHelper extends SQLiteOpenHelper implements ContactAPI 
 		showCollapsed.setSettingsID(2l);
 		showCollapsed.setName("showCollapsed");
 		showCollapsed.setValue("0");
-		createSettings(showCollapsed , db);
+		createSettings(showCollapsed ,db);
+		
+		Settings autoRead = new Settings();
+		autoRead.setSettingsID(3l);
+		autoRead.setName("autoRead");
+		autoRead.setValue("0");
+		createSettings(autoRead , db);
+		
+		Settings showAll = new Settings();
+		showAll.setSettingsID(4l);
+		showAll.setName("showAll");
+		showAll.setValue("0");
+		createSettings(showAll , db);
 		
 		Settings anonymousUsage = new Settings();
-		anonymousUsage.setSettingsID(3l);
+		anonymousUsage.setSettingsID(5l);
 		anonymousUsage.setName("anonymousUsage");
 		anonymousUsage.setValue("1");
-		createSettings(anonymousUsage , db);
+		createSettings(anonymousUsage ,db);
+
 		
 	}
 
