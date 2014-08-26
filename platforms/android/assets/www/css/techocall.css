@@ -74,18 +74,31 @@ body {
     width: 100%;
     box-sizing: border-box;
     text-align: center;
-    padding: 0 2.5%;
+    padding: 2.5%;
+    box-shadow: black 0 2px 5px;
+    background-color: #E4F1FE;
 }
 
 
 .header > img{
     /*max-width: 100%;*/
     width: auto;
-    text-align: left;
+    float: left;
     margin: 0 auto;
+    border-radius: 100%;
+    box-shadow: rgb(128, 0, 82) 2px 3px 12px, green -2px -3px 12px;
 }
 
-@media screen and (min-height : 240px) {
+.logoText {
+    text-align: left;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-size: 125%;
+    font-weight: lighter;
+    text-shadow: rgb(128, 0, 82) 2px 3px 12px, green -2px -3px 12px;   
+}
+
+/*@media screen and (min-height : 240px) {
     
     body {
         font-size:5px; 
@@ -501,7 +514,7 @@ body {
         bottom: 288px;   
     }
 }
-
+*/
 
 #backbutton {
     width:10%;
@@ -533,7 +546,8 @@ body {
 
 #workarea {
     width:100%;
-    
+    position: relative;
+    top:5px;
     overflow-y:auto;
     
 }

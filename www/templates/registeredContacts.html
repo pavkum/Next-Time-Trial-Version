@@ -347,8 +347,8 @@
     }
     
     .addContact {
-        background-color: #5C97BF;
-        border: 2px solid #2574A9;
+        /*background-color: #5C97BF;
+        border: 2px solid #2574A9;*/
         padding: 0 5%;
         
     }
@@ -394,18 +394,23 @@
 </style>
 
 <div class="addContact" id="getAllContacts">
-    <img class="profile" src="img/profile.png">
+    <!--<img class="profile" src="img/profile.png">-->
     <img class="plus" src="img/plus.png">
     
-    <div id="addText">Add a new tik</div>
+    <div style="width:80%;float:left">You have <span id="count"></span> tiks</div>
+        <div id="settings" style="width:20%;float:left">
+            <img height="50px" src="img/menu.png" />
+        </div>
+    
+    <!--<div id="addText">Add a new tik</div>-->
     <div class="clearfix"></div>
 </div>
 
 <div class="wrapper">
     
-    <div class="total">
+    <div class="total" style="display:none">
         <div style="width:80%;float:left">You have <span id="count"></span> tiks</div>
-        <div id="settings" style="width:20%;float:left">
+        <div id="settings" style="width:10%;float:left">
             <img height="50px" src="img/menu.png" />
         </div>
         <div class="clearfix"></div>
