@@ -1,6 +1,7 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/TechoCall.ap_ \
  : /home/pavan/android_project/NextTime-Trial/platforms/android/res/drawable-hdpi/icon.png \
 /home/pavan/android_project/NextTime-Trial/platforms/android/res/drawable-mdpi/icon.png \
+/home/pavan/android_project/NextTime-Trial/platforms/android/res/values/transparentDialogTheme.xml \
 /home/pavan/android_project/NextTime-Trial/platforms/android/res/values/strings.xml \
 /home/pavan/android_project/NextTime-Trial/platforms/android/res/drawable-ldpi/icon.png \
 /home/pavan/android_project/NextTime-Trial/platforms/android/res/drawable-xhdpi/icon.png \

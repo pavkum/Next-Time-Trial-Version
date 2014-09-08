@@ -30,6 +30,8 @@ var techocall = (function (){
         
         headerHeight = $('.header').height();
         
+        $('.logoText').css('line-height' , headerHeight + 'px');
+        
         var workarea = $('#workarea');
         
         workarea.outerHeight(height - displayHeight);

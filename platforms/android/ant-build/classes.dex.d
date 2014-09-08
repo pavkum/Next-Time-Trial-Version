@@ -53,8 +53,10 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/plugin/StoragePlugin.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/plugin/StoragePlugin$3.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/plugin/StoragePlugin$4.class \
+/home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$color.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/DialerActivity$1.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$attr.class \
+/home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$style.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/NextTime.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/OutgoingCallListener$1.class \

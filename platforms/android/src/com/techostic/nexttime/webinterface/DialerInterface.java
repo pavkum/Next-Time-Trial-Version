@@ -23,7 +23,7 @@ public class DialerInterface {
 	private StorageAPI storageAPIImpl = null;
 
 	private String autoRemove;
-	
+
 	private String autoRead;
 
 	private byte remaindedUsing;
@@ -35,8 +35,8 @@ public class DialerInterface {
 		this.autoRemove = autoRemove;
 		this.autoRead = autoRead;
 		this.remaindedUsing = remaindedUsing;
-		
-		Log.d("dialeractivity", "autoremoveeee : "+this.autoRemove);
+
+		Log.d("dialeractivity", "autoremoveeee : " + this.autoRemove);
 	}
 
 	@JavascriptInterface
@@ -50,35 +50,36 @@ public class DialerInterface {
 		if (remainderIds != null) {
 			try {
 				JSONArray array = new JSONArray(remainderIds);
-				
-				if(autoRemove.equals("1")){
-					
+
+				if (autoRemove.equals("1")) {
+
 					List<Long> remainderIdList = new ArrayList<Long>();
-					
-					for(int i=0; i<array.length(); i++){
+
+					for (int i = 0; i < array.length(); i++) {
 						JSONObject jsonRemainder = array.getJSONObject(i);
 						remainderIdList.add(jsonRemainder.getLong("id"));
 					}
-					
+
 					storageAPIImpl.deleteRemainder(remainderIdList);
-					
-				}else{
-					for(int i=0; i<array.length(); i++){
+
+				} else {
+					for (int i = 0; i < array.length(); i++) {
 						JSONObject jsonRemainder = array.getJSONObject(i);
-						
+
 						Remainder remainder = new Remainder();
-						
+
 						remainder.setRemainderID(jsonRemainder.getLong("id"));
-						remainder.setRemainderMessage(jsonRemainder.getString("message"));
-						
+						remainder.setRemainderMessage(jsonRemainder
+								.getString("message"));
+
 						remainder.setRemainded(true);
 						remainder.setRemaindedOn(new Date().getTime());
 						remainder.setRemaindedUsing(this.remaindedUsing);
-						
+
 						storageAPIImpl.updateRemainder(remainder);
 					}
 				}
-				
+
 			} catch (JSONException e) {
 				Log.d("Dialer Interface : markSelectedRead",
 						"An error occured while parsing json string of remainderIDs : "
@@ -86,44 +87,60 @@ public class DialerInterface {
 			}
 		}
 
-		//finish();
+		// finish();
 	}
 
 	@JavascriptInterface
 	public void finish(String remainderIds) {
-		
-		if(remainderIds != null && !remainderIds.isEmpty() && this.autoRead.equalsIgnoreCase("1")){
+
+		if (remainderIds != null && !remainderIds.isEmpty()) {
 
 			JSONArray array;
 			try {
 				array = new JSONArray(remainderIds);
-			
-			
-			for(int i=0; i<array.length(); i++){
-				JSONObject jsonRemainder = array.getJSONObject(i);
-				
-				Remainder remainder = new Remainder();
-				
-				remainder.setRemainderID(jsonRemainder.getLong("id"));
-				remainder.setRemainderMessage(jsonRemainder.getString("message"));
-				
-				remainder.setRemainded(true);
-				remainder.setRemaindedOn(new Date().getTime());
-				remainder.setRemaindedUsing(this.remaindedUsing);
-				
-				storageAPIImpl.updateRemainder(remainder);
-			}
-			
+
+				if (autoRemove.equals("1")) {
+
+					List<Long> remainderIdList = new ArrayList<Long>();
+
+					for (int i = 0; i < array.length(); i++) {
+						JSONObject jsonRemainder = array.getJSONObject(i);
+						remainderIdList.add(jsonRemainder.getLong("id"));
+					}
+
+					storageAPIImpl.deleteRemainder(remainderIdList);
+					return;
+				}
+
+				if (this.autoRead.equalsIgnoreCase("1")) {
+					for (int i = 0; i < array.length(); i++) {
+						JSONObject jsonRemainder = array.getJSONObject(i);
+
+						Remainder remainder = new Remainder();
+
+						remainder.setRemainderID(jsonRemainder.getLong("id"));
+						remainder.setRemainderMessage(jsonRemainder
+								.getString("message"));
+
+						remainder.setRemainded(true);
+						remainder.setRemaindedOn(new Date().getTime());
+						remainder.setRemaindedUsing(this.remaindedUsing);
+
+						storageAPIImpl.updateRemainder(remainder);
+					}
+
+				}
+
 			} catch (JSONException e) {
 				Log.d("Dialer Interface : finish",
 						"An error occured while parsing json string of remainderIDs : "
 								+ e.getMessage());
 			}
-		
+
 		}
-		
+
 		((Activity) this.context).finish();
-		
+
 	}
 
 }

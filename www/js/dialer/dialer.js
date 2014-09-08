@@ -67,7 +67,7 @@ var displayData = function (data , openClosed ){
         var imgHeight = $('.img > img').height();  
         var messageHeight = $('.messages').height();
         
-        $('.message').css('margin-top' , (imgHeight - messageHeight) / 2 );
+       // $('.message').css('margin-top' , (imgHeight - messageHeight) / 2 );
         
         $('#scrolltoshow').hide();
         
@@ -76,7 +76,7 @@ var displayData = function (data , openClosed ){
         var imgHeight = $('.img > img').height();  
         var messageHeight = $('.messages').height();
         
-        $('.messages').css('margin-top' , (imgHeight - messageHeight) / 2 );
+        //$('.messages').css('margin-top' , (imgHeight - messageHeight) / 2 );
         
         $('#scrolltoshow').hide();
     }else{
@@ -123,7 +123,9 @@ var displayData = function (data , openClosed ){
                         var remainder = messages[i];
                         var rem = {};
                         rem.id = remainder.id;
-                        rem.message = target.text();
+                        rem.message = remainder.message;
+                        
+                        remainders.push(rem);
                     }
 
                     

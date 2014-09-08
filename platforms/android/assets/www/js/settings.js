@@ -18,6 +18,7 @@ var settings = (function (){
     var getSettingsSuccess = function (data) {
         
         if(data){
+            
             for(var i=0; i<data.length; i++){
                 var config = data[i];
                 

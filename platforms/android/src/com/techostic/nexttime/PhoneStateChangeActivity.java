@@ -140,15 +140,17 @@ public class PhoneStateChangeActivity extends BroadcastReceiver{
 	        
 			Contact contact = storageAPIImpl.getContactById(contactID);
 			
-			Settings autoRead = storageAPIImpl.getSettingsBySettingsName("autoRead");
+			Settings showAll = storageAPIImpl.getSettingsBySettingsName("showAll");
 			
-			String autoReadStatus = "0";
+			String showAllStatus = "0";
 			
-			if(autoRead != null){
-				autoReadStatus = autoRead.getValue();
+			if(showAll != null){
+				showAllStatus = showAll.getValue();
 			}
 			
-			remainderList = storageAPIImpl.getAllPendingRemaindersByContactID(contact.getContactID() , autoReadStatus);
+			Log.d("show all status", showAllStatus);
+			
+			remainderList = storageAPIImpl.getAllPendingRemaindersByContactID(contact.getContactID() , showAllStatus);
 			
 			
 			

@@ -160,7 +160,7 @@ var showAndRemainders = (function (){
         
         var addNewLineHeight = elem.find('#newLine').height();
         
-        elem.find('.remainders').height((elem.height() - (user.height() + elem.find('.userMessage').height() )) * 0.75);
+        elem.find('.remainders').height((elem.height() - (user.height() + elem.find('.userMessage').height() )) * 0.85);
         
     };
     
@@ -237,12 +237,17 @@ var showAndRemainders = (function (){
         
         var textarea = note.find('textarea');
         
+        textarea.attr('maxlength' , configuartion.maxRemainderLength);
+        
+            
+        
         textarea.on('keyup' , function (event){
             var data = textarea.val();
             
             if(data.length <= configuartion.maxRemainderLength){
                 background.width(data.length / configuartion.maxRemainderLength * 100 + '%');    
-            }else{
+            }else{ // max length on textarea triggers on space, doesn't trigger when building a word but trims word to max length once word is built
+                // so trimming manually
                 textarea.val(data.substr(0 , data.length - 1));
                 return false;    
             }
@@ -269,6 +274,8 @@ var showAndRemainders = (function (){
         }else{
             remainder = JSON.parse(remainder);
             textarea.val(remainder.remainderMessage);    
+            
+            background.width(textarea.val().length / configuartion.maxRemainderLength * 100 + '%');
         }
         
         var ok = note.find('#ok');

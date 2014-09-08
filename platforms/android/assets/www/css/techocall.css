@@ -75,8 +75,9 @@ body {
     box-sizing: border-box;
     text-align: center;
     padding: 2.5%;
-    box-shadow: black 0 2px 5px;
+    /*box-shadow: black 0 2px 5px;*/
     background-color: #E4F1FE;
+    background-color: #2574A9;
 }
 
 
@@ -86,16 +87,17 @@ body {
     float: left;
     margin: 0 auto;
     border-radius: 100%;
-    box-shadow: rgb(128, 0, 82) 2px 3px 12px, green -2px -3px 12px;
+    /*box-shadow: rgb(128, 0, 82) 2px 3px 12px, green -2px -3px 12px;*/
 }
 
 .logoText {
+    color: white;
     text-align: left;
     letter-spacing: 0.35em;
     text-transform: uppercase;
     font-size: 125%;
     font-weight: lighter;
-    text-shadow: rgb(128, 0, 82) 2px 3px 12px, green -2px -3px 12px;   
+    /*text-shadow: rgb(128, 0, 82) 2px 3px 12px, green -2px -3px 12px;   */
 }
 
 /*@media screen and (min-height : 240px) {
@@ -547,7 +549,6 @@ body {
 #workarea {
     width:100%;
     position: relative;
-    top:5px;
     overflow-y:auto;
     
 }
@@ -636,6 +637,7 @@ body {
     width: 90%;
     margin-left: 5%;
     z-index: 100;
+    top:10%;
 }
 
 #notification {

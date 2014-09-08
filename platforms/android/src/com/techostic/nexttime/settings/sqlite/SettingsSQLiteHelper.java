@@ -185,7 +185,7 @@ public class SettingsSQLiteHelper extends SQLiteOpenHelper implements
 					settings.setSettingsID(cursor.getLong(0));
 					settings.setName(cursor.getString(1));
 					settings.setValue(cursor.getString(2));
-
+					
 					settingsList.add(settings);
 
 				} while (cursor.moveToNext());
@@ -262,15 +262,20 @@ public class SettingsSQLiteHelper extends SQLiteOpenHelper implements
 			
 			Cursor cursor = db.query(TABLE_NAME_SETTINGS, null, SETTINGS_NAME + " = ? ", selectionArgs , null, null, null);
 			
-			Settings settings = new Settings();
+			Settings settings = null;
 			
 			if(cursor.moveToFirst()){
+				
 				do {
 					settings = new Settings();
+					
+					
 					
 					settings.setSettingsID(cursor.getLong(0));
 					settings.setName(cursor.getString(1));
 					settings.setValue(cursor.getString(2));
+					
+					Log.d("settttings", settings.toString());
 					
 					break;
 					

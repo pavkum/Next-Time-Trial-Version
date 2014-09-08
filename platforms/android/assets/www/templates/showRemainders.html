@@ -2,7 +2,7 @@
     .wrapper {
         padding: 2% 5%;
         box-sizing: border-box;
-        height: 100%;
+/*        height: 100%;*/
     }
     
     .input {
@@ -29,8 +29,8 @@
     }
     
     .remainderItem {
-        background-color: white;
-        padding:2% 0%;
+        background-color: #eee;
+        padding:2.5%;
         font-size:100%;
         font-weight:600;
         text-overflow:ellipsis;
@@ -92,8 +92,9 @@
     }
     
     @media screen and (min-height : 240px) {
-        .user {
+        .user , .userMessage {
             height: 24px;   
+            line-height: 24px;
         }
         
         .remainderItem {
@@ -106,8 +107,9 @@
     }
 
     @media screen and (min-height : 320px) {
-        .user {
-            height: 32px;   
+        .user , .userMessage {
+            height: 32px;  
+            line-height: 32px;
         }
         
         .remainderItem {
@@ -120,8 +122,9 @@
     }
 
     @media screen and (min-height : 480px) {
-        .user {
-            height: 48px;   
+        .user , .userMessage{
+            height: 48px; 
+            line-height: 48px;
         }
         
         .remainderItem {
@@ -134,8 +137,9 @@
     }
 
     @media screen and (min-height : 600px) {
-        .user {
+        .user , .userMessage{
             height: 60px;   
+            line-height: 60px;
         }
         
         .remainderItem {
@@ -148,8 +152,10 @@
     }
 
     @media screen and (min-height : 720px) {
-        .user {
+        .user , .userMessage{
             height: 72px;   
+            line-height: 72px;
+            
         }
         
         .remainderItem {
@@ -162,8 +168,9 @@
     }
 
     @media screen and (min-height : 800px) {
-        .user {
-            height: 80px;   
+        .user , .userMessage{
+            height: 80px;  
+            line-height: 80px;
         }
         
         .remainderItem {
@@ -176,8 +183,9 @@
     }
 
     @media screen and (min-height : 900px) {
-        .user {
+        .user , .userMessage{
             height: 90px;   
+            line-height: 90px;
         }
         
         .remainderItem {
@@ -190,8 +198,9 @@
     }
 
     @media screen and (min-height : 960px) {
-        .user {
+        .user , .userMessage{
             height: 96px;   
+            line-height: 96px;
         }
         
         .remainderItem {
@@ -204,8 +213,9 @@
     }
 
     @media screen and (min-height : 1200px) {
-        .user {
-            height: 120px;   
+        .user , .userMessage{
+            height: 120px; 
+            line-height: 120px;
         }
         
         .remainderItem {
@@ -214,8 +224,9 @@
     }
 
     @media screen and (min-height : 1280px) {
-        .user {
-            height: 128px;   
+        .user , .userMessage{
+            height: 128px;
+            line-height: 128px;
         }
         
         .remainderItem {
@@ -224,8 +235,9 @@
     }
 
     @media screen and (min-height : 1600px) {
-        .user {
+        .user , .userMessage{
             height: 160px;   
+            line-height: 160px;
         }
         
         .remainderItem {
@@ -234,8 +246,9 @@
     }
 
     @media screen and (min-height : 1920px) {
-        .user {
+        .user , .userMessage{
             height: 192px;   
+            line-height: 192px;
         }
         
         .remainderItem {
@@ -246,11 +259,14 @@
     .user > img {
         height: 100%;
         border-radius: 100%;
+        vertical-align: middle;
+        vertical-align: -webkit-baseline-middle;
     }
     
     .user {
-        width: 100%;
-        text-align: center;
+        
+        text-align: left;
+        float: right;
     }
     
     
@@ -290,9 +306,9 @@
         padding: 2%;
         font-size: 125%;
         color: #848484;
-        text-align: center;
+        text-align: left;
         font-weight: bold;
-        word-spacing: 10px;
+        word-spacing: 5px;
     }
     
     #name {
@@ -350,18 +366,29 @@
         padding: 2% 0;
     }
     
+    .userHeader{
+        padding: 1% 5%;
+        background: #F1F1F1;
+    }
+    
 </style>
+
+<div class="userHeader">
+    
+        <div class="user">
+            <img id="profile"  />
+        </div>
+
+        <div class="userMessage">
+            Poke <span id="name"></span> 
+        </div>
+    
+    </div>
 
 <div class="wrapper">
     
-    <div class="user">
-        <img id="profile"  />
-    </div>
     
-    <div class="userMessage">
-        Next Time with <span id="name"></span>. Poke me about
-    </div>
-    
+        
     <div class="remainders" ></div>
     
     <div id="note" class="note">

@@ -1,8 +1,8 @@
 <style>
     
     .wrapper {
-        width:90%;
-        padding:2% 5%;
+        width:100%;
+        //padding:2% 0%;
     }
 
     
@@ -10,8 +10,8 @@
         width:90%;
         padding:0% 5%;
         border:5px solid #BFBFBF;
-        border-radius: 5px;
-        font-size:150%;
+        /*border-radius: 5px;*/
+        font-size:100%;
         color:#848484;
         font-family: 'nextTime';
         outline: none;
@@ -159,7 +159,7 @@
         width:100%;
         margin:0 auto;
         margin-top: 5px;
-         
+        padding: 0 5%;
         
         overflow:auto;
         
@@ -168,11 +168,12 @@
     }
     
     .row {
-        padding:2% 0%;
+        padding:2%;
+        margin: 1% 0;
         text-align:left;
         font-size:110%;
         color:#848484;
-        background:white;
+        background:#eee;
         /*border-bottom:1px solid #F2F2F2;*/
         
     }
@@ -247,7 +248,7 @@
     .addTick {
         font-size: 125%;
         text-align: center;
-        margin: 1% 0;
+        padding: 1% 0;
         font-family: 'nextTime';
     }
     
@@ -256,7 +257,7 @@
     }
     
     .threeLetters{
-        margin: 1% 0;
+        padding: 1% 0;
         text-align: center;
         font-size: 80%;
         font-family: 'nextTime';
@@ -286,29 +287,37 @@
         background-color: #22A7F0;
     }
     
+    .searchbar {
+        background-color: #F1F1F1;
+        padding: 0 5%;
+    }
+    
 </style>
 
 <div class="wrapper">
 
-    <div class="addTick">
-        Add <span>New</span> Tick
-    </div>
+    <div class="searchbar">
+        <!--<div class="addTick">
+            Add <span>New</span> Contact
+        </div>-->
+
+        <div style="padding:2% 0">
+            <input type="text" id="contact" placeholder="Type 3 letters to search contact">
+        </div>
+        <div class="loadinggif" id="load"></div>
+
+        <!--<div class="threeLetters" >
+            Please type 3 letters or more to list matching contacts
+        </div>-->
     
-    <div>
-        <input type="text" id="contact" placeholder="Contact">
     </div>
-    <div class="loadinggif" id="load"></div>
-    
-    <div class="threeLetters" >
-        Please type 3 letters or more to list matching contacts
-    </div>
-    
+        
     <div id="search" class="search" style="display:none">
         
     </div>
     
     <div id="addContact" class="addContact" style="display:none" tabindex="0">
-        <div class="addTick"> Add New <span>Tik</span> For</div>
+        <div class="addTick"> Add New <span>Contact</span> For</div>
         <div id="addTickUser" class="addTickUser">
             
         </div>

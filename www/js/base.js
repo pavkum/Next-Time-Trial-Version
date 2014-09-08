@@ -50,7 +50,6 @@ window.confirm = function (data , container , overlayClass , modalClass){
         $('body').on('confirmClose' , function (){
             modal.hide();
             overlay.hide();
-            console.log('closingggg');
         });
         
         close.on(configuartion.events.userselect , function (event){

@@ -3,6 +3,7 @@ package com.techostic.nexttime;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -37,8 +38,6 @@ public class DialerActivity extends Activity {
 		storageAPIImpl = StorageAPIImpl.getInstance(this);
 		
 		super.onCreate(savedInstanceState);
-			
-		
 		
 		this.getWindow().addFlags(LayoutParams.FLAG_NOT_TOUCH_MODAL);   
 		this.getWindow().addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
@@ -49,10 +48,17 @@ public class DialerActivity extends Activity {
 		
 		final WebView wv = new WebView(this);
 		
+		wv.setBackgroundColor(Color.TRANSPARENT);
+		wv.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+		
 		final Long contactID = this.getIntent().getLongExtra("contactID", -1l);
 		
 		if(contactID != -1){
 			wv.loadUrl("file:///android_asset/www/dialer.html#" + contactID);
+			
+			wv.setBackgroundColor(Color.TRANSPARENT);
+			wv.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+			
 		}else{
 			finish();
 			return;

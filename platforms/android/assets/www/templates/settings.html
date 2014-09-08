@@ -5,7 +5,7 @@
 
         .item {
             display: block;
-            background: white;
+            background: #eee;
             margin: 2% 0;
             color: #848484;
             padding: 1% 5%;
@@ -150,17 +150,18 @@
     }
 
     input[type=checkbox]:checked + .checkbox > .off{
-        display:block;
+        display:none;
     }
 
 
     input[type=checkbox]:checked + .checkbox > .on{
-        display:none;
+        display:block;
     }
 
     .on {
         text-align:center;
         width:50%;
+        display: none;
         background:#3FC380;
         border-radius:5px;
         border-radius:10px;
@@ -168,7 +169,7 @@
 
     .off {
         text-align:center;
-        display:none;
+        display:block;
         width:50%;
         margin-left:50%;
         background:white;

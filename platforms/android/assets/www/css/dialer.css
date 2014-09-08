@@ -1,3 +1,5 @@
+BODY, HTML {background: transparent}
+
 body {
     
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -7,7 +9,7 @@ body {
     padding: 0;
     margin: 0;
     background: transparent;
-    opacity: 0.5;
+    
     
 }
 
@@ -122,7 +124,6 @@ header {
     background:#2574A9;
     color: white;
     padding: 0 5%;
-    opacity: 0.80;
     text-align: center;
 }
 
@@ -167,10 +168,11 @@ table {
 .message {
     text-align: center;
     width: 100%;
-    padding: 2%;
+    padding: 2.5%;
     margin: 1% 0;
     box-sizing: border-box;
     background: #848484;
+    background: transparent;
     color: #FAFAFA;
 }
 
@@ -180,6 +182,7 @@ footer {
 }
 
 .img {
+    display: none !important;
     position: relative;
     z-index: 1;
     width: 25%;   
@@ -194,11 +197,11 @@ footer {
 
 
 .messages {
-    position: relative;
-    left: -10%;
+    /*position: relative;
+    left: -10%;*/
     text-align: center;
-    float: left;
-    width: 75%;
+    /*float: left;*/
+    width: 100%;
     padding: 0 2%;
     box-sizing: border-box;
     overflow-y: hidden;

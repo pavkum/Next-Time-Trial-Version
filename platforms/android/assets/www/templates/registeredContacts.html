@@ -33,7 +33,7 @@
     
     .contact {
         padding:2% 5%;
-        //background-color: #EEEEEE;
+        background-color: #EEEEEE;
         //background-color: white;
         //box-shadow: 0px 0px 1px 1px #aaa;
         //border-bottom:1px solid #D2D7D3;
@@ -347,9 +347,9 @@
     }
     
     .addContact {
-        /*background-color: #5C97BF;
-        border: 2px solid #2574A9;*/
-        padding: 0 5%;
+        background-color: #F1F1F1;
+        /*border: 2px solid #2574A9;*/
+        padding: 2% 5%;
         
     }
     
@@ -363,10 +363,7 @@
     
     .plus {
         float: left;
-        left: 5%;
-        position: relative;
-        height: 90%;
-        top:5%;
+        height: 100%;
         vertical-align: middle;
     }
     
@@ -393,14 +390,17 @@
     
 </style>
 
-<div class="addContact" id="getAllContacts">
+<div class="addContact" >
     <!--<img class="profile" src="img/profile.png">-->
-    <img class="plus" src="img/plus.png">
+    <div id="getAllContacts" style="width:20%;height:100%;float:left">
+        <img  class="plus" src="img/plus.png">
+    </div>
     
-    <div style="width:80%;float:left">You have <span id="count"></span> tiks</div>
-        <div id="settings" style="width:20%;float:left">
-            <img height="50px" src="img/menu.png" />
-        </div>
+    <div class="total" style="width:60%;float:left">You have <span id="count"></span> tiks</div>
+    
+    <div id="settings" style="width:20%;float:right">
+        <img style="height:50px;vertical-align:middle;float:right" src="img/menu.png" />
+    </div>
     
     <!--<div id="addText">Add a new tik</div>-->
     <div class="clearfix"></div>
@@ -408,13 +408,13 @@
 
 <div class="wrapper">
     
-    <div class="total" style="display:none">
+    <!--<div class="total" style="display:none">
         <div style="width:80%;float:left">You have <span id="count"></span> tiks</div>
         <div id="settings" style="width:10%;float:left">
             <img height="50px" src="img/menu.png" />
         </div>
         <div class="clearfix"></div>
-    </div>
+    </div>-->
     
     <div id="clone" class="contact" style="display:none">
         <div class="image">
