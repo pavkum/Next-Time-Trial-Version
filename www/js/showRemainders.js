@@ -40,7 +40,7 @@ var showAndRemainders = (function (){
             
             var now = new Date();
             
-            var nowTime = now.getTime();
+            var nowTime = now.getTime() / 1000;
             var year = now.getYear();
             
             for(var i=0; i<data.userRemainders.length; i++){
@@ -62,14 +62,16 @@ var showAndRemainders = (function (){
                     
                     var remaindedOn;
 
-                    var hour = date.getHours() + 1;
-                    var ampm = hour < 12 || hour == 24 ? ' AM ': ' PM ';
+                    var hour = date.getHours() ;
+                    var ampm = hour < 12 ? ' AM ': ' PM ';
                     
-                    hour = (hour === 24) ? 12 : hour;
+                    hour = (hour < 13) ? hour : (hour - 12);
                     
-                    if((nowTime - time) > 2592000){// less than 30 days
+                    hour = (hour === 0) ? 12 : hour;
+                    
+                    if((nowTime - time) < 2592000){// less than 30 days
                         remaindedOn = hour + ' : ' + date.getMinutes() + ' : ' + date.getSeconds() +  ampm + ' - ' + date.getDate() + ' : ' + date.getMonth();
-                    }else if((nowTime - time) > 7776000){ // 3 months
+                    }else if((nowTime - time) < 7776000){ // 3 months
                         remaindedOn = hour + ' : ' + date.getMinutes() + ' - ' + date.toDateString();    
                     }else{
                         remaindedOn = date.toDateString();    
