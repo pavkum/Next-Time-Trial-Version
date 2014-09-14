@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.techostic.nexttime" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.techostic.nexttalk" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
@@ -8,9 +8,9 @@
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
     <feature name="techoStorage">
-        <param name="android-package" value="com.techostic.nexttime.plugin.StoragePlugin" />
+        <param name="android-package" value="com.techostic.nexttalk.plugin.StoragePlugin" />
     </feature>
-    <name>Next Time</name>
+    <name>Next Talk</name>
     <description>
         An application which remainds user to talk about something next time 
     </description>

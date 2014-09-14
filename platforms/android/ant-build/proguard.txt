@@ -1,9 +1,9 @@
-# view AndroidManifest.xml #generated:19
--keep class com.techostic.nexttime.DialerActivity { <init>(...); }
+# view AndroidManifest.xml #generated:18
+-keep class com.techostic.nexttalk.DialerActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:7
--keep class com.techostic.nexttime.NextTime { <init>(...); }
+# view AndroidManifest.xml #generated:6
+-keep class com.techostic.nexttalk.NextTalk { <init>(...); }
 
-# view AndroidManifest.xml #generated:13
--keep class com.techostic.nexttime.PhoneStateChangeActivity { <init>(...); }
+# view AndroidManifest.xml #generated:12
+-keep class com.techostic.nexttalk.PhoneStateChangeActivity { <init>(...); }
 

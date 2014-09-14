@@ -45,7 +45,7 @@
         "res/xml/config.xml": {
             "/*": {
                 "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>": 1,
-                "<feature name=\"techoStorage\"><param name=\"android-package\" value=\"com.techostic.nexttime.plugin.StoragePlugin\" /></feature>": 1
+                "<feature name=\"techoStorage\"><param name=\"android-package\" value=\"com.techostic.nexttalk.plugin.StoragePlugin\" /></feature>": 1
             }
         },
         "AndroidManifest.xml": {
@@ -60,8 +60,8 @@
         "org.apache.cordova.contacts": {
             "PACKAGE_NAME": "com.techostic.nexttime"
         },
-        "com.techostic.nexttime.plugin": {
-            "PACKAGE_NAME": "com.techostic.nexttime"
+        "com.techostic.nexttalk.plugin": {
+            "PACKAGE_NAME": "com.techostic.nexttalk"
         }
     },
     "dependent_plugins": {}

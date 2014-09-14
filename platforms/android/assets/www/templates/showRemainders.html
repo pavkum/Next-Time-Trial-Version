@@ -292,12 +292,12 @@
         margin: 2% 0;
         padding: 2%;
         background-color: #5C97BF;
-        border-radius: 5px;
+        /*border-radius: 5px;*/
         border:1px solid #5C97BF;
         color: white;
         font-size: 130%;
         position: relative;
-        bottom:5px;
+        bottom:0px;
         text-align: center;
         font-weight: bold;
     }
@@ -309,6 +309,7 @@
         text-align: left;
         font-weight: bold;
         word-spacing: 5px;
+        overflow: hidden;
     }
     
     #name {
@@ -319,15 +320,15 @@
     
     .note {
         display: none;
-        background-color: #3A539B;
-        border:1px solid #3A539B;
-        border-radius: 5px;
+        background-color: #F8F9FC;
         padding: 2%;
     }
     
     textarea {
-        background-color: white;
-        border-radius: 5px;
+        background-color: #ddd;
+        color: #848484;
+        margin: 0;
+        border: 0;
         margin-bottom: 2%;
         padding: 2%;
         width: 96%;
@@ -337,9 +338,8 @@
     }
     
     .ok {
-        background-color: white;
-        border-radius: 5px;
-        color: #3A539B;
+        background-color: #89C4F4;
+        color: #848484;
         text-align: center;
         font-weight: bold;
         /*padding: 2%;*/
@@ -380,7 +380,7 @@
         </div>
 
         <div class="userMessage">
-            Poke <span id="name"></span> 
+            <span id="name"></span> 
         </div>
     
     </div>

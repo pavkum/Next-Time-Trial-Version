@@ -1,5 +1,6 @@
 int color transparent 0x7f050000
 int drawable icon 0x7f020000
+int drawable icon1 0x7f020001
 int string app_name 0x7f040000
 int style transparentDialog 0x7f060000
 int xml config 0x7f030000

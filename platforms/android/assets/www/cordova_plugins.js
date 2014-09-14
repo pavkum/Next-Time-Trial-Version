@@ -61,8 +61,8 @@ module.exports = [
         "id": "org.apache.cordova.contacts.ContactFieldType"
     },
     {
-        "file": "plugins/com.techostic.nexttime.plugin/www/techoStorage.js",
-        "id": "com.techostic.nexttime.plugin.techoStorage",
+        "file": "plugins/com.techostic.nexttalk.plugin/www/techoStorage.js",
+        "id": "com.techostic.nexttalk.plugin.techoStorage",
         "clobbers": [
             "techoStorage"
         ]
@@ -72,7 +72,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "org.apache.cordova.contacts": "0.2.11",
-    "com.techostic.nexttime.plugin": "0.0.1"
+    "com.techostic.nexttalk.plugin": "0.0.1"
 }
 // BOTTOM OF METADATA
 });

@@ -17,104 +17,153 @@ body {
     box-sizing: border-box;   
 }
 
-/*
+
+
 @media screen and (min-height : 240px) {
         
-        .name , .message , .button {
+        .message {
             height: 24px;
             line-height: 24px;
+        }
+    
+        .messages {
+            height: 72px;   
         }
     }
 
     @media screen and (min-height : 320px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 32px;
             line-height: 32px;
+        }
+        
+        .messages {
+            height: 96px;   
         }
     }
 
     @media screen and (min-height : 480px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 48px;
             line-height: 48px;
+        }
+        
+        .messages {
+            height: 144px;   
         }
     }
 
     @media screen and (min-height : 600px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 60px;
             line-height: 60px;
+        }
+        
+        .messages {
+            height: 180px;   
         }
     }
 
     @media screen and (min-height : 720px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 72px;
             line-height: 72px;
+        }
+        
+        .messages {
+            height: 216px;   
         }
     }
 
     @media screen and (min-height : 800px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 80px;
             line-height: 80px;
+        }
+        
+        .messages{
+            height: 240px;   
         }
     }
 
     @media screen and (min-height : 900px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 90px;
             line-height: 90px;
+        }
+        
+        .messages {
+            height: 270px;   
         }
     }
 
     @media screen and (min-height : 960px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 96px;
             line-height: 96px;
+        }
+        
+        .messages {
+            height: 288px;   
         }
     }
 
     @media screen and (min-height : 1200px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 120px;
             line-height: 120px;
+        }
+        
+        .messages {
+            height: 360px;   
         }
     }
 
     @media screen and (min-height : 1280px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 128px;
             line-height: 128px;
+        }
+        
+        .messages {
+            height: 384px;   
         }
     }
 
     @media screen and (min-height : 1600px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 160px;
             line-height: 160px;
+        }
+        
+        .messages {
+            height: 480px;   
         }
     }
 
     @media screen and (min-height : 1920px) {
         
-        .name , .close  , .message , .button {
+        .message {
             height: 192px;
             line-height: 192px;
         }
+        
+        .messages {
+            height: 576px;   
+        }
     }
     
-*/
+
 
 .clearfix {
     clear: both;   
@@ -174,6 +223,8 @@ table {
     background: #848484;
     background: transparent;
     color: #FAFAFA;
+    /*border-top: 1px solid #FAFAFA;*/
+    border-bottom: 1px solid #FAFAFA;
 }
 
 footer {
