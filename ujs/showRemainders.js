@@ -70,7 +70,7 @@ var showAndRemainders = (function (){
                     hour = (hour === 0) ? 12 : hour;
                     
                     if((nowTime - time) < 2592000){// less than 30 days
-                        remaindedOn = hour + ' : ' + date.getMinutes() + ' : ' + date.getSeconds() +  ampm + ' - ' + date.getDate() + ' : ' + date.getMonth();
+                        remaindedOn = hour + ' : ' + date.getMinutes() + ' : ' + date.getSeconds() +  ampm + ' - ' + date.getDate() + ' : ' + date.getMonth() + 1;
                     }else if((nowTime - time) < 7776000){ // 3 months
                         remaindedOn = hour + ' : ' + date.getMinutes() + ' - ' + date.toDateString();    
                     }else{
