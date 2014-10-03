@@ -82,9 +82,7 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/trash.png \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/ajax-loader.gif \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/userinfo.png \
-/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/pav.jpg \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/notepad.png \
-/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/ntlogo_old.png \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/next.png \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/addContact.jpg \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/close.png \

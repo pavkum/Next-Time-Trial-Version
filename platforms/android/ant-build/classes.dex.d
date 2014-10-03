@@ -12,7 +12,6 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$color.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$attr.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$style.class \
-/home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/NextTalk.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$string.class \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/classes/com/techostic/nexttime/R$xml.class \

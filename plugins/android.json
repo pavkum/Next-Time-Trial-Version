@@ -13,11 +13,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"techoStorage\"><param name=\"android-package\" value=\"com.techostic.nexttime.plugin.StoragePlugin\" /></feature>",
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "xml": "<feature name=\"techoStorage\"><param name=\"android-package\" value=\"com.techostic.nexttalk.plugin.StoragePlugin\" /></feature>",
                             "count": 1
                         }
                     ]

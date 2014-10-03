@@ -201,7 +201,18 @@ var registeredContacts = (function (){
     });
     
     $('body').on(configuartion.events.userselect , '#getAllContacts' , function (){
-        $('body').trigger('getAllContacts');
+        
+        if($('.contact').length >= 1){
+            var data = "<div>Only 1 contact can be included in Trial Version</div>";
+            var title = "Trial Version";
+
+            $('body').trigger('addToHistory',['modalClose']);
+
+            alert(data , title );    
+        }else{
+            $('body').trigger('getAllContacts');    
+        }
+        
     });
     
     $('body').on(configuartion.events.userselect , '#settings' , function (){

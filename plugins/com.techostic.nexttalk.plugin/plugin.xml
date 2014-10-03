@@ -22,7 +22,6 @@
             </feature>
         </config-file>
 
-         <!--<source-file src="src/StoragePlugin.java" target-dir="src/com/techostic/techocall/plugin" /> -->
 
     </platform>
 
