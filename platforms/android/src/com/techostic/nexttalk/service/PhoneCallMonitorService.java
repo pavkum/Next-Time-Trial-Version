@@ -8,9 +8,9 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import com.techostic.nexttalk.DialerActivity;
 import com.techostic.nexttalk.storage.StorageAPI;
 import com.techostic.nexttalk.storage.StorageAPIImpl;
+import com.techostic.nexttalk.trial.DialerActivity;
 
 public class PhoneCallMonitorService extends Service {
 

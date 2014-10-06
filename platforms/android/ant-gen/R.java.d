@@ -1,4 +1,4 @@
-/home/pavan/android_project/NextTime-Trial/platforms/android/ant-gen/com/techostic/nexttalk/R.java \
+/home/pavan/android_project/NextTime-Trial/platforms/android/ant-gen/com/techostic/nexttalk/trial/R.java \
  : /home/pavan/android_project/NextTime-Trial/platforms/android/res/drawable-hdpi/icon.png \
 /home/pavan/android_project/NextTime-Trial/platforms/android/res/drawable-hdpi/icon1.png \
 /home/pavan/android_project/NextTime-Trial/platforms/android/res/drawable-mdpi/icon.png \

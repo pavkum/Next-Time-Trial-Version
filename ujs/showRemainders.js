@@ -1,7 +1,19 @@
 var showAndRemainders = (function (){
     var elem = $('#workarea');
     
-    
+    var months = [];
+    months[0] = "Jan";
+    months[1] = "Feb";
+    months[2] = "Mar";
+    months[3] = "Apr";
+    months[4] = "May";
+    months[5] = "Jun";
+    months[6] = "Jul";
+    months[7] = "Aug";
+    months[8] = "Sep";
+    months[9] = "Oct";
+    months[10] = "Nov";
+    months[11] = "Dec";
     
     var user = {};
     
@@ -70,7 +82,7 @@ var showAndRemainders = (function (){
                     hour = (hour === 0) ? 12 : hour;
                     
                     if((nowTime - time) < 2592000){// less than 30 days
-                        remaindedOn = hour + ' : ' + date.getMinutes() + ' : ' + date.getSeconds() +  ampm + ' - ' + date.getDate() + ' : ' + date.getMonth() + 1;
+                        remaindedOn = hour + ' : ' + date.getMinutes() + ' : ' + date.getSeconds() +  ampm + ' - ' + months[date.getMonth()] + ' ' + date.getDate() ;
                     }else if((nowTime - time) < 7776000){ // 3 months
                         remaindedOn = hour + ' : ' + date.getMinutes() + ' - ' + date.toDateString();    
                     }else{
