@@ -1,0 +1,11 @@
+{
+  "name": "NextTime-Trial",
+  "version": "2.1.4",
+  "homepage": "https://github.com/pavankumarlpersonal/Next-Time-Trial-Version",
+  "authors": [
+    "pavankumarlpersonal <pavankumarlpersonal@gmail.com>"
+  ],
+  "description": "Next Time trial application",
+  "license": "MIT",
+  "private": true
+}

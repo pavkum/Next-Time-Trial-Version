@@ -1,0 +1,29 @@
+{
+  "name": "ActionJs",
+  "homepage": "https://github.com/pavankumarlpersonal/Actionjs",
+  "authors": [
+    "pavankumarlpersonal <pavankumarlpersonal@gmail.com>"
+  ],
+  "description": "An event based javascript framework",
+  "main": "action.js",
+  "keywords": [
+    "event",
+    "framework"
+  ],
+  "ignore": [
+    "index.html",
+    "idea",
+    "example"
+  ],
+  "license": "MIT",
+  "private": true,
+  "_release": "85c09e7023",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "85c09e702394b3a5bbba02480f42f3f214ce9628"
+  },
+  "_source": "https://github.com/pavankumarlpersonal/Actionjs.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/pavankumarlpersonal/Actionjs.git"
+}

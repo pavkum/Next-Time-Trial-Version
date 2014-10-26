@@ -62,7 +62,7 @@ body {
     color : white;
     font-weight:bold;
     -webkit-transform: rotate(-30deg);
-    transform: rotate(-30deg); 
+    transform: rotate(-30deg);
     z-index: 100;
 }
 
@@ -80,11 +80,14 @@ body {
     background-color: #2574A9;
 }
 
+.logo{
+  float:left;
+}
 
-.header > img{
+#logo{
     /*max-width: 100%;*/
     width: auto;
-    float: left;
+    /*float: left;*/
     margin: 0 auto;
     border-radius: 100%;
     /*box-shadow: rgb(128, 0, 82) 2px 3px 12px, green -2px -3px 12px;*/
@@ -100,79 +103,87 @@ body {
     /*text-shadow: rgb(128, 0, 82) 2px 3px 12px, green -2px -3px 12px;   */
 }
 
+#back {
+  color:white;
+  font-size:175%;
+  font-weight:bold;
+  display:none;
+  text-align:center;
+}
+
 /*@media screen and (min-height : 240px) {
-    
+
     body {
-        font-size:5px; 
+        font-size:5px;
     }
-    
+
     header {
-        height: 24px;   
+        height: 24px;
     }
-    
+
     header > div {
-        line-height: 24px;   
+        line-height: 24px;
     }
-    
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 24px; 
+        height: 24px;
         line-height: 24px;
     }
-    
+
     .stack {
-        top:24px;   
+        top:24px;
     }
-    
+
     #modal {
-        top:48px;   
+        top:48px;
     }
-    
+
     #notification {
-        bottom: 48px;   
+        bottom: 48px;
     }
 }
 
 @media screen and (min-height : 320px) {
-    
+
     body {
-        font-size:6px; 
+        font-size:6px;
     }
-    
+
     header {
-        height: 36px;   
+        height: 36px;
     }
-    
+
     header > div {
-        line-height: 36px;   
+        line-height: 36px;
     }
-    
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 32px; 
+        height: 32px;
         line-height: 32px;
     }
-    
+
     .stack {
-        top:36px;   
+        top:36px;
     }
-    
+
     #modal {
-        top:72px;   
+        top:72px;
     }
-    
+
     #notification {
-        bottom: 72px;   
+        bottom: 72px;
     }
 }
 
@@ -180,129 +191,129 @@ body {
     body {
         font-size: 10px;
     }
-    
+
     header {
-        height: 45px;   
+        height: 45px;
     }
-    
+
     header > div {
-        line-height: 45px;   
+        line-height: 45px;
     }
-    
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 48px; 
+        height: 48px;
         line-height: 48px;
     }
-    
+
     .stack {
-        top:45px;   
+        top:45px;
     }
-    
+
     #modal {
-        top:90px;   
+        top:90px;
     }
-    
+
     #notification {
-        bottom: 90px;   
+        bottom: 90px;
     }
 }
 
 @media screen and (min-height : 600px) {
     body {
-        font-size: 12px; 
+        font-size: 12px;
     }
-    
-    
-    
+
+
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 60px; 
+        height: 60px;
         line-height: 60px;
     }
-    
+
     .stack {
-        top:54px;   
+        top:54px;
     }
-    
+
     #modal {
-        top:108px;   
+        top:108px;
     }
-    
+
     #notification {
-        bottom: 108px;   
+        bottom: 108px;
     }
 }
 
 @media screen and (min-height : 720px) {
     body {
-        font-size: 14px;       
+        font-size: 14px;
     }
-    
-    
-    
+
+
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 72px; 
+        height: 72px;
         line-height: 72px;
     }
-    
+
     .stack {
-        top:60px;   
+        top:60px;
     }
-    
+
     #modal {
-        top:120px;   
+        top:120px;
     }
-    
+
     #notification {
-        bottom: 120px;   
+        bottom: 120px;
     }
 }
 
 @media screen and (min-height : 800px) {
     body {
-        font-size: 16px; 
+        font-size: 16px;
     }
-    
-    
-    
+
+
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 80px; 
+        height: 80px;
         line-height: 80px;
     }
-    
+
     .stack {
-        top:67.5px;   
+        top:67.5px;
     }
-    
+
     #modal {
-        top:135px;   
+        top:135px;
     }
-    
+
     #notification {
-        bottom: 135px;   
+        bottom: 135px;
     }
 }
 
@@ -310,210 +321,210 @@ body {
     body {
         font-size: 18px;
     }
-    
-    
-    
+
+
+
     .sidebarElem {
-        height: 90px; 
+        height: 90px;
         line-height: 90px;
     }
-    
+
     .stack {
-        top:72px;   
+        top:72px;
     }
-    
+
     #modal {
-        top:144px;   
+        top:144px;
     }
-    
+
     #notification {
-        bottom: 144px;   
+        bottom: 144px;
     }
-    
+
 }
 
 @media screen and (min-height : 960px) {
     body {
         font-size: 18px;
     }
-    
+
     header {
-        //height: 90px;   
+        //height: 90px;
     }
-    
+
     header > div {
-       // line-height: 90px;   
+       // line-height: 90px;
     }
-    
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 96px; 
+        height: 96px;
         line-height: 96px;
     }
-    
+
     .stack {
-        top:90px;   
+        top:90px;
     }
-    
+
     #modal {
-        top:180px;   
+        top:180px;
     }
-    
+
     #notification {
-        bottom: 180px;   
+        bottom: 180px;
     }
 }
 
 @media screen and (min-height : 1200px) {
     body {
-        font-size: 24px;       
+        font-size: 24px;
     }
-    
+
     header {
-        //height: 96px;   
+        //height: 96px;
     }
-    
+
     header > div {
-        //line-height: 96px;   
+        //line-height: 96px;
     }
-    
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 120px; 
+        height: 120px;
         line-height: 120px;
     }
-    
+
     .stack {
-        top:96px;   
+        top:96px;
     }
-    
+
     #modal {
-        top:192px;   
+        top:192px;
     }
-    
+
     #notification {
-        bottom: 192px;   
+        bottom: 192px;
     }
 }
 
 @media screen and (min-height : 1280px) {
     body {
-        font-size: 24px; 
+        font-size: 24px;
     }
-    
+
     header {
-        height: 120px;   
+        height: 120px;
     }
-    
+
     header > div {
-        line-height: 120px;   
+        line-height: 120px;
     }
-    
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 128px; 
+        height: 128px;
         line-height: 128px;
     }
-    
+
     .stack {
-        top:120px;   
+        top:120px;
     }
-    
+
     #modal {
-        top:240px;   
+        top:240px;
     }
-    
+
     #notification {
-        bottom: 240px;   
+        bottom: 240px;
     }
 }
 
 @media screen and (min-height : 1600px) {
     body {
-        font-size: 32px;       
+        font-size: 32px;
     }
-    
+
     header {
-        height: 144px;  
+        height: 144px;
     }
-    
+
     header > div {
-        line-height: 144px;   
+        line-height: 144px;
     }
-    
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 160px; 
+        height: 160px;
         line-height: 160px;
     }
-    
+
     .stack {
-        top:144px;   
+        top:144px;
     }
-    
+
     #modal {
-        top:288px;   
+        top:288px;
     }
-    
+
     #notification {
-        bottom: 288px;   
+        bottom: 288px;
     }
 }
 
 @media screen and (min-height : 1920px) {
     body {
-        font-size: 40px;  
+        font-size: 40px;
     }
-    
+
     header {
-        height: 144px;   
+        height: 144px;
     }
-    
+
     header > div {
-        line-height: 144px;   
+        line-height: 144px;
     }
-    
+
     .sidebar {
-        top : 0px; 
+        top : 0px;
         left: 0;
         height: 100%;
     }
-    
+
     .sidebarElem {
-        height: 192px; 
+        height: 192px;
         line-height: 192px;
     }
-    
+
     .stack {
-        top:144px;   
+        top:144px;
     }
-    
+
     #modal {
-        top:288px;   
+        top:288px;
     }
-    
+
     #notification {
-        bottom: 288px;   
+        bottom: 288px;
     }
 }
 */
@@ -550,11 +561,11 @@ body {
     width:100%;
     position: relative;
     overflow-y:auto;
-    
+
 }
 
 .sidebar {
-    
+
     width:15%;
     position:absolute;
     opacity:0.9;
@@ -564,7 +575,7 @@ body {
     border-right: 0px solid #1A1A1A;
     box-shadow: 2px 2px 5px 5px solid #848484;
 }
-    
+
 .sidebarElem {
     padding:0;
     margin:0;
@@ -574,7 +585,7 @@ body {
     font-weight:bold;
     color: white;
 }
-    
+
 .selected {
     background: #C5EFF7 !important;
 }
@@ -591,19 +602,19 @@ body {
 .topStack {
     position: absolute;
     width: 100%;
-    top:0;   
-    
+    top:0;
+
 }
 
 .bottomStack {
     width: 100%;
     position: absolute;
-    bottom: 0;   
-    
+    bottom: 0;
+
 }
 
 .clearfix {
-    clear: both;   
+    clear: both;
 }
 
 .message {
@@ -612,7 +623,7 @@ body {
 }
 
 .info {
-    background: #19B5FE;   
+    background: #19B5FE;
 }
 
 .error {
