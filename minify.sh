@@ -1,3 +1,3 @@
-minify ujs/base.js ujs/utilities.js ujs/header.js ujs/techocall.js ujs/registeredContacts.js ujs/showRemainders.js ujs/showContacts.js ujs/settings.js > www/compressed/nexttalk.js
+minify web-src/base.js web-src/utilities.js web-src/header.js web-src/techocall.js web-src/registeredContacts.js web-src/showRemainders.js web-src/showContacts.js web-src/settings.js > www/compressed/nexttalk.js
 
-minify ujs/utilities.js ujs/dialer/dialer.js > www/compressed/dialer.js
+minify web-src/utilities.js web-src/dialer/dialer.js > www/compressed/dialer.js

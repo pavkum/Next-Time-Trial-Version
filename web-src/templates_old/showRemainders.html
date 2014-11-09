@@ -1,0 +1,408 @@
+<style>
+    .wrapper {
+        padding: 2% 5%;
+        box-sizing: border-box;
+/*        height: 100%;*/
+    }
+    
+    .input {
+        width:90%;
+        padding:2% 5% 2% 5%;
+        background:#F2F2F2;
+        background:#ECF0F1;
+        display:block;
+        box-shadow:0px 1px 1px #aaa;
+    }    
+    
+    .inputWrapper {
+        margin-bottom:2px;   
+    }
+    
+    .remainders { 
+        //position:relative;
+        //top:2px;
+        
+        margin:0 auto;
+        overflow:auto;
+        width:100%;
+        padding:2% 0%;
+    }
+    
+    .remainderItem {
+        background-color: #eee;
+        padding:2.5%;
+        font-size:100%;
+        font-weight:600;
+        text-overflow:ellipsis;
+        width:100%;
+        overflow:hidden;
+        margin: 2% 0;
+        
+        box-sizing: border-box;
+        
+    }
+    
+    .remainderMessagePreview {
+        //overflow-x:hidden;
+        //overflow-y:hidden;
+        text-overflow:clip;
+        color:#848484;
+        font-weight: bold;
+        font-size: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 50%;
+    }
+    
+    .lastShown {
+        height: 50%;
+        color: #848484;
+        font-weight: 600;
+        font-size: 80%;
+    }
+    
+    .remainderInfo {
+        height: 100%;
+        width: 70%;
+        float: left;
+    }
+    
+    .remainderControls {
+        height: 100%;
+        width:30%;
+        float:left;   
+    }
+    
+    .statusIcon {
+        width:100%;
+        height:100%;
+        border-radius:100%;
+        font-weight:bold;
+        font-size:150%;
+        text-align:center;
+        color:white;
+    }
+    
+    .done {
+        background:#26A65B;   
+    }
+    
+    .pending {
+        background:#19B5FE;   
+    }
+    
+    @media screen and (min-height : 240px) {
+        .user , .userMessage {
+            height: 24px;   
+            line-height: 24px;
+        }
+        
+        .remainderItem {
+            height: 24px;
+        }
+        
+        .textarea {
+            height: 120px;   
+        }
+    }
+
+    @media screen and (min-height : 320px) {
+        .user , .userMessage {
+            height: 32px;  
+            line-height: 32px;
+        }
+        
+        .remainderItem {
+            height: 32px;
+        }
+        
+        .textarea {
+            height: 160px;   
+        }
+    }
+
+    @media screen and (min-height : 480px) {
+        .user , .userMessage{
+            height: 48px; 
+            line-height: 48px;
+        }
+        
+        .remainderItem {
+            height: 48px;
+        }
+        
+        .textarea {
+            height: 240px;   
+        }
+    }
+
+    @media screen and (min-height : 600px) {
+        .user , .userMessage{
+            height: 60px;   
+            line-height: 60px;
+        }
+        
+        .remainderItem {
+            height: 60px;
+        }
+        
+        .textarea {
+            height: 300px;   
+        }
+    }
+
+    @media screen and (min-height : 720px) {
+        .user , .userMessage{
+            height: 72px;   
+            line-height: 72px;
+            
+        }
+        
+        .remainderItem {
+            height: 72px;
+        }
+        
+        .textarea {
+            height: 360px;   
+        }
+    }
+
+    @media screen and (min-height : 800px) {
+        .user , .userMessage{
+            height: 80px;  
+            line-height: 80px;
+        }
+        
+        .remainderItem {
+            height: 80px;
+        }
+        
+        .textarea {
+            height: 400px;   
+        }
+    }
+
+    @media screen and (min-height : 900px) {
+        .user , .userMessage{
+            height: 90px;   
+            line-height: 90px;
+        }
+        
+        .remainderItem {
+            height: 90px;
+        }
+        
+        .textarea {
+            height: 450px;   
+        }
+    }
+
+    @media screen and (min-height : 960px) {
+        .user , .userMessage{
+            height: 96px;   
+            line-height: 96px;
+        }
+        
+        .remainderItem {
+            height: 96px;
+        }
+        
+        textarea {
+            height: 192px;   
+        }
+    }
+
+    @media screen and (min-height : 1200px) {
+        .user , .userMessage{
+            height: 120px; 
+            line-height: 120px;
+        }
+        
+        .remainderItem {
+            height: 120px;
+        }
+    }
+
+    @media screen and (min-height : 1280px) {
+        .user , .userMessage{
+            height: 128px;
+            line-height: 128px;
+        }
+        
+        .remainderItem {
+            height: 128px;
+        }
+    }
+
+    @media screen and (min-height : 1600px) {
+        .user , .userMessage{
+            height: 160px;   
+            line-height: 160px;
+        }
+        
+        .remainderItem {
+            height: 160px;
+        }
+    }
+
+    @media screen and (min-height : 1920px) {
+        .user , .userMessage{
+            height: 192px;   
+            line-height: 192px;
+        }
+        
+        .remainderItem {
+            height: 192px;
+        }
+    }
+    
+    .user > img {
+        height: 100%;
+        border-radius: 100%;
+        vertical-align: middle;
+        vertical-align: -webkit-baseline-middle;
+    }
+    
+    .user {
+        
+        text-align: left;
+        float: right;
+    }
+    
+    
+    .edit {
+        height: 100%;
+        display: inline-block;
+    }
+    
+    .delete {
+        height: 100%;
+        display: inline-block;
+        float: right;
+    }
+    
+    .edit > img , .delete > img {
+        height: 75%;
+        position: relative;
+        top:12.5%;
+        
+    }
+    
+    .newLine {
+        margin: 2% 0;
+        padding: 2%;
+        background-color: #5C97BF;
+        /*border-radius: 5px;*/
+        border:1px solid #5C97BF;
+        color: white;
+        font-size: 130%;
+        position: relative;
+        bottom:0px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .userMessage {
+        padding: 2%;
+        font-size: 125%;
+        color: #848484;
+        text-align: left;
+        font-weight: bold;
+        word-spacing: 5px;
+        overflow: hidden;
+    }
+    
+    #name {
+        color: #2574A9;  
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    .note {
+        display: none;
+        background-color: #F8F9FC;
+        padding: 2%;
+    }
+    
+    textarea {
+        background-color: #ddd;
+        color: #848484;
+        margin: 0;
+        border: 0;
+        margin-bottom: 2%;
+        padding: 2%;
+        width: 96%;
+        outline: none;
+        resize: none;
+        font-size: 125%;
+    }
+    
+    .ok {
+        background-color: #89C4F4;
+        color: #848484;
+        text-align: center;
+        font-weight: bold;
+        /*padding: 2%;*/
+        font-size: 125%;
+    }
+    
+    .modalClass {
+        top:0 !important;
+        border: 0 !important;   
+    }
+    
+    #indicator {
+        width: 100%;
+        padding: 2%;
+    }
+    
+    #background {
+        display: none;
+        width: 0%;
+        position: relative;
+        background-color: green;
+        top: -100%;
+        opacity: 0.5;
+        padding: 2% 0;
+    }
+    
+    .userHeader{
+        padding: 1% 5%;
+        background: #F1F1F1;
+    }
+    
+</style>
+
+<div class="userHeader">
+    
+        <div class="user">
+            <img id="profile"  />
+        </div>
+
+        <div class="userMessage">
+            <span id="name"></span> 
+        </div>
+    
+    </div>
+
+<div class="wrapper">
+    
+    
+        
+    <div class="remainders" ></div>
+    
+    <div id="note" class="note">
+        <textarea placeholder="Talk about something"></textarea>
+        <div tabindex="1" id="ok" class="ok">
+            <div id="indicator">OK</div>
+            <div id="background">&nbsp;</div>
+        </div>
+    </div>
+        
+    <div id="newLine" class="newLine">
+        Add new Line
+    </div>
+        
+</div>
+    
+    

@@ -1,0 +1,244 @@
+<style>
+
+    .controls{
+        padding:2% 5%;
+        width:90%;
+        background:#D2D7D3;
+        clear:both;
+    }
+    
+    .button {
+        width:20%;
+        float:left;
+        text-align:center;
+        color:white;
+        font-weight:bold;
+    }
+    
+    .edit {
+        background:#19B5FE; 
+        float:right;
+        display:none;
+    }
+    
+    .delete {
+        background:#EF4836;
+        float:left;
+        display:none;
+    }
+    
+    .cancel {
+        background:#EF4836;
+        float:right;
+        
+    }
+    
+    .saveOrUpdate {
+        background:#26C281;
+        float:right;
+        margin-right:1%;
+    }
+    
+    .textarea {
+        width:90%;
+        padding:2.5% 5%;
+        background:#ECF0F1;
+    }
+    
+    .textarea > textarea {
+        padding:1%;
+        width:100%;
+        resize:none;
+        border:1px solid #BFBFBF;
+        font-size:100%;
+        color:#848484;
+    }
+    
+    .textarea > textarea : focus{
+        outline:none;
+    }
+    
+    .info {
+        width:100%;
+        padding:1% 0;
+    }
+    
+    .message {
+        float:left;
+        font-size:80%;
+    }
+    
+    .charLeft {
+        float:right;
+        font-size:75%;
+        color:#848484;
+    }
+    
+    @media screen and (min-height : 240px) {
+        #note {
+            height: 96px;   
+        }
+        
+        .button {
+            height: 12px; 
+            line-height: 12px; 
+        }
+    }
+
+    @media screen and (min-height : 320px) {
+        #note {
+            height: 128px;
+        }
+        
+        .button {
+            height: 16px; 
+            line-height: 16px; 
+        }
+    }
+
+    @media screen and (min-height : 480px) {
+        #note {
+            height: 192px;   
+        }
+        
+        .button {
+            height: 24px; 
+            line-height: 24px; 
+        }
+    }
+
+    @media screen and (min-height : 600px) {
+        #note {
+            height: 240px;   
+        }
+        
+        .button {
+            height: 30px; 
+            line-height: 30px; 
+        }
+    }
+
+    @media screen and (min-height : 720px) {
+        #note {
+            height: 288px;   
+        }
+        
+        .button {
+            height: 36px; 
+            line-height: 36px; 
+        }
+    }
+
+    @media screen and (min-height : 800px) {
+        #note {
+            height: 320px;
+        }
+        
+        .button {
+            height: 40px; 
+            line-height: 40px; 
+        }
+    }
+
+    @media screen and (min-height : 900px) {
+        #note {
+            height: 360px;   
+        }
+        
+        .button {
+            height: 45px; 
+            line-height: 45px; 
+        }
+    }
+
+    @media screen and (min-height : 960px) {
+        #note {
+            height: 384px;
+        }
+        
+        .button {
+            height: 48px; 
+            line-height: 48px; 
+        }
+    }
+
+    @media screen and (min-height : 1200px) {
+        #note {
+            height: 480px;   
+        }
+        
+        .button {
+            height: 60px; 
+            line-height: 60px; 
+        }
+    }
+
+    @media screen and (min-height : 1280px) {
+       #note {
+            height: 496px;   
+        }
+        
+        .button {
+            height: 64px; 
+            line-height: 64px; 
+        }
+    }
+
+    @media screen and (min-height : 1600px) {
+        #note {
+            height: 640px;   
+        }
+        
+        .button {
+            height: 80px; 
+            line-height: 80px; 
+        }
+    }
+
+    @media screen and (min-height : 1920px) {
+        #note {
+            height: 768px;   
+        }
+        
+        .button {
+            height: 96px; 
+            line-height: 96px; 
+        }
+    }
+    
+</style>
+
+<div class="wrapper">
+
+    <div class="controls">
+        <div id="delete" class="button delete">
+            Delete
+        </div>
+        <div id="edit" class="button edit">
+            Edit
+        </div>
+        <div id="cancel" class="button cancel">
+            Cancel
+        </div>
+        <div id="saveOrUpdate" class="button saveOrUpdate">
+            Save
+        </div>
+        <div style="clear:both"></div>
+    </div>
+            
+    <div class="textarea">
+        
+        <div class="info">
+            <div id="error" class="message" style="display:none">
+                Cannot be empty
+            </div>
+            <div class="charLeft">
+                140 char left
+            </div>
+        </div>
+        
+        <textarea id="note" placeholder="Remainder..."></textarea>
+    </div>
+
+</div>
+     
