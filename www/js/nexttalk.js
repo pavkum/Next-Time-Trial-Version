@@ -15,7 +15,8 @@ define(['jquery' ,
         'backbone' ,
         'fastclick' ,
         'router' ,
-        'utils/backbone/NextTalkSync'] , function($ , Backbone , FastClick , router , Sync){
+        'header/view',
+        'utils/backbone/NextTalkSync'] , function($ , Backbone , FastClick , router , header , Sync){
 
         // we are just calling sync so that it overrides backbones default sync
 
@@ -25,7 +26,9 @@ define(['jquery' ,
 
       var height = $(window).height();
 
-      $('header').height(height * 0.125).show();
+      $('header').height(height * 0.125);
+      header.render();
+       
       $('.workarea').height(height * 0.875).show();
 
       router.navigate('registered-contacts' , {trigger : true});

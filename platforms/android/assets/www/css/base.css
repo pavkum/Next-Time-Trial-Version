@@ -16,7 +16,8 @@
   padding: 2% 0%;
   font-size: 18px;
   margin: 1% 0;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  font-family: trebuc; }
   .items .item {
     width: 96%;
     border-bottom: 1px solid #F0F0F0;
@@ -50,7 +51,7 @@
   padding: 2% 5%;
   font-size: 18px;
   outline: none;
-  font-family: roboto;
+  font-family: trebuc;
   color: #6C7A89; }
 
 .preview {
@@ -78,7 +79,7 @@
     display: none; }
     .preview .first-letter div {
       font-size: 15px;
-      font-family: roboto;
+      font-family: trebuc;
       position: relative;
       border-radius: 10px;
       margin: 0 auto;
@@ -89,17 +90,42 @@
   .preview .name {
     width: 100%;
     font-size: 18px;
-    font-family: roboto;
-    padding: 0 5%; }
+    font-family: trebuc;
+    padding: 0 5%;
+    color: #1E8BC3;
+    text-align: center; }
+  .preview .phone-numbers {
+    overflow: auto;
+    overflow-x: hidden; }
+    .preview .phone-numbers .phone-number {
+      font-size: 18px;
+      font-family: trebuc;
+      padding: 0 5%; }
+      .preview .phone-numbers .phone-number .type {
+        float: left;
+        color: #ccc; }
+      .preview .phone-numbers .phone-number .number {
+        float: right; }
+    .preview .phone-numbers .phone-number:nth-child(odd) {
+      background-color: aliceblue; }
+    .preview .phone-numbers .phone-number:nth-child(even) {
+      background-color: white; }
+    .preview .phone-numbers .add-border {
+      border-top: 1px solid #F0F0F0;
+      background-color: white !important; }
   .preview .footer {
     background-color: #C5EFF7;
-    padding: 2% 5%; }
+    padding: 2% 5%;
+    border: 1px solid #C5EFF7;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; }
     .preview .footer button {
       height: 100%;
       border-radius: 5px;
       color: white;
-      font-family: roboto;
-      font-size: 15px; }
+      font-family: trebuc;
+      font-size: 15px;
+      outline: none; }
     .preview .footer #cancel {
       background-color: #EF4836;
       border: 1px solid #EF4836; }
@@ -110,6 +136,48 @@
 
 .loading {
   display: none; }
+
+.overlay-sidebar {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: #848484;
+  opacity: 0.75; }
+
+.sidebar {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  z-index: 101;
+  height: 100%;
+  background-color: #FAFAFA;
+  box-shadow: 1px 1px 10px 5px #848484; }
+  .sidebar .header {
+    background-color: #4B77BE;
+    font-family: trebuc;
+    font-size: 18px;
+    color: white;
+    padding: 0 5%; }
+  .sidebar .navigation {
+    font-family: trebuc;
+    font-size: 15px; }
+    .sidebar .navigation .option {
+      color: #6C7A89;
+      padding: 0 5%;
+      border-bottom: 1px solid #F0F0F0;
+      text-transform: uppercase; }
+  .sidebar .footer {
+    position: absolute;
+    bottom: 0;
+    padding: 0 5%;
+    font-family: roboto;
+    font-size: 12px; }
 
 body {
   -webkit-touch-callout: none;
@@ -126,6 +194,13 @@ body {
 
 @font-face {
   src: url('../font/trebuc.ttf');
+  font-family: trebuc; }
+
+@font-face {
+  src: url('../font/Roboto-Regular.ttf');
+  src: url('../font/Roboto-Medium.ttf');
+  src: url('../font/Roboto-Thin.ttf');
+  src: url('../font/Roboto-Light.ttf');
   font-family: roboto; }
 
 * {
@@ -133,26 +208,28 @@ body {
 
 header {
   background-color: #2574A9;
-  padding: 0 2.5%;
   clear: both;
   color: white;
   display: none; }
   header table {
     height: 100%;
     width: 100%; }
-    header table #logo {
-      width: 15%;
-      display: none; }
-      header table #logo img {
-        width: 100%; }
+    header table #hamburger {
+      width: 10%; }
+      header table #hamburger img {
+        float: left; }
+    header table #back {
+      width: 10%;
+      display: none;
+      color: white;
+      font-weight: bold; }
     header table #title {
-      width: 85%;
+      width: 90%;
       text-align: left;
       font-size: 21px;
       padding: 0 5%;
-      font-family: roboto; }
-    header table #settings {
-      width: 15%; }
+      font-family: roboto;
+      font-weight: bold; }
 
 .workarea {
   display: none;
@@ -171,3 +248,6 @@ header {
   opacity: 0.5;
   z-index: 100;
   display: none; }
+
+.error {
+  color: #F22613; }

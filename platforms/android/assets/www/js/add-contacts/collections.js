@@ -55,7 +55,8 @@ define(['require' ,
         this.reset();
 
         for(var i=0; i<contacts.length; i++){
-          if( this.isValid(contacts[i].displayName) && this.isValid(contacts[i].phoneNumbers) )
+          if( this.isValid(contacts[i].displayName)   && this.isValid(contacts[i].phoneNumbers) )
+              
             this.add(new ContactsModel(contacts[i]));
         }
 

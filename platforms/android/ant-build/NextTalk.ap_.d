@@ -57,6 +57,7 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/plugins/org.apache.cordova.contacts/www/Contact.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/templates/registered-contacts.html \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/templates/preview-contact.html \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/templates/sidebar.html \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/templates/get-all-contacts.html \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/templates/raw-contact.html \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/img/logo.png \
@@ -108,8 +109,10 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/nexttalk.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/router.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/sidebar \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/settings \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/user \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/header \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/lib/backbone.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/lib/require.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/lib/jquery.js \
@@ -129,8 +132,14 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/utils/user/icon.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/view.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/model.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/sidebar/view.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/sidebar/templates \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/sidebar/templates/sidebar.html \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/settings/view.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/user/view.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/header/view.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/header/templates \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/header/templates/header.html \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/compressed/nexttalk.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/compressed/dialer.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/ant-build/AndroidManifest.xml \

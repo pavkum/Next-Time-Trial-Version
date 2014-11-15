@@ -106,7 +106,7 @@ gulp.task('sass' , function(){
 // javascript move
 
 gulp.task('javascript' , function(){
-  return gulp.src(['web-src/js/nexttalk.js' , 'web-src/js/**/*.js'])
+  return gulp.src(['web-src/js/nexttalk.js' , 'web-src/js/**/*.js' , 'web-src/js/**/*.html'])
         //.pipe(concat('nexttalk.js'))
         //.pipe(uglify())
         .pipe(gulp.dest('www/js'));

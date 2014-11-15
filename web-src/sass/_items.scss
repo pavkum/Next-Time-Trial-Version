@@ -19,10 +19,11 @@
         font-size         : $font-size * 1.5;
         margin            : 1% 0;
         border-collapse   : collapse;
+        font-family       : $font-family; 
 
     .item {
         width             : 96%;
-        border-bottom     : 1px solid #F0F0F0;
+        border-bottom     : $light-border;
         box-sizing        : content-box;
         padding           : 2%;
 

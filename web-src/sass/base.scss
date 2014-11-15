@@ -1,10 +1,13 @@
 $font-size          : 12px;
 $color              : #6C7A89;
 $background-color   : #2574A9;
-$font-family        : roboto;
+$font-family        : trebuc;
+$font-family-header : roboto;
+$light-border       : 1px solid #F0F0F0;
 
 @import "_items";
 @import "_all-contacts";
+@import "_sidebar";
 
 body {
   -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -20,7 +23,15 @@ body {
 
 @font-face{
     src:url('../font/trebuc.ttf');
-    font-family : roboto
+    font-family : trebuc;
+}
+
+@font-face{
+    src:url('../font/Roboto-Regular.ttf');
+    src:url('../font/Roboto-Medium.ttf');
+    src:url('../font/Roboto-Thin.ttf');
+    src:url('../font/Roboto-Light.ttf');
+    font-family : roboto;
 }
 
 *{
@@ -30,7 +41,6 @@ body {
 header {
 
   background-color : $background-color;
-  padding          : 0 2.5%;
   clear            : both;
   color            : white;
   display          : none;
@@ -39,28 +49,28 @@ header {
     height         : 100%;
     width          : 100%;
 
-    #logo {
-      width       : 15%;
-      display     : none;
-
-
-      img{
-        width : 100%;
-      }
-
+    #hamburger {
+      width        : 10%;
+        
+        img {
+            float  : left;     
+        }
+    }
+      
+    #back {
+        width      : 10%;
+        display    : none;
+        color      : white;
+        font-weight: bold;
     }
 
     #title {
-      width       : 85%;
+      width       : 90%;
       text-align  : left;
       font-size   : $font-size * 1.75;
       padding     : 0 5%;
-      font-family : roboto;
-    }
-
-    #settings{
-      width : 15%;
-
+      font-family : $font-family-header;
+      font-weight : bold;
     }
 
   }
@@ -87,4 +97,8 @@ header {
   opacity          : 0.5;
   z-index          : 100;
   display          : none;
+}
+
+.error {
+  color            : #F22613;   
 }

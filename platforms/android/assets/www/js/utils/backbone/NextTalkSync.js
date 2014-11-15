@@ -1,14 +1,12 @@
 define(['require' , 'backbone' ] , function(require , Backbone){
 
 
-    Backbone.sync = function(method , model , options){
+    Backbone.sync = function(model , options){
         if(!model.url)
           error();
 
         //var techoStorage = require('techoStorage');
-
-        techoStorage[model.url].call(null , options.success , options.error , [model.toJSON()]);
-
+        techoStorage[model.url].call(this , options.success , options.error , [model.toJSON()]);
     };
 
 

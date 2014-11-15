@@ -34,14 +34,29 @@ public class StoragePlugin extends CordovaPlugin {
 	private boolean addContact(JSONArray args,
 			final CallbackContext callbackContext) throws JSONException {
 
+
+		/*JSONObject dummy = null;
+			Log.d("pavan" , "we are here" );
+
+		try{
+			dummy = args.getJSONObject(0);
+			Log.d("again" , "wonder why :(" );
+                }catch(Exception e){
+			Log.d("JSON error" , e.getMessage() );
+							callbackContext.error("Please try Later : " + e.getMessage());
+return true;
+			//throw new JSONException("json error");
+                }*/
+
+
 		final JSONObject jsonContact = args.getJSONObject(0);
 
 		final Contact contact = new Contact();
 
-		contact.setContactID(jsonContact.getLong("id"));
-		contact.setFullName(jsonContact.getString("name"));
+		contact.setContactID(Long.parseLong(jsonContact.getString("id")));
+		contact.setFullName(jsonContact.getString("displayName"));
 		contact.setPhotoURL(jsonContact.getString("photo"));
-		contact.setPhoneNumber(jsonContact.getString("phoneNumber"));
+		contact.setPhoneNumber(jsonContact.getString("phoneNumbers"));
 
 		this.cordova.getThreadPool().execute(new Runnable() {
 

@@ -13,6 +13,11 @@ define(['jquery',
         initialize : function(model , option){
           this.render(option);
         },
+          
+        events : {
+            'click #add-contact' : 'save',
+            'click #cancel'      : 'hide'
+        },
 
         render : function(option){
 
@@ -24,7 +29,7 @@ define(['jquery',
           data.firstLetter = this.model.get('displayName').charAt(0).toUpperCase();
 
           var template = $(this.template(data));
-          this.$el.find('#preview').html(template);
+          this.$el.html(template);
 
           template = this.$el.find('#preview');
 
@@ -57,9 +62,50 @@ define(['jquery',
 
           };
 
-
+          //phonenumbers
+            
+          var phoneNumbers = self.$el.find('.phone-numbers');
+          phoneNumbers.css('max-height' , option.height * 4 + 'px');
+          
+          var phoneNumber = phoneNumbers.find('.phone-number');
+            
+          if(this.model.get('phoneNumbers').length === 1)
+              phoneNumber.addClass('add-border');
+            
+          phoneNumber.height(option.height);
+          phoneNumber.css('line-height' , option.height + 'px');
+        
+          $('.overlay').show();
+            
           this.$el.show();
         },
+          
+        navigate : function(){
+            var router = require('router');
+            router.navigate('user/' + this.model.get('id') , {trigger : true});
+        },
+        
+        save : function(){
+            var self = this;
+            self.model.save({
+                success : function(){
+                    console.log('save');
+                    self.navigate();
+                },
+                error : function(errorMessage){
+                    console.log('error');
+                    var html = "<div class='error'>" + errorMessage + "</div>";
+                    self.$el.find('.phone-numbers').html(html);
+                }
+            });
+        },
+          
+        hide : function(){
+            this.$el.hide();
+            $('.overlay').hide();
+        }
+          
+        
 
       });
 })

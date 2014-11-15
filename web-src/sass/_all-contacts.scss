@@ -8,7 +8,7 @@
     padding       : 2% 5%;
     font-size     : $font-size * 1.5;
     outline       : none;
-    font-family   : roboto;
+    font-family   : $font-family;
     color         : $color;
 
   }
@@ -16,6 +16,9 @@
 }
 
 .preview {
+  
+   $border-radius   : 10px;
+       
    display          : none;
    width            : 80%;
    top              : 10%;
@@ -26,7 +29,7 @@
    position         : absolute;
    background-color : white;
    margin           : auto;
-   border-radius    : 10px;
+   border-radius    : $border-radius;
 
   .img {
 
@@ -36,7 +39,7 @@
       img{
         position      : relative;
         display       : block;
-        border-radius : 10px;
+        border-radius : $border-radius;
         margin        : 0 auto;
       }
   }
@@ -65,30 +68,71 @@
     font-size         : $font-size * 1.5;
     font-family       : $font-family;
     padding           : 0 5%;
+    color             : #1E8BC3;
+    text-align        : center;
+  }
+    
+  .phone-numbers{
+      overflow        : auto;
+      overflow-x      : hidden;
+      
+      .phone-number{
+            font-size         : $font-size * 1.5;
+            font-family       : $font-family;
+            padding           : 0 5%;
+          
+            .type {
+                float         : left;
+                color         : #ccc;
+            }
+          
+            .number {
+                float         : right;
+            }
+      }
+      
+      .phone-number:nth-child(odd) {
+            background-color  : aliceblue;    
+      }
+      
+      .phone-number:nth-child(even) {
+            background-color  : white;
+      }
+      
+      .add-border {
+          border-top          : 1px solid #F0F0F0;
+          background-color    : white !important; 
+      }
   }
 
   .footer {
 
-      background-color       : #C5EFF7;
-      padding                : 2% 5%;
+      $footer-background-color   :#C5EFF7;
+      
+      background-color           : $footer-background-color;
+      padding                    : 2% 5%;
+      border                     : 1px solid $footer-background-color;
+      border-bottom-left-radius  : $border-radius;
+      border-bottom-right-radius : $border-radius;
 
       button {
-        height               : 100%;
-        border-radius        : 5px;
-        color                : white;
-        font-family          : $font-family;
-        font-size            : $font-size * 1.25;
+        height                : 100%;
+        border-radius         : $border-radius / 2;
+        color                 : white;
+        font-family           : $font-family;
+        font-size             : $font-size * 1.25;
+        outline               : none; 
       }
 
       #cancel {
-        background-color     : #EF4836;
-        border               : 1px solid #EF4836;
+        background-color      : #EF4836;
+        border                : 1px solid #EF4836;
       }
 
       #add-contact {
-        float                : right;
-        background-color     : #00B16A;
-        border               : 1px solid #00B16A;
+        float                 : right;
+        background-color      : #00B16A;
+        border                : 1px solid #00B16A;
       }
   }
 

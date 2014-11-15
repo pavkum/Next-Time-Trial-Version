@@ -1,19 +1,29 @@
 
-<div class="img">
-  <img  src="<%= photos[0].value %>" alt="<% displayName.charAt(0) %>" />
-</div>
+<div id="preview">
+    
+    <div class="img">
+      <img  src="<%= photos[0].value %>" alt="<% displayName.charAt(0) %>" />
+    </div>
 
-<div class="first-letter">
-  <div><%= firstLetter %></div>
-</div>
+    <div class="first-letter">
+      <div><%= firstLetter %></div>
+    </div>
 
-<div class="name">
-  <div><%= displayName %></div>
-</div>
+    <div class="name">
+      <div><%= displayName %></div>
+    </div>
 
-<div class="phone-numbers">
-  <div class="phone-number">
-    <div class="type"></div>
-    <div class="number"></div>
-  </div>
+    <div class="phone-numbers">
+        <%  _.each(phoneNumbers , function(phoneNumber){ %>
+            <div class="phone-number">
+               <div class="type"><%= phoneNumber.type %></%></div>
+               <div class="number"><%= phoneNumber.value %></div>
+            </div>      
+         <%  }); %>
+    </div>
+
+</div>
+<div class="footer">
+  <button id="cancel">Cancel</button>
+  <button id="add-contact">Add</button>
 </div>

@@ -34,8 +34,6 @@ define(['jquery' ,
         events : {
           'keyup input#contact' : 'getFilteredContacts' ,
           'click .contact'     : 'previewContact',
-          'click #addContact'  : 'addContact',
-          'click #cancel'      : 'cancelPreview'
         },
 
         getFilteredContacts : function(event){
@@ -56,17 +54,7 @@ define(['jquery' ,
         },
 
         previewContact : function(event){
-          this.$el.find('.overlay').show();
           new Preview({model : this.collection.get($(event.currentTarget).attr('id'))} , {height : this.height * 0.1});
-        },
-
-        addContact : function(event){
-
-        },
-
-        cancelPreview : function(event){
-          this.$el.find('.overlay').hide();
-          this.$el.find('.preview').hide();
         },
 
         remove : function(){
