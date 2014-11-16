@@ -1,5 +1,5 @@
 .add-icon {
-  position: relative;
+  position: fixed;
   z-index: 100;
   left: 75%;
   top: 80%;
@@ -17,7 +17,8 @@
   font-size: 18px;
   margin: 1% 0;
   border-collapse: collapse;
-  font-family: trebuc; }
+  font-family: trebuc;
+  overflow: hidden; }
   .items .item {
     width: 96%;
     border-bottom: 1px solid #F0F0F0;
@@ -153,7 +154,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 75%;
+  width: 0%;
   z-index: 101;
   height: 100%;
   background-color: #FAFAFA;
@@ -222,7 +223,9 @@ header {
       width: 10%;
       display: none;
       color: white;
-      font-weight: bold; }
+      font-weight: bold;
+      font-size: 24px;
+      text-align: right; }
     header table #title {
       width: 90%;
       text-align: left;
@@ -233,7 +236,8 @@ header {
 
 .workarea {
   display: none;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .clearfix {
   clear: both; }

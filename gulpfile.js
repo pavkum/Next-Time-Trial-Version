@@ -51,7 +51,7 @@ gulp.task('require' , function(){
 
 gulp.task('jquery' , function(){
 
-  return gulp.src('bower_components/jquery/dist/jquery.js')
+  return gulp.src(['bower_components/jquery/dist/jquery.js' , 'bower_components/jquery.event.move/js/*.js' , 'bower_components/jquery.event.swipe/js/*.js'] )
       .pipe(gulp.dest('www/js/lib'));
 
 });

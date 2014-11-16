@@ -16,9 +16,14 @@ define(['jquery' ,
         'fastclick' ,
         'router' ,
         'header/view',
-        'utils/backbone/NextTalkSync'] , function($ , Backbone , FastClick , router , header , Sync){
+        'utils/backbone/NextTalkSync',
+        'lib/jquery.event.move',
+        'lib/jquery.event.swipe'
+       ] , function($ , Backbone , FastClick , router , header , 
+                     Sync , move , swipe){
 
         // we are just calling sync so that it overrides backbones default sync
+       // just loading move and swipe
 
   //$(document).on('deviceready',function (){
 

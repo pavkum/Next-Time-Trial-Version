@@ -2,36 +2,63 @@ define(['jquery' ,
         'underscore' ,
         'backbone' ,
         'registered-contacts/model' ,
-        'text!../../templates/registered-contacts.html'], function($ , _ , Backbone , registeredContactModel , viewTemplate){
+        'registered-contacts/collection' ,
+        'registered-contacts/contacts/view',
+        'text!registered-contacts/templates/registered-contacts.html'], 
+       
+       function($ , _ , Backbone , registeredContactModel , RegisteredCollection , RegisteredContactView , viewTemplate){
 
-  return Backbone.View.extend({
+          return Backbone.View.extend({
 
-      el : '.workarea' ,
+              el : '.workarea' ,
 
-      template : _.template(viewTemplate),
+              template : _.template(viewTemplate),
 
-      events : {
-        'click .add-icon' : 'addContact'
-      },
+              events : {
+                'click .add-icon' : 'addContact'
+              },
 
-      initialize : function(){
+              initialize : function(){
 
-        this.render();
-      },
+                var self = this;
+                  
+                self.collection = new RegisteredCollection();
+                self.collection.fetch({
+                    success : function(){ self.contactFetchSuccess.apply(self , arguments) },
+                    error : function(){ self.contactFetchError.apply(self , arguments) }
+                });
 
-      render : function(){
-        this.$el.html(this.template());
+                self.render();
+              },
 
-        // set width and height of plus button
-        var size = 0.15 * this.$el.width();
-        this.$el.find('.add-icon').width(size).height(size).css('line-height' , size + 'px');
-      },
+              render : function(){
+                this.$el.html(this.template());
+                
+                this.height = this.$el.height();
 
-      addContact : function(){
-        var router = require('router');
-        router.navigate('get-all-contacts' , {trigger : true});
-      }
+                this.$el.find('.items').css('height' , this.height + 'px');
+                // set width and height of plus button
+                var size = 0.15 * this.$el.width();
+                this.$el.find('.add-icon').width(size).height(size).css('line-height' , size + 'px');
+              },
 
-  });
+              addContact : function(){
+                var router = require('router');
+                router.navigate('get-all-contacts' , {trigger : true});
+              },
+              
+              contactFetchSuccess : function(collection , response){
+                  
+                  this.$el.find('.contacts').empty();
+                  
+                  for(var i=0; i<collection.length; i++){
+                    new RegisteredContactView({model : collection.at(i)} , {height : this.height * 0.1});
+                  }
+              },
+              
+              contactFetchError : function(errorMessage){
+                  console.log(errorMessage);
+              }
 
+          });
 });

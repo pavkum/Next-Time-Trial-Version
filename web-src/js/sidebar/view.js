@@ -12,12 +12,22 @@ define([
         template : _.template(sidebarTemplate),
         
         events : {
-            
+            'swipeleft .sidebar' : 'hide'
         },
         
         initialize : function(){
             this.setElement('.sidebar');
             this.render();
+            
+            var self = this;
+            
+            $('.sidebar').on('swipeleft' , function(){
+                self.hide();
+            });
+            
+            $('.overlay-sidebar').on('swipeleft' , function(){
+                self.hide();
+            });
         },
         
         render : function(){
@@ -36,9 +46,22 @@ define([
             this.$el.find('.footer').height(elementHeight);
             this.$el.find('.footer').css('line-height' , elementHeight + 'px');
             
-            this.$el.show();
+            this.$el.show().animate({width:'75%'} , 200 );
             
             return this;
+        },
+        
+        hide : function(){
+            $('.overlay-sidebar').hide();
+            this.$el.animate({width:'0%'} , 200 );
+            //this.$el.find('div').hide();
+            this.$el.css('box-shadow' , '');
+            
+            var self = this;
+            
+            setTimeout(function(){
+                self.$el.hide();
+            },201);
         }
         
     });

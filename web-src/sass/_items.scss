@@ -1,5 +1,5 @@
 .add-icon {
-    position        : relative;
+    position        : fixed;
     z-index         : 100;
     left            : 75%;
     top             : 80%;
@@ -20,6 +20,7 @@
         margin            : 1% 0;
         border-collapse   : collapse;
         font-family       : $font-family; 
+        overflow          : hidden; 
 
     .item {
         width             : 96%;

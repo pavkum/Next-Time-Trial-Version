@@ -36,7 +36,7 @@ define([
         hamburger : function(){
             this.sidebar = new Sidebar();
             
-            this.toggleButton();
+            //this.toggleButton();
         },
         
         toggleButton : function(){

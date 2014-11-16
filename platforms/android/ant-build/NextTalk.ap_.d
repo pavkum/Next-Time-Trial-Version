@@ -119,6 +119,8 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/lib/underscore.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/lib/fastclick.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/lib/text.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/lib/jquery.event.swipe.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/lib/jquery.event.move.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/add-contacts/view.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/add-contacts/collections.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/add-contacts/model.js \
@@ -132,6 +134,13 @@
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/utils/user/icon.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/view.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/model.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/collection.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/templates \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/contacts \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/templates/registered-contacts.html \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/contacts/view.js \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/contacts/templates \
+/home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/registered-contacts/contacts/templates/registered-contact.html \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/sidebar/view.js \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/sidebar/templates \
 /home/pavan/android_project/NextTime-Trial/platforms/android/assets/www/js/sidebar/templates/sidebar.html \
