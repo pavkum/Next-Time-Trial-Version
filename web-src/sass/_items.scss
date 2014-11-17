@@ -2,7 +2,7 @@
     position        : fixed;
     z-index         : 100;
     left            : 75%;
-    top             : 80%;
+    top             : 85%;
     background-color: $background-color;
     color           : white;
     border-radius   : 100%;
@@ -15,12 +15,12 @@
 .items {
 
         width             : 100%;
-        padding           : 2% 0%;
+        /*padding           : 2% 0%;*/
         font-size         : $font-size * 1.5;
-        margin            : 1% 0;
+        /*margin            : 1% 0;*/
         border-collapse   : collapse;
         font-family       : $font-family; 
-        overflow          : hidden; 
+        overflow          : auto; 
 
     .item {
         width             : 96%;

@@ -29,6 +29,7 @@ define(['jquery' ,
             this.height = this.$el.height();
 
             this.$el.find('#contact').height(this.height * 0.1);
+            this.$el.find('.contacts').height(this.height - this.$el.find('.input').outerHeight());
         },
 
         events : {

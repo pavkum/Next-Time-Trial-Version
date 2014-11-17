@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 100;
   left: 75%;
-  top: 80%;
+  top: 85%;
   background-color: #2574A9;
   color: white;
   border-radius: 100%;
@@ -13,12 +13,12 @@
 
 .items {
   width: 100%;
-  padding: 2% 0%;
+  /*padding           : 2% 0%;*/
   font-size: 18px;
-  margin: 1% 0;
+  /*margin            : 1% 0;*/
   border-collapse: collapse;
   font-family: trebuc;
-  overflow: hidden; }
+  overflow: auto; }
   .items .item {
     width: 96%;
     border-bottom: 1px solid #F0F0F0;
